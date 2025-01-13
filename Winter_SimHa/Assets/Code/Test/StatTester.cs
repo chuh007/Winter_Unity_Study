@@ -1,0 +1,26 @@
+using Code.Core.StatSystem;
+using Code.Entities;
+using UnityEngine;
+
+namespace Code.Test
+{
+    public class StatTester : MonoBehaviour
+    {
+        [SerializeField] private EntityStat statCompo;
+
+        [SerializeField] private StatSO targetStat;
+        [SerializeField] private float modifyValue;
+
+        [ContextMenu("Test Execute")]
+        private void TestExecute()
+        {
+            statCompo.GetStat(targetStat).AddModifier(this, modifyValue);
+        }
+        [ContextMenu("Test Roolback")]
+        private void TestRoolback()
+        {
+            statCompo.GetStat(targetStat).RemoveModifier(this);
+        }
+    }
+}
+
