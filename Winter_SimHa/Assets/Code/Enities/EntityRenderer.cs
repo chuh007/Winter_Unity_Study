@@ -5,7 +5,7 @@ namespace Code.Entities
 {
     public class EntityRenderer : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private float facingRight = 1f;
+        [field: SerializeField] public float FacingDirection { get; private set; } = 1f;
         [SerializeField] private AnimParamSO yVelocityParam;
 
         private Entity _entity;
@@ -32,14 +32,14 @@ namespace Code.Entities
 
         public void Flip()
         {
-            facingRight *= -1;
+            FacingDirection *= -1;
             _entity.transform.Rotate(0, 180f, 0);
         }
 
         public void FlipController(float xVelocity)
         {
             float xMove = Mathf.Approximately(xVelocity, 0) ? 0 : Mathf.Sign(xVelocity);
-            if (Mathf.Abs(xMove + facingRight) < 0.5f)
+            if (Mathf.Abs(xMove + FacingDirection) < 0.5f)
                 Flip();
         }
 

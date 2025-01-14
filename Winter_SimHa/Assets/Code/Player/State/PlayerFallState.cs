@@ -15,6 +15,7 @@ namespace Code.Players.States
             base.Update();
             if (_mover.IsGroundDetected())
             {
+                _player.ResetJumpCount();
                 _player.ChangeState("IDLE");
             }
         }

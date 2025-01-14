@@ -9,6 +9,8 @@ namespace Code.Players
     {
         public event Action OnJumpKeyPressed;
         public event Action OnAttackKeyPressed;
+        public event Action OnDashKeyPressed;
+        public event Action OnSlideKeyPressed;
 
         public Vector2 InputDirection { get; private set; }
 
@@ -43,6 +45,18 @@ namespace Code.Players
         {
             if(context.performed)
                 OnJumpKeyPressed?.Invoke();
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnDashKeyPressed?.Invoke();
+        }
+
+        public void OnSlide(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnSlideKeyPressed?.Invoke();
         }
     }
 }

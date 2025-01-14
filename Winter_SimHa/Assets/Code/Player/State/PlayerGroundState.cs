@@ -20,13 +20,14 @@ namespace Code.Players.States
         public override void Enter()
         {
             base.Enter();
-            _player.PlayerInput.OnJumpKeyPressed += HandleHumpKeyPress;
+            _player.PlayerInput.OnJumpKeyPressed += HandleJumpKeyPress;
+            _player.PlayerInput.OnAttackKeyPressed += HandleAttackKeyPress;
         }
 
         public override void Update()
         {
             base.Update();
-            if(_mover.IsGroundDetected() == false)
+            if(_mover.IsGroundDetected() == false && _mover.CanManualMove)
             {
                 _player.ChangeState("FALL");
             }
@@ -34,11 +35,19 @@ namespace Code.Players.States
 
         public override void Exit()
         {
-            _player.PlayerInput.OnJumpKeyPressed -= HandleHumpKeyPress;
+            _player.PlayerInput.OnJumpKeyPressed -= HandleJumpKeyPress;
+            _player.PlayerInput.OnAttackKeyPressed -= HandleAttackKeyPress;
             base.Exit();
         }
 
-        private void HandleHumpKeyPress()
+
+        protected virtual void HandleAttackKeyPress()
+        {
+            if (_mover.IsGroundDetected())
+                _player.ChangeState("ATTACK");
+        }
+
+        private void HandleJumpKeyPress()
         {
             if(_mover.IsGroundDetected())
                 _player.ChangeState("JUMP");

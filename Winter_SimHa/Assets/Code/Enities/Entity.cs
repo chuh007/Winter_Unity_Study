@@ -27,7 +27,7 @@ namespace Code.Entities
             _components.Values.ToList().ForEach(compo => compo.Initialize(this));
         }
 
-        private void AfterInitialize()
+        protected virtual void AfterInitialize()
         {
             _components.Values.OfType<IAfterInit>().ToList().ForEach(compo => compo.AfterInit());
         }

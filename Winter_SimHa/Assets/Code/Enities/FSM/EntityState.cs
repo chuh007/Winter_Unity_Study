@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Entities.FSM
 {
-    public class EntityState
+    public abstract class EntityState
     {
         protected Entity _entity;
 
@@ -16,19 +16,20 @@ namespace Code.Entities.FSM
         {
             _entity = entity;
             _animParam = animParam;
-            _renderer = _entity.GetCompo<EntityRenderer>();
+            _renderer = _entity.GetCompo<EntityRenderer>(true);
         }
 
         public virtual void Enter()
         {
             _renderer.SetParam(_animParam, true);
             _isTriggerCall = false;
-;        }
+        }
 
         public virtual void Update()
         {
 
         }
+
         public virtual void Exit()
         {
             _renderer.SetParam(_animParam, false);
@@ -37,4 +38,3 @@ namespace Code.Entities.FSM
         public virtual void AnimationEndTrigger() => _isTriggerCall = true;
     }
 }
-

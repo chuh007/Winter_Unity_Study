@@ -14,6 +14,8 @@ namespace Code.Players.States
         public override void Enter()
         {
             base.Enter();
+            _player.DecreaseJumpCount();
+            _mover.StopImmediately(true);
             _mover.Jump();
             _mover.OnMove.AddListener(HandleVelocityChange);
         }
