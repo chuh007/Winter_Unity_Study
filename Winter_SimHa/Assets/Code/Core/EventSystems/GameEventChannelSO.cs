@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Code.Core.EventSystems
 {
-    public abstract class GameEvent { }
+    public abstract class GameEvent
+    { }
 
-    [CreateAssetMenu(fileName = "GameEventChannelSO", menuName = "SO/Event/Channel")]
+    [CreateAssetMenu(fileName = "EventChannel", menuName = "SO/Event/Channel", order = 0)]
     public class GameEventChannelSO : ScriptableObject
     {
         private Dictionary<Type, Action<GameEvent>> _events = new Dictionary<Type, Action<GameEvent>>();
@@ -25,6 +26,7 @@ namespace Code.Core.EventSystems
             else
                 _events[evtType] = castHandler;
         }
+
         public void RemoveListener<T>(Action<T> handler) where T : GameEvent
         {
             Type evtType = typeof(T);
@@ -38,15 +40,15 @@ namespace Code.Core.EventSystems
                     else
                         _events[evtType] = internalHandler;
                 }
-                _lookUpTable.Remove(handler);
+                _lookUpTable.Remove(castHandler);
             }
         }
 
-        public void RasiseEvent(GameEvent evt)
+        public void RaiseEvent(GameEvent evt)
         {
-            if (_events.TryGetValue(evt.GetType(), out Action<GameEvent> casthandler))
+            if (_events.TryGetValue(evt.GetType(), out Action<GameEvent> castHandler))
             {
-                casthandler?.Invoke(evt);
+                castHandler?.Invoke(evt);
             }
         }
 
@@ -55,5 +57,6 @@ namespace Code.Core.EventSystems
             _events.Clear();
             _lookUpTable.Clear();
         }
+
     }
 }
