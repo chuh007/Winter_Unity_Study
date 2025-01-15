@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Code.Core.EventSystems;
 using UnityEngine;
 
@@ -29,7 +29,7 @@ namespace Code.Environments
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if(other.CompareTag("Player"))
                 SendPanEvent(true);
         }
 
@@ -38,8 +38,9 @@ namespace Code.Environments
             PanEvent evt = CameraEvents.PanEvent;
             evt.panTime = panTime;
             evt.distance = panDistance;
+            evt.direction = panDirection;
             evt.isRewindToStart = isRewind;
-
+            
             cameraChannel.RaiseEvent(evt);
         }
     }

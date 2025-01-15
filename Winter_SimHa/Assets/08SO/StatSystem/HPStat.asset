@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2db44ee3398ea14b8758de809ab9c03, type: 3}
+  m_Script: {fileID: 11500000, guid: 217ffdeb23c0453b834e722c27ce7980, type: 3}
   m_Name: HPStat
   m_EditorClassIdentifier: 
-  statName: MoveSpeed
-  description: "\uCE90\uB9AD\uD130\uC758 \uC774\uB3D9 \uC18D\uB3C4\uB97C \uB9D0\uD55C\uB2E4."
+  statName: HP
+  description: "\uCE90\uB9AD\uD130\uC758 \uCCB4\uB825"
   icon: {fileID: -92679457, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
   displayName: HP
   baseValue: 50

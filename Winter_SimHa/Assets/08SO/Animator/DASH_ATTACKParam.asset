@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f879c84741dec46a8bf3b45b49f92d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
   m_Name: DASH_ATTACKParam
   m_EditorClassIdentifier: 
   parameterName: DASH_ATTACK
   hashValue: 514769332
-  description: 
+  description: "\uB300\uC2DC\uC911 \uACF5\uACA9\uBC84\uD2BC \uB20C\uB800\uC744 \uB54C
+    \uC7AC\uC0DD\uD558\uB294 \uAC83"

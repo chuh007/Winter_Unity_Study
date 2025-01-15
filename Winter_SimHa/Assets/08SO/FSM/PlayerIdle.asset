@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd167dce985e2149892e8a48aaadab6, type: 3}
+  m_Script: {fileID: 11500000, guid: 27676dc86f844fbf98837610b9aaf75f, type: 3}
   m_Name: PlayerIdle
   m_EditorClassIdentifier: 
   stateName: IDLE
   className: Code.Players.States.PlayerIdleState
-  animParam: {fileID: 11400000, guid: 6b068ad23fd78124fab1cd7809c43e14, type: 2}
+  animParam: {fileID: 11400000, guid: 2a5c4933aa812784c956f18e854d4af1, type: 2}

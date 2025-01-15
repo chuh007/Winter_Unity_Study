@@ -1,0 +1,36 @@
+﻿using Code.Entities;
+using Unity.Behavior;
+using UnityEngine;
+
+namespace Code.Enemies
+{
+    public abstract class BTEnemy : Entity
+    {
+        [field: SerializeField] public EntityFinderSO PlayerFinder {  get; protected set; }
+        public LayerMask whatIsPlayer;
+        public float FacingDirection => _renderer.FacingDirection;
+
+        protected BehaviorGraphAgent _btAgent;
+        protected EntityRenderer _renderer;
+
+        protected override void AddComponentToDictionary()
+        {
+            base.AddComponentToDictionary();
+            _btAgent = GetComponent<BehaviorGraphAgent>();
+            Debug.Assert(_btAgent != null, $"{gameObject.name} does not have an BehaviorGraphAgent");
+
+            _renderer = GetCompo<EntityRenderer>();
+            Debug.Assert(_btAgent != null, $"{gameObject.name} does not have an EntityRenderer");
+        }
+
+        public BlackboardVariable<T> GetBlackboardVariable<T>(string key)
+        {
+            if(_btAgent.GetVariable(key,out BlackboardVariable<T> result))
+            {
+                return result;
+            }
+            return default;
+        }
+
+    }
+}

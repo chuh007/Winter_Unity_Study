@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4efe4d0b1d49849abff9cd3955066f, type: 3}
+  m_Script: {fileID: 11500000, guid: 752be46032be4ad3b3ee4a6bee5c1dc0, type: 3}
   m_Name: PlayerFSM
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: ba8edf2000d689947bfa8133851f5bf3, type: 2}
-  - {fileID: 11400000, guid: e33c94ef2de9fa948891a12a97f5c475, type: 2}
-  - {fileID: 11400000, guid: afd6615aa9d581c4299518920e62fbaa, type: 2}
-  - {fileID: 11400000, guid: 1de02d6eeacb6bb4688b082d74536757, type: 2}
-  - {fileID: 11400000, guid: 564876a676ee9ae4b9682eafbd2196c2, type: 2}
-  - {fileID: 11400000, guid: f0dcea856e007174aa451512824ccb69, type: 2}
-  - {fileID: 11400000, guid: 2ea976f50382cce47b6eb386163e92fc, type: 2}
-  - {fileID: 11400000, guid: a5fbf7e6c30bdf242a43c46283d81d3a, type: 2}
-  - {fileID: 11400000, guid: fc6066ea1b8432545a5ffabe5d3c17de, type: 2}
-  - {fileID: 11400000, guid: 83e15bdd55afad942ac42bf9243b4f39, type: 2}
+  - {fileID: 11400000, guid: 91486c01a1ca0644c83e7860479f653c, type: 2}
+  - {fileID: 11400000, guid: 0c0375667a29fb340bf293cdaca95d40, type: 2}
+  - {fileID: 11400000, guid: 5a78417a18b88254294772a3cd8d286b, type: 2}
+  - {fileID: 11400000, guid: 24190c47d17191d4b85c12db0d08cd89, type: 2}
+  - {fileID: 11400000, guid: 01b430edc42373840bb36488b13731ec, type: 2}
+  - {fileID: 11400000, guid: d93703ae546004c49b96d614c66d41fd, type: 2}
+  - {fileID: 11400000, guid: 791f6fe9c2530ad43af8a1e592d686f9, type: 2}
+  - {fileID: 11400000, guid: 26e38788643f744468544e04fe28b702, type: 2}
+  - {fileID: 11400000, guid: 1c9e7700faf4d1644b3a73eb728d59b4, type: 2}
+  - {fileID: 11400000, guid: 6b0712ada1049874bbb8bbd5eec0fe12, type: 2}

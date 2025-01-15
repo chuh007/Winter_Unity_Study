@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd167dce985e2149892e8a48aaadab6, type: 3}
+  m_Script: {fileID: 11500000, guid: 27676dc86f844fbf98837610b9aaf75f, type: 3}
   m_Name: PlayerWallSlide
   m_EditorClassIdentifier: 
   stateName: WALL_SLIDE
   className: Code.Players.States.PlayerWallSlideState
-  animParam: {fileID: 11400000, guid: a237100fa1cff0d4fa1d1a3e38f04ab3, type: 2}
+  animParam: {fileID: 11400000, guid: bbb4721d06dec31458ed683f373f0b2f, type: 2}

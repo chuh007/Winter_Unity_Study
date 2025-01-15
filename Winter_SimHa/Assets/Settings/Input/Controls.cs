@@ -57,7 +57,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
-                    ""id"": ""f01040f6-1ccf-4f6a-862d-67328762937a"",
+                    ""id"": ""53c09148-9889-4955-b556-8761ec567327"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -66,7 +66,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Slide"",
                     ""type"": ""Button"",
-                    ""id"": ""733f0cc4-8344-4d1c-b967-3a25289d937b"",
+                    ""id"": ""ae2d1b36-1984-481f-b8f5-244b11f13a15"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -263,7 +263,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d03a14ee-b000-4b10-8469-4532a6ee9ac2"",
+                    ""id"": ""c3411418-a092-46c4-b3d5-f4965c646f33"",
                     ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -274,7 +274,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6ce80092-d476-46bb-ba4b-a92ba0e2aac2"",
+                    ""id"": ""44c63c62-2c12-4679-ac20-43e014c9d853"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",

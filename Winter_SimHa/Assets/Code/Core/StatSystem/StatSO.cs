@@ -1,5 +1,6 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code.Core.StatSystem
@@ -17,15 +18,15 @@ namespace Code.Core.StatSystem
         [SerializeField] private Sprite icon;
         [SerializeField] private string displayName;
         [SerializeField] private float baseValue, minValue, maxValue;
-
+        
         private Dictionary<object, float> _modifyDictionary = new Dictionary<object, float>();
-
+        
         [field: SerializeField] public bool IsPercent { get; private set; }
-
+        
         private float _modifiedValue = 0;
 
         #region Property section
-
+        
         public Sprite Icon => icon;
         public float MaxValue
         {
@@ -38,8 +39,8 @@ namespace Code.Core.StatSystem
             get => minValue;
             set => minValue = value;
         }
-
-        public float Value => Mathf.Clamp(baseValue + _modifiedValue, MinValue, MaxValue);
+        
+        public float Value => Mathf.Clamp(baseValue  + _modifiedValue, MinValue, MaxValue);
         public bool IsMax => Mathf.Approximately(Value, MaxValue);
         public bool IsMin => Mathf.Approximately(Value, MinValue);
 
@@ -49,21 +50,21 @@ namespace Code.Core.StatSystem
             set
             {
                 float prevValue = Value;
-                baseValue = Mathf.Clamp(value, MinValue, MaxValue); //µé¾î¿Â °ªÀ» clamp
+                baseValue = Mathf.Clamp(value, MinValue, MaxValue); //ë“¤ì–´ì˜¨ ê°’ì„ clamp
                 TryInvokeValueChangedEvent(Value, prevValue);
             }
         }
-
+        
         #endregion
 
         public void AddModifier(object key, float value)
         {
             if (_modifyDictionary.ContainsKey(key)) return;
-            float prevValue = Value; //ÀÌÀü °ªÀ» ²À ±â¾ïÇØ³ù´Ù°¡
-
+            float prevValue = Value; //ì´ì „ ê°’ì„ ê¼­ ê¸°ì–µí•´ë†¨ë‹¤ê°€
+            
             _modifiedValue += value;
             _modifyDictionary.Add(key, value);
-
+            
             TryInvokeValueChangedEvent(Value, prevValue);
         }
 
@@ -74,7 +75,7 @@ namespace Code.Core.StatSystem
                 float prevValue = Value;
                 _modifiedValue -= value;
                 _modifyDictionary.Remove(key);
-
+                
                 TryInvokeValueChangedEvent(Value, prevValue);
             }
         }
@@ -86,14 +87,14 @@ namespace Code.Core.StatSystem
             _modifiedValue = 0;
             TryInvokeValueChangedEvent(Value, prevValue);
         }
-
+        
         private void TryInvokeValueChangedEvent(float current, float prevValue)
         {
-            //ÀÌÁø°ª°ú ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é ÀÌº¥Æ® ÀÎº¸Å©
-            if (Mathf.Approximately(current, prevValue) == false)
+            //ì´ì§„ê°’ê³¼ ì¼ì¹˜í•˜ì§€ ì•Šìœ¼ë©´ ì´ë²¤íŠ¸ ì¸ë³´í¬
+            if(Mathf.Approximately(current, prevValue) == false)
                 OnValueChange?.Invoke(this, current, prevValue);
         }
-
+        
         public object Clone() => Instantiate(this);
     }
 }

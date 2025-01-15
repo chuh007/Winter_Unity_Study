@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Animators
 {
-    [CreateAssetMenu(fileName = "AnimParamSO", menuName = "SO/Animator/Param", order = 0)]
+    [CreateAssetMenu(fileName = "ParamSO", menuName = "SO/Animator/Param", order = 0)]
     public class AnimParamSO : ScriptableObject
     {
         public string parameterName;
@@ -16,4 +16,3 @@ namespace Code.Animators
         }
     }
 }
-

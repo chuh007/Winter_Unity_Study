@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f879c84741dec46a8bf3b45b49f92d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
   m_Name: COMBO_COUNTERParam
   m_EditorClassIdentifier: 
   parameterName: COMBO_COUNTER
   hashValue: 611420339
-  description: 
+  description: "\uCE90\uB9AD\uD130\uC758 \uD604\uC7AC \uCF64\uBCF4 \uCE74\uC6B4\uD2B8\uB97C
+    \uC54C\uB824\uC8FC\uB294 \uAC83"

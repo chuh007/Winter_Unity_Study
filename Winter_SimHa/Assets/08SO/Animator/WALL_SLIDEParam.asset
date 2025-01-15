@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f879c84741dec46a8bf3b45b49f92d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
   m_Name: WALL_SLIDEParam
   m_EditorClassIdentifier: 
   parameterName: WALL_SLIDE
   hashValue: 846416705
-  description: "\uCE90\uB9AD\uD130\uAC00 \uBCBD\uC5D0 \uB2FF\uC558\uC744\uB54C \uBAA8\uC158"
+  description: "\uCE90\uB9AD\uD130\uAC00 \uBCBD\uC5D0 \uB2FF\uC558\uC744 \uB54C \uC2AC\uB77C\uC774\uB4DC
+    \uB418\uB294 \uC560\uB2C8\uBA54\uC774\uC158"

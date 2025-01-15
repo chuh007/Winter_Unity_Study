@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f879c84741dec46a8bf3b45b49f92d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
   m_Name: FALLParam
   m_EditorClassIdentifier: 
   parameterName: FALL
   hashValue: -842714440
-  description: 
+  description: "\uCE90\uB9AD\uD130\uC758 Fall \uC560\uB2C8\uBA54\uC774\uC158 \uC9C0\uC815\uD558\uB294
+    bool\uBCC0\uC218"

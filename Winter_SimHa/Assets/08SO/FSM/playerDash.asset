@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd167dce985e2149892e8a48aaadab6, type: 3}
-  m_Name: playerDash
+  m_Script: {fileID: 11500000, guid: 27676dc86f844fbf98837610b9aaf75f, type: 3}
+  m_Name: PlayerDash
   m_EditorClassIdentifier: 
   stateName: DASH
   className: Code.Players.States.PlayerDashState
-  animParam: {fileID: 11400000, guid: 256c68862b50b8a4a8e760aac5702e77, type: 2}
+  animParam: {fileID: 11400000, guid: fd118fe35b65a9b4a822b8aac41adfef, type: 2}

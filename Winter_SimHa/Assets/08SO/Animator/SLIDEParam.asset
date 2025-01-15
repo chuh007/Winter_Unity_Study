@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f879c84741dec46a8bf3b45b49f92d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
   m_Name: SLIDEParam
   m_EditorClassIdentifier: 
   parameterName: SLIDE
   hashValue: -2051330862
-  description: 
+  description: "\uCE90\uB9AD\uD130 \uC2AC\uB77C\uC774\uB4DC \uC0C1\uD0DC\uB85C \uC804\uD658\uD558\uB294
+    \uD30C\uB77C\uBA54\uD130"

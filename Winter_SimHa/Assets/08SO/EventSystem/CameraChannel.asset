@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0d17fac1e46184988cef66d9138520, type: 3}
+  m_Script: {fileID: 11500000, guid: d52e3eb5f19048d09c399cc00f092fe9, type: 3}
   m_Name: CameraChannel
   m_EditorClassIdentifier: 

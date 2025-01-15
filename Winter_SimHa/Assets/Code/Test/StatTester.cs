@@ -1,4 +1,4 @@
-using Code.Core.StatSystem;
+﻿using Code.Core.StatSystem;
 using Code.Entities;
 using UnityEngine;
 
@@ -16,11 +16,11 @@ namespace Code.Test
         {
             statCompo.GetStat(targetStat).AddModifier(this, modifyValue);
         }
-        [ContextMenu("Test Roolback")]
-        private void TestRoolback()
+
+        [ContextMenu("Test Rollback")]
+        private void TestRollback()
         {
             statCompo.GetStat(targetStat).RemoveModifier(this);
         }
     }
 }
-

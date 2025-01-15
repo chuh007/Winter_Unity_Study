@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Code.Core.StatSystem
@@ -9,19 +9,18 @@ namespace Code.Core.StatSystem
         [SerializeField] private StatSO stat;
         [SerializeField] private bool isUseOverride;
         [SerializeField] private float overrideValue;
-
+        
         public StatOverride(StatSO stat) => this.stat = stat;
 
-        public StatSO CreatStat()
+        public StatSO CreateStat()
         {
             StatSO newStat = stat.Clone() as StatSO;
-            Debug.Assert(newStat != null, $"{stat.statName} clone faild");
-
-            if(isUseOverride)
+            Debug.Assert(newStat != null, $"{stat.statName} clone failed");
+            
+            if (isUseOverride)
                 newStat.BaseValue = overrideValue;
-
+            
             return newStat;
         }
     }
 }
-

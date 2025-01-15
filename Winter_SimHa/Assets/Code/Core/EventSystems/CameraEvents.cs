@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Code.Core.EventSystems
@@ -7,7 +7,7 @@ namespace Code.Core.EventSystems
     {
         Up, Down, Left, Right
     }
-
+    
     public static class CameraEvents
     {
         public static PanEvent PanEvent = new PanEvent();
@@ -18,7 +18,7 @@ namespace Code.Core.EventSystems
     {
         public float distance;
         public float panTime;
-        public PanDirection direction;
+        public PanDirection direction; 
         public bool isRewindToStart;
     }
 

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd167dce985e2149892e8a48aaadab6, type: 3}
+  m_Script: {fileID: 11500000, guid: 27676dc86f844fbf98837610b9aaf75f, type: 3}
   m_Name: PlayerJumpAttack
   m_EditorClassIdentifier: 
   stateName: JUMP_ATTACK
   className: Code.Players.States.PlayerJumpAttackState
-  animParam: {fileID: 11400000, guid: a064ea0a0449e324da05c08a6790f913, type: 2}
+  animParam: {fileID: 11400000, guid: 3c006c8b67a98094dbfc3066051ad437, type: 2}

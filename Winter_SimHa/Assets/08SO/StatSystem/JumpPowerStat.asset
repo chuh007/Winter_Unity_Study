@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2db44ee3398ea14b8758de809ab9c03, type: 3}
+  m_Script: {fileID: 11500000, guid: 217ffdeb23c0453b834e722c27ce7980, type: 3}
   m_Name: JumpPowerStat
   m_EditorClassIdentifier: 
   statName: JumpPower
-  description: "\uCE90\uB9AD\uD130\uC758 \uC810\uD504\uB825. 10\uC774 \uD3C9\uADE0\uAC12"
-  icon: {fileID: 1864297879, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
-  displayName: JWP
+  description: "\uCE90\uB9AD\uD130\uC758 \uC810\uD504\uB825\uC744 \uB098\uD0C0\uB0B8\uB2E4.
+    10\uC774 \uD3C9\uADE0\uAC12"
+  icon: {fileID: 239226756, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  displayName: JMP
   baseValue: 10
   minValue: 1
   maxValue: 30
