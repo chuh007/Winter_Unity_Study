@@ -1,26 +1,25 @@
-using Code.Combats;
+ï»¿using Code.Combats;
 using Code.Enemies.BTCommons;
 using Code.Entities;
-using System;
 using Unity.Behavior;
 using UnityEngine;
 
-namespace Code.Enemies
+namespace Code.Enemies.Skeleton
 {
     public class EnemySkeleton : BTEnemy, ICounterable
     {
         private StateChangeEvent _stateChannel;
         private BlackboardVariable<BTEnemyState> _state;
-        private BlackboardVariable<float> _stunTume;
+        private BlackboardVariable<float> _stunTime;
 
         private EntityMover _mover;
         private EntityFeedbackData _feedbackData;
         private EntityAnimationTrigger _animationTrigger;
         private EnemyAttackCompo _attackCompo;
         private EntityHealth _healthCompo;
-
+        
         #region Initialize section
-
+        
         protected override void AfterInitialize()
         {
             base.AfterInitialize();
@@ -28,12 +27,12 @@ namespace Code.Enemies
             _feedbackData = GetCompo<EntityFeedbackData>();
             GetCompo<EntityHealth>().OnKnockback += HandleKnockBack;
             _animationTrigger = GetCompo<EntityAnimationTrigger>();
-            _animationTrigger.OnCounterStatuschange += SetCounterStatus;
+            _animationTrigger.OnCounterStatusChange += SetCounterStatus;
             _attackCompo = GetCompo<EnemyAttackCompo>();
             _healthCompo = GetCompo<EntityHealth>();
         }
 
-        // BTÀÇ ÀÎ½ºÅÏ½º »ı¼ºÀº Awake¿¡¼­ ÀÌ·ç¾îÁö±â ¶§¹®¿¡ ¹İµå½Ã Start¿¡¼­ °¡Á®¿À´Â ÀÛ¾÷À» ÇØ¾ßÇÑ´Ù.
+        //BTì˜ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±ì€ Awakeì—ì„œ ì´ë£¨ì–´ì§€ê¸° ë•Œë¬¸ì— ë°˜ë“œì‹œ Startì—ì„œ ê°€ì ¸ì˜¤ëŠ” ì‘ì—…ì„ í•´ì•¼í•œë‹¤.
         protected override void Start()
         {
             BlackboardVariable<StateChangeEvent> stateChannelVariable =
@@ -42,15 +41,14 @@ namespace Code.Enemies
             Debug.Assert(_stateChannel != null, $"StateChannel variable is null {gameObject.name}");
 
             _state = GetBlackboardVariable<BTEnemyState>("EnemyState");
-            _stunTume = GetBlackboardVariable<float>("StunTime");
+            _stunTime = GetBlackboardVariable<float>("StunTime");
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             GetCompo<EntityHealth>().OnKnockback -= HandleKnockBack;
-            _animationTrigger.OnCounterStatuschange -= SetCounterStatus;
-
+            _animationTrigger.OnCounterStatusChange -= SetCounterStatus;
         }
 
         #endregion
@@ -60,11 +58,12 @@ namespace Code.Enemies
             float knockBackTime = 0.5f;
             _mover.KnockBack(knockBackForce, knockBackTime);
         }
+
         protected override void HandleHit()
         {
             if (IsDead) return;
 
-            // ½ºÅÏ»óÅÂ¿¡¼­´Â ¹«½Ã
+            //ìŠ¤í„´ìƒíƒœì—ì„œëŠ” ë¬´ì‹œ.
             if (_state.Value == BTEnemyState.STUN || _state.Value == BTEnemyState.HIT) return;
 
             if (_feedbackData.IsLastHitPowerAttack)
@@ -85,24 +84,26 @@ namespace Code.Enemies
             _stateChannel.SendEventMessage(BTEnemyState.DEATH);
         }
 
-        #region
+        #region Counter section
 
         public bool CanCounter { get; private set; }
-        public Transform TargetTrm { get; }
+        public Transform TargetTrm => transform;
         public void ApplyCounter(float damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack, Entity dealer)
         {
+            //damageì— ìŠ¤í„´ì‹œê°„, í¬ë¦¬í‹°ì»¬ ë“±ë“±ì˜ ì •ë³´ê°ì²´ ë„˜ì–´ì™€ì•¼ í•˜ëŠ”ë° ì§€ê¸ˆì€ damageë§Œ ì£¼ë‹ˆê¹Œ í•˜ë“œì½”ë”©
             float stunTime = 2f;
 
             CanCounter = false;
-            _stunTume.Value = stunTime;
+            _stunTime.Value = stunTime;
             _stateChannel.SendEventMessage(BTEnemyState.STUN);
+            
             _healthCompo.ApplyDamage(damage, direction, knockBackForce, isPowerAttack, dealer);
+            Debug.Log("<color=green>Counter success</color>");
         }
-
-        private void SetCounterStatus(bool canCounter)
-            =>CanCounter = canCounter;
-
+        
+        private void SetCounterStatus(bool canCounter) 
+            => CanCounter = canCounter;
+        
         #endregion
     }
-
 }

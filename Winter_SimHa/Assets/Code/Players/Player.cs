@@ -21,17 +21,13 @@ namespace Code.Players
         private int _maxJumpCount;
         private int _currentJumpCount;
         public bool CanJump => _currentJumpCount > 0;
-
-        [Header("Temp settings")] 
-        public Vector2[] atkMovement;
-        public Vector2 dashAttackMovement;
-
-        // 임시코드
+        
+        //임시코드
         public EntityFinderSO PlayerFinder;
-
+                
         protected override void Awake()
         {
-            PlayerFinder.SetEntity(this);
+            PlayerFinder.SetEntity(this); //임시코드 -> 나중에 씬로더 나오면 삭제
             base.Awake();
             _stateMachine = new StateMachine(this, playerFSM);
         }
@@ -58,12 +54,12 @@ namespace Code.Players
 
         protected override void HandleHit()
         {
-
+            //피격상태로 전환
         }
 
         protected override void HandleDead()
         {
-
+            //죽음상태로 전환해주면 된다.
         }
 
         private void HandleAnimationEnd() => _stateMachine.CurrentState.AnimationEndTrigger();
@@ -91,7 +87,6 @@ namespace Code.Players
         }
 
         public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
-
         
     }
 }

@@ -27,7 +27,6 @@ namespace Code.Players.States
             _mover.CanManualMove = false;
 
             SetAttackData();
-            
         }
 
         private void SetAttackData()
@@ -36,7 +35,7 @@ namespace Code.Players.States
             Vector2 movement = attackData.movement;
             movement.x *= _renderer.FacingDirection;
             _mover.AddForceToEntity(movement);
-
+            
             _attackCompo.SetAttackData(attackData);
         }
 

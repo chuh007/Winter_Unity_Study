@@ -1,14 +1,13 @@
-using Code.Enemies;
 using System;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
 
 namespace Code.Enemies.BTCommons.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "FindTarget", story: "[self] set [target] form finder", category: "Action", id: "2f489222f77bba23383cb92cfe6a30ed")]
+    [NodeDescription(name: "FindTarget", story: "[self] set [target] from finder", category: "Action", id: "38bbe95f7980e52db191ddb238dd2e30")]
     public partial class FindTargetAction : Action
     {
         [SerializeReference] public BlackboardVariable<BTEnemy> Self;
@@ -17,11 +16,10 @@ namespace Code.Enemies.BTCommons.Actions
         protected override Status OnStart()
         {
             Target.Value = Self.Value.PlayerFinder.target.transform;
-            Debug.Assert(Target.Value != null,$"Target is null : {Self.Value.gameObject.name}");
-
+            Debug.Assert(Target.Value != null, $"Target is null : {Self.Value.gameObject.name}");
+            
             return Status.Success;
         }
     }
 }
-
 

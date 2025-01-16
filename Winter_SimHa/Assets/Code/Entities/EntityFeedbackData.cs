@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Entities
 {
@@ -10,9 +10,9 @@ namespace Code.Entities
         [field: SerializeField] public bool IsLastHitPowerAttack { get; set; } = false;
         [field: SerializeField] public Vector2 LastAttackDirection { get; set; }
         [field: SerializeField] public Entity LastEntityWhoHit { get; set; }
-
+        
         #endregion
-
+        
         private Entity _entity;
         public void Initialize(Entity entity)
         {
@@ -20,4 +20,3 @@ namespace Code.Entities
         }
     }
 }
-

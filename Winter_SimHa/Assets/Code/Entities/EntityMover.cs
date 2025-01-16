@@ -3,6 +3,7 @@ using Code.Core.StatSystem;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Code.Entities
 {
@@ -13,12 +14,12 @@ namespace Code.Entities
 
         [SerializeField] private StatSO moveSpeedStat, jumpPowerStat;
 
-        [Header("Collision detection")]
+        [Header("Collision detection")] 
         [SerializeField] private Transform groundCheckTrm;
         [SerializeField] private Transform wallCheckTrm;
         [SerializeField] private float groundCheckDistance, groundBoxWidth, wallCheckDistance;
         [SerializeField] private LayerMask whatIsGround;
-
+        
         #region Member field
 
         private float _movementX;
@@ -31,12 +32,12 @@ namespace Code.Entities
         private Rigidbody2D _rbCompo;
         private EntityStat _statCompo;
         private Vector2 _colliderOffset, _colliderSize;
-
+        
         #endregion
 
         public bool CanManualMove { get; set; } = true; //넉백당하거나 기절시 이동불가
         public CapsuleCollider2D BodyCollider { get; private set; }
-
+        
         #region Init section
         public void Initialize(Entity entity)
         {
@@ -48,12 +49,12 @@ namespace Code.Entities
             _colliderOffset = BodyCollider.offset;
             _colliderSize = BodyCollider.size;
         }
-
+        
         public void AfterInit()
         {
             _statCompo.GetStat(moveSpeedStat).OnValueChange += HandleMoveSpeedChange;
             _statCompo.GetStat(jumpPowerStat).OnValueChange += HandleJumpPowerChange;
-
+            
             _moveSpeed = _statCompo.GetStat(moveSpeedStat).Value;
             _jumpPower = _statCompo.GetStat(jumpPowerStat).Value;
         }
@@ -66,14 +67,14 @@ namespace Code.Entities
         #endregion
 
         public void Jump() => AddForceToEntity(new Vector2(0, _jumpPower));
-
+        
         public void AddForceToEntity(Vector2 force)
             => _rbCompo.AddForce(force, ForceMode2D.Impulse);
 
-
+        
         public void SetMoveSpeedMultiplier(float value)
             => _moveSpeedMultiplier = value;
-        public void SetGravityScale(float value)
+        public void SetGravityScale(float value) 
             => _rbCompo.gravityScale = _originalGravityScale * value;
         public void SetLimitYSpeed(float value)
             => _limitYSpeed = value;
@@ -97,9 +98,9 @@ namespace Code.Entities
 
         private void FixedUpdate()
         {
-            if (CanManualMove)
+            if(CanManualMove)
                 _rbCompo.linearVelocityX = _movementX * _moveSpeed * _moveSpeedMultiplier;
-
+            
             _rbCompo.linearVelocityY = Mathf.Clamp(_rbCompo.linearVelocityY, -_limitYSpeed, _limitYSpeed);
             OnVelocity?.Invoke(_rbCompo.linearVelocity);
         }
@@ -139,7 +140,7 @@ namespace Code.Entities
 
         public bool IsWallDetected(float facingDirection)
             => Physics2D.Raycast(wallCheckTrm.position, Vector2.right * facingDirection, wallCheckDistance, whatIsGround);
-
+        
         public bool CheckColliderInFront(Vector2 dashDirection, float maxDistance, out float distance)
         {
             Bounds colliderBound = BodyCollider.bounds;
@@ -152,24 +153,24 @@ namespace Code.Entities
             distance = hit ? hit.distance : maxDistance;
             return hit;
         }
-
+        
         #endregion
-
+        
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             if (groundCheckTrm != null)
             {
-                Gizmos.DrawWireCube(groundCheckTrm.position - new Vector3(0, groundCheckDistance * 0.5f),
+                Gizmos.DrawWireCube(groundCheckTrm.position - new Vector3(0, groundCheckDistance * 0.5f), 
                                 new Vector3(groundBoxWidth, groundCheckDistance, 1f));
             }
-
-            if (wallCheckTrm != null)
+            
+            if(wallCheckTrm != null)
                 Gizmos.DrawLine(wallCheckTrm.position, wallCheckTrm.position + new Vector3(wallCheckDistance, 0));
         }
 #endif
 
-
+        
     }
 }

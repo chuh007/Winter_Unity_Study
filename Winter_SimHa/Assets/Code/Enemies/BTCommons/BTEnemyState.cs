@@ -1,5 +1,4 @@
-using Unity.Behavior;
-using UnityEngine;
+﻿using Unity.Behavior;
 
 namespace Code.Enemies.BTCommons
 {
@@ -9,4 +8,3 @@ namespace Code.Enemies.BTCommons
         PATROL, REACT, CHASE, ATTACK, STUN, HIT, DEATH
     }
 }
-

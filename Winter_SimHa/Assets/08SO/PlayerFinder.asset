@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9241d5ef0fd5440479744a68b8e45148, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f2059ddf903431aae3de777008a7524, type: 3}
   m_Name: PlayerFinder
   m_EditorClassIdentifier: 
   targetTag: Player

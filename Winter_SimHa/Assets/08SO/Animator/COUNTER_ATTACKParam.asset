@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
-  m_Name: COUNTERParam
+  m_Name: COUNTER_ATTACKParam
   m_EditorClassIdentifier: 
   parameterName: COUNTER_ATTACK
   hashValue: -1226394105
-  description: 
+  description: "\uCE74\uC6B4\uD130 \uACF5\uACA9 \uC900\uBE44\uBAA8\uC158"

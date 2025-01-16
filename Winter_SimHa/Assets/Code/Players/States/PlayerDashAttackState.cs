@@ -2,7 +2,6 @@
 using Code.Combats;
 using Code.Entities;
 using Code.Entities.FSM;
-using System;
 using UnityEngine;
 
 namespace Code.Players.States
@@ -12,7 +11,7 @@ namespace Code.Players.States
         private Player _player;
         private EntityMover _mover;
         private PlayerAttackCompo _attackCompo;
-
+        
         public PlayerDashAttackState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
         {
             _player = entity as Player;
@@ -26,16 +25,15 @@ namespace Code.Players.States
             _mover.CanManualMove = false;
 
             SetAttackData();
-            
         }
 
         private void SetAttackData()
         {
             AttackDataSO attackData = _attackCompo.GetAttackData("PlayerDashAttack");
-            Vector2 movement = _player.dashAttackMovement;
+            Vector2 movement = attackData.movement; //이따 만들께
             movement.x *= _renderer.FacingDirection;
             _mover.AddForceToEntity(movement);
-
+            
             _attackCompo.SetAttackData(attackData);
         }
 

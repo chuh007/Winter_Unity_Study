@@ -8,7 +8,7 @@ using Unity.Properties;
 [CreateAssetMenu(menuName = "Behavior/Event Channels/StateChangeEvent")]
 #endif
 [Serializable, GeneratePropertyBag]
-[EventChannelDescription(name: "StateChangeEvent", message: "enemy state change to [newState]", category: "Events", id: "368e85e37e00920ebad3a76012797bd4")]
+[EventChannelDescription(name: "StateChangeEvent", message: "enemy state change to [newState]", category: "Events", id: "33e453c328035eaf891875b430ed6d23")]
 public partial class StateChangeEvent : EventChannelBase
 {
     public delegate void StateChangeEventEventHandler(BTEnemyState newState);

@@ -1,20 +1,21 @@
+﻿using System;
 using UnityEngine;
 
 namespace Code.Entities
 {
-    [CreateAssetMenu(fileName = "EntityFinderSO", menuName = "SO/Entity/Finder")]
+    [CreateAssetMenu(fileName = "EntityFinder", menuName = "SO/Entity/Finder", order = 0)]
     public class EntityFinderSO : ScriptableObject
     {
         [SerializeField] private string targetTag;
         public Entity target;
 
-        private void OnEnable ()
+        private void OnEnable()
         {
             if (target != null) return;
             if (string.IsNullOrEmpty(targetTag)) return;
-
+            
             GameObject targetObject = GameObject.FindGameObjectWithTag(targetTag);
-            if(targetObject != null)
+            if (targetObject != null)
             {
                 target = targetObject.GetComponent<Entity>();
             }
@@ -26,4 +27,3 @@ namespace Code.Entities
         }
     }
 }
-

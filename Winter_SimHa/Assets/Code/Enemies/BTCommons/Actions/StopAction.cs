@@ -1,15 +1,14 @@
-using Code.Enemies;
-using Code.Entities;
 using System;
+using Code.Entities;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
 
 namespace Code.Enemies.BTCommons.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Stop", story: "stop with [mover] on [yAxis]", category: "Action", id: "65b1cda6b08a7f04f78f88c804fa943d")]
+    [NodeDescription(name: "Stop", story: "stop with [mover] on [yAxis]", category: "Action", id: "1783312693b5ad6c82e4a09b7a2c203b")]
     public partial class StopAction : Action
     {
         [SerializeReference] public BlackboardVariable<EntityMover> Mover;
@@ -22,5 +21,4 @@ namespace Code.Enemies.BTCommons.Actions
         }
     }
 }
-
 

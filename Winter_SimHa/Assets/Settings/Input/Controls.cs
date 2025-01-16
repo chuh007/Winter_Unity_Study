@@ -75,7 +75,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Counter"",
                     ""type"": ""Button"",
-                    ""id"": ""fb0ee7c5-6fa7-4c56-bfce-699cafcd8c9c"",
+                    ""id"": ""bca4e77e-f626-4636-bd12-d2d1eb26e3a7"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -294,11 +294,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d5282250-be0b-4af8-abec-7bed6bacd9bd"",
+                    ""id"": ""2406ea3a-6a32-42b6-a94a-71443d78e64a"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Counter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

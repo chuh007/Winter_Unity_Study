@@ -1,27 +1,26 @@
-using Code.Entities;
 using System;
+using Code.Entities;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
 
 namespace Code.Enemies.BTCommons.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "WaitForAnimationTrigger", story: "Wait for [trigger] end", category: "Action", id: "a5236abd8a883314d8fdee91f3852248")]
+    [NodeDescription(name: "WaitForAnimationTrigger", story: "Wait for [trigger] end", category: "Action", id: "bcd8e789f25f4aa5b56054828e064ea6")]
     public partial class WaitForAnimationTriggerAction : Action
     {
         [SerializeReference] public BlackboardVariable<EntityAnimationTrigger> Trigger;
 
         private bool _animationEndTrigger;
-
+    
         protected override Status OnStart()
         {
             _animationEndTrigger = false;
             Trigger.Value.OnAnimationEnd += HandleAnimationEnd;
             return Status.Running;
         }
-
 
         protected override Status OnUpdate()
         {
@@ -39,5 +38,4 @@ namespace Code.Enemies.BTCommons.Actions
         }
     }
 }
-
 

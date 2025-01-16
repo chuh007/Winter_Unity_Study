@@ -50,7 +50,7 @@ Material:
     - _IsEffect: 0
     m_Colors:
     - _BlinkColor: {r: 1.720795, g: 1.720795, b: 1.720795, a: 1}
-    - _EffectColor: {r: 2, g: 0.009433984, b: 0.009433984, a: 0}
+    - _EffectColor: {r: 1.8388816, g: 0.40767658, b: 0.51203024, a: 0}
     - _EmissionColor: {r: 4.2370944, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

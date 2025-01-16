@@ -15,7 +15,7 @@ namespace Code.Enemies.BTCommons.Actions
         [SerializeReference] public BlackboardVariable<Transform> Target;
         [SerializeReference] public BlackboardVariable<EntityMover> Mover;
 
-
+        
         protected override Status OnUpdate()
         {
             float xMove = GetMovementXDirection();
@@ -27,9 +27,9 @@ namespace Code.Enemies.BTCommons.Actions
         {
             Vector3 targetPosition = Target.Value.position;
             Vector3 myPosition = Self.Value.transform.position;
-
+            
             Vector3 offset = targetPosition - myPosition;
-
+            
             return offset.x;
         }
     }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec1b8c2a078245b49485d9f71939462f, type: 3}
-  m_Name: COUNTER_SUCCESSParam
+  m_Name: SUCCESS_COUNTERParam
   m_EditorClassIdentifier: 
   parameterName: SUCCESS_COUNTER
   hashValue: -37023462
-  description: 
+  description: "\uCE74\uC6B4\uD130 \uC131\uACF5\uC2DC \uC7AC\uC0DD\uD560 \uC560\uB2C8\uBA54\uC774\uC158
+    \uD30C\uB77C\uBA54\uD130"

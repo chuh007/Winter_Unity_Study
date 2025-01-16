@@ -1,14 +1,14 @@
-using Code.Entities;
 using System;
+using Code.Entities;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
 
 namespace Code.Enemies.BTCommons.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Flip", story: "Flip [renderer]", category: "Action", id: "7e47e17c2391f75adfa22ae32defc18c")]
+    [NodeDescription(name: "Flip", story: "Flip [renderer]", category: "Action", id: "26794c393fbc2ffc9ffeb4bcb3e05558")]
     public partial class FlipAction : Action
     {
         [SerializeReference] public BlackboardVariable<EntityRenderer> Renderer;
@@ -20,5 +20,4 @@ namespace Code.Enemies.BTCommons.Actions
         }
     }
 }
-
 

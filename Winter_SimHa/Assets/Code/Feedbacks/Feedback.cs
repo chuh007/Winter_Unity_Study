@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Feedbacks
 {
@@ -7,9 +7,6 @@ namespace Code.Feedbacks
         public abstract void CreateFeedback();
 
         public virtual void FinishFeedback()
-        {
-
-        }
+        { }
     }
 }
-

@@ -1,7 +1,6 @@
 ﻿using Code.Animators;
 using Code.Entities;
 using Code.Entities.FSM;
-using System;
 
 namespace Code.Players.States
 {
@@ -9,7 +8,7 @@ namespace Code.Players.States
     {
         protected Player _player;
         protected EntityMover _mover;
-
+        
         public PlayerGroundState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
         {
             _player = entity as Player;
@@ -43,8 +42,10 @@ namespace Code.Players.States
 
         private void HandleCounterKeyPress()
         {
+            //나중에 쿨타임도 체크해야한다.
             _player.ChangeState("COUNTER_ATTACK");
         }
+
         protected virtual void HandleAttackKeyPress()
         {
             if(_mover.IsGroundDetected())

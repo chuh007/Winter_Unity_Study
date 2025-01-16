@@ -1,15 +1,15 @@
-using Code.Enemies;
-using Code.Entities;
 using System;
+using Code.Entities;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
+
 
 namespace Code.Enemies.BTCommons.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Move", story: "[Self] move with [mover]", category: "Action", id: "e0f4d5406e32939f649b94009d59afc6")]
+    [NodeDescription(name: "Move", story: "[self] move with [mover]", category: "Action", id: "fe564fb6ec4ebef9c55cabe657359125")]
     public partial class MoveAction : Action
     {
         [SerializeReference] public BlackboardVariable<BTEnemy> Self;
@@ -20,9 +20,6 @@ namespace Code.Enemies.BTCommons.Actions
             Mover.Value.SetMovementX(1);
             return Status.Success;
         }
-
     }
 }
-
-
 

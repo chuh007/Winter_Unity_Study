@@ -1,6 +1,6 @@
+ï»¿using System;
+using Code.Combats;
 using Code.Core.StatSystem;
-using Code.Enemies;
-using System;
 using UnityEngine;
 
 namespace Code.Entities
@@ -8,17 +8,16 @@ namespace Code.Entities
     public class EntityHealth : MonoBehaviour, IEntityComponent, IAfterInit
     {
         [SerializeField] private StatSO hpStat;
-
         public float maxHealth;
         private float _currentHealth;
-
+        
         public event Action<Vector2> OnKnockback;
-
+        
         private Entity _entity;
         private EntityStat _statCompo;
         private EntityFeedbackData _feedbackData;
 
-        #region Init
+        #region Initialize section
 
         public void Initialize(Entity entity)
         {
@@ -26,50 +25,51 @@ namespace Code.Entities
             _statCompo = _entity.GetCompo<EntityStat>();
             _feedbackData = _entity.GetCompo<EntityFeedbackData>();
         }
-
+        
         public void AfterInit()
         {
-            _statCompo.GetStat(hpStat).OnValueChange += HandleHpChange;
+            _statCompo.GetStat(hpStat).OnValueChange += HandleHPChange;
             _currentHealth = maxHealth = _statCompo.GetStat(hpStat).Value;
             _entity.OnDamage += ApplyDamage;
         }
+
         private void OnDestroy()
         {
-            _statCompo.GetStat(hpStat).OnValueChange -= HandleHpChange;
+            _statCompo.GetStat(hpStat).OnValueChange -= HandleHPChange;
             _entity.OnDamage -= ApplyDamage;
         }
 
         #endregion
+        
 
-        private void HandleHpChange(StatSO stat, float current, float previous)
+        private void HandleHPChange(StatSO stat, float current, float previous)
         {
             maxHealth = current;
             _currentHealth = Mathf.Clamp(_currentHealth + current - previous, 1f, maxHealth);
-            // Ã¼·Â º¯°æÀ¸·Î »ç¸ÁÇÏÁö´Â ¾Ê°Ô
+            //ì²´ë ¥ë³€ê²½ìœ¼ë¡œ ì¸í•´ ì‚¬ë§í•˜ëŠ” ì¼ì€ ì—†ë„ë¡
         }
 
-        public void ApplyDamage(float damage, Vector2 direction, Vector2 knockbackPower, bool isPowerAttack, Entity dealer)
+        public void ApplyDamage(float damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer)
         {
-            if (_entity.IsDead) return;
-
+            if (_entity.IsDead) return; //ì´ë¯¸ ì£½ì€ ë…€ì„ì…ë‹ˆë‹¤.
+            
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, maxHealth);
             _feedbackData.LastAttackDirection = direction.normalized;
             _feedbackData.IsLastHitPowerAttack = isPowerAttack;
             _feedbackData.LastEntityWhoHit = dealer;
 
-            AfterHitFeedbacks(knockbackPower);
+            AfterHitFeedbacks(knockBackPower);
         }
 
-        private void AfterHitFeedbacks(Vector2 knockbackPower)
+        private void AfterHitFeedbacks(Vector2 knockBackPower)
         {
             _entity.OnHit?.Invoke();
-            OnKnockback?.Invoke(knockbackPower);
+            OnKnockback?.Invoke(knockBackPower);
 
-            if(_currentHealth <= 0)
+            if (_currentHealth <= 0)
             {
                 _entity.OnDead?.Invoke();
             }
         }
     }
 }
-

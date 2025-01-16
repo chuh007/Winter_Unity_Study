@@ -5,8 +5,9 @@ namespace Code.Entities
 {
     public class EntityRenderer : MonoBehaviour, IEntityComponent
     {
-        [field: SerializeField] public float FacingDirection { get; private set; } = 1f;
         public SpriteRenderer SpriteRenderer { get; private set; }
+        
+        [field: SerializeField] public float FacingDirection { get; private set; } = 1f;
         [SerializeField] private AnimParamSO yVelocityParam;
         
         private Entity _entity;
@@ -16,6 +17,7 @@ namespace Code.Entities
         {
             _entity = entity;
             _animator = GetComponent<Animator>();
+            SpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void SetParam(AnimParamSO param, bool value) => _animator.SetBool(param.hashValue, value);
@@ -39,12 +41,12 @@ namespace Code.Entities
 
         public void FlipController(float xVelocity)
         {
-            float xMove = Mathf.Approximately(xVelocity,0) ? 0 : Mathf.Sign(xVelocity);
+            float xMove = Mathf.Approximately(xVelocity, 0) ? 0 : Mathf.Sign(xVelocity);
             if (Mathf.Abs(xMove + FacingDirection) < 0.5f) //바라보는 방향과 진행방향이 다르다면 플립
             {
                 Flip();
             }
-
+                
         }
 
         #endregion

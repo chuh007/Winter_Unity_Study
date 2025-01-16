@@ -25,8 +25,7 @@ namespace Code.Players.States
             float xInput = _player.PlayerInput.InputDirection.x;
             
             _mover.SetMovementX(xInput);
-
-            //"고" 업보과메기야 근접 체크, 비교하고자하는 값과 Mathf.Epsilon 만큼 차이나지 않으면 같다.
+            
             if (Mathf.Approximately(xInput, 0))  
             {
                 _player.ChangeState("IDLE");
