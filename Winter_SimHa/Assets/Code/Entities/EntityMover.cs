@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Core.StatSystem;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,8 @@ namespace Code.Entities
 {
     public class EntityMover : MonoBehaviour, IEntityComponent, IAfterInit
     {
-        public UnityEvent<Vector2> OnMove;
+        public UnityEvent<Vector2> OnVelocity;
+        public UnityEvent<float> OnXInput;
 
         [SerializeField] private StatSO moveSpeedStat, jumpPowerStat;
 
@@ -99,12 +101,13 @@ namespace Code.Entities
                 _rbCompo.linearVelocityX = _movementX * _moveSpeed * _moveSpeedMultiplier;
 
             _rbCompo.linearVelocityY = Mathf.Clamp(_rbCompo.linearVelocityY, -_limitYSpeed, _limitYSpeed);
-            OnMove?.Invoke(_rbCompo.linearVelocity);
+            OnVelocity?.Invoke(_rbCompo.linearVelocity);
         }
 
         public void SetMovementX(float xMovement)
         {
             _movementX = Mathf.Abs(xMovement) > 0 ? Mathf.Sign(xMovement) : 0;
+            OnXInput?.Invoke(_movementX);
         }
 
         public void StopImmediately(bool isYAxisToo)
@@ -117,6 +120,13 @@ namespace Code.Entities
             _movementX = 0;
         }
 
+        public void KnockBack(Vector2 force, float time)
+        {
+            CanManualMove = false;
+            StopImmediately(true);
+            AddForceToEntity(force);
+            DOVirtual.DelayedCall(time, () => CanManualMove = true);
+        }
 
         #region Check Collision
 

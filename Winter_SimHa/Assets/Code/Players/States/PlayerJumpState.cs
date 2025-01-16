@@ -16,12 +16,12 @@ namespace Code.Players.States
             _player.DecreaseJumpCount();
             _mover.StopImmediately(true); //^0^ 공중에서 떨어지는 힘을 리셋하고 점프할 수 있어. ^0^
             _mover.Jump();
-            _mover.OnMove.AddListener(HandleVelocityChange);
+            _mover.OnVelocity.AddListener(HandleVelocityChange);
         }
 
         public override void Exit()
         {
-            _mover.OnMove.RemoveListener(HandleVelocityChange);
+            _mover.OnVelocity.RemoveListener(HandleVelocityChange);
             base.Exit();
         }
 

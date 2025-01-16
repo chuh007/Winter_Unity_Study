@@ -23,6 +23,11 @@ namespace Code.Enemies
             Debug.Assert(_btAgent != null, $"{gameObject.name} does not have an EntityRenderer");
         }
 
+        protected virtual void Start()
+        {
+
+        }
+
         public BlackboardVariable<T> GetBlackboardVariable<T>(string key)
         {
             if(_btAgent.GetVariable(key,out BlackboardVariable<T> result))

@@ -1,6 +1,8 @@
 ﻿using Code.Animators;
+using Code.Combats;
 using Code.Entities;
 using Code.Entities.FSM;
+using System;
 using UnityEngine;
 
 namespace Code.Players.States
@@ -9,7 +11,8 @@ namespace Code.Players.States
     {
         private Player _player;
         private EntityMover _mover;
-        
+        private PlayerAttackCompo _attackCompo;
+
         private int _comboCounter;
         private float _lastAttackTime;
         private readonly float _comboWindow = 0.8f; //콤보가 이어지도록 하는 시간제한
@@ -19,12 +22,12 @@ namespace Code.Players.States
         {
             _player = entity as Player;
             _mover = entity.GetCompo<EntityMover>();
+            _attackCompo = entity.GetCompo<PlayerAttackCompo>();
         }
 
         public override void Enter()
         {
             base.Enter();
-            //최대 콤보에 도달했거나, 최종공격으로부터 콤보 윈도우시간 이상 흘렀다면 콤보 초기화
             if (_comboCounter > MAX_COMBO_COUNT || Time.time >= _lastAttackTime + _comboWindow)
                 _comboCounter = 0;
             
@@ -32,15 +35,24 @@ namespace Code.Players.States
             _mover.CanManualMove = false; //움직이지 못하게
             _mover.StopImmediately(true);
 
+            SetAttackData();
+        }
+
+        private void SetAttackData()
+        {
             float atkDirection = _renderer.FacingDirection;
             float xInput = _player.PlayerInput.InputDirection.x;
-            
-            if(Mathf.Abs(xInput) > 0)
+
+            if (Mathf.Abs(xInput) > 0)
                 atkDirection = Mathf.Sign(xInput);
+
+            AttackDataSO attackData = _attackCompo.GetAttackData($"PlayerCombo{_comboCounter}");
 
             Vector2 movement = _player.atkMovement[_comboCounter];
             movement.x *= atkDirection;
             _mover.AddForceToEntity(movement);
+
+            _attackCompo.SetAttackData(attackData);
         }
 
         public override void Update()

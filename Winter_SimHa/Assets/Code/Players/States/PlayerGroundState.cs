@@ -1,6 +1,7 @@
 ﻿using Code.Animators;
 using Code.Entities;
 using Code.Entities.FSM;
+using System;
 
 namespace Code.Players.States
 {
@@ -8,7 +9,7 @@ namespace Code.Players.States
     {
         protected Player _player;
         protected EntityMover _mover;
-        
+
         public PlayerGroundState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
         {
             _player = entity as Player;
@@ -20,6 +21,7 @@ namespace Code.Players.States
             base.Enter();
             _player.PlayerInput.OnJumpKeyPressed += HandleJumpKeyPress;
             _player.PlayerInput.OnAttackKeyPressed += HandleAttackKeyPress;
+            _player.PlayerInput.OnCounterKeyPressed += HandleCounterKeyPress;
         }
 
         public override void Update()
@@ -35,9 +37,14 @@ namespace Code.Players.States
         {
             _player.PlayerInput.OnJumpKeyPressed -= HandleJumpKeyPress;
             _player.PlayerInput.OnAttackKeyPressed -= HandleAttackKeyPress;
+            _player.PlayerInput.OnCounterKeyPressed -= HandleCounterKeyPress;
             base.Exit();
         }
 
+        private void HandleCounterKeyPress()
+        {
+            _player.ChangeState("COUNTER_ATTACK");
+        }
         protected virtual void HandleAttackKeyPress()
         {
             if(_mover.IsGroundDetected())

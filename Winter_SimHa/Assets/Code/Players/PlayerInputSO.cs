@@ -11,6 +11,7 @@ namespace Code.Players
         public event Action OnAttackKeyPressed;
         public event Action OnDashKeyPressed;
         public event Action OnSlideKeyPressed;
+        public event Action OnCounterKeyPressed;
         
         public Vector2 InputDirection { get; private set; }
         
@@ -58,6 +59,12 @@ namespace Code.Players
         {
             if(context.performed)
                 OnSlideKeyPressed?.Invoke();
+        }
+
+        public void OnCounter(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnCounterKeyPressed?.Invoke();
         }
     }
 }

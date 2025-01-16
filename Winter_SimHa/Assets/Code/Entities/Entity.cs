@@ -1,16 +1,28 @@
-﻿using System;
+﻿using Code.Enemies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Code.Entities
 {
-    public abstract class Entity : MonoBehaviour
+    public abstract class Entity : MonoBehaviour, IDamageable
     {
+        public delegate void OnDamageHandler(float damage, Vector2 direction, Vector2 knockbackPower, bool isPowerAttack, Entity dealer);
+        public event OnDamageHandler OnDamage;
+
+        public UnityEvent OnHit;
+        public UnityEvent OnDead;
+
+        public bool IsDead { get; set; }
+        public int DeadBodyLayer { get; private set; }
+
         protected Dictionary<Type, IEntityComponent> _components;
 
         protected virtual void Awake()
         {
+            DeadBodyLayer = LayerMask.NameToLayer("DeadBody");
             _components = new Dictionary<Type, IEntityComponent>();
             AddComponentToDictionary();
             ComponentInitialize();
@@ -30,7 +42,18 @@ namespace Code.Entities
         protected virtual void AfterInitialize()
         {
             _components.Values.OfType<IAfterInit>().ToList().ForEach(compo => compo.AfterInit());
+            OnHit.AddListener(HandleHit);
+            OnDead.AddListener(HandleDead);
         }
+
+        protected virtual void OnDestroy()
+        {
+            OnHit.RemoveListener(HandleHit);
+            OnDead.RemoveListener(HandleDead);
+        }
+
+        protected abstract void HandleHit();
+        protected abstract void HandleDead();
 
         public T GetCompo<T>(bool isDerived = false) where T : IEntityComponent
         {
@@ -45,6 +68,8 @@ namespace Code.Entities
             
             return default(T);
         }
-        
+
+        public void ApplyDamage(float damage, Vector2 direction, Vector2 knockbackPower, bool isPowerAttack, Entity dealer)
+            => OnDamage?.Invoke(damage, direction, knockbackPower, isPowerAttack, dealer);
     }
 }

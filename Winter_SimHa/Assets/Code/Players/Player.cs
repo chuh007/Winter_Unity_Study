@@ -48,11 +48,22 @@ namespace Code.Players
             GetCompo<EntityAnimationTrigger>().OnAnimationEnd += HandleAnimationEnd;
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             GetCompo<EntityStat>().GetStat(jumpCountStat).OnValueChange -= HandleJumpCountChange;
             PlayerInput.OnDashKeyPressed -= HandleDashKeyPress;
             GetCompo<EntityAnimationTrigger>().OnAnimationEnd -= HandleAnimationEnd;
+        }
+
+        protected override void HandleHit()
+        {
+
+        }
+
+        protected override void HandleDead()
+        {
+
         }
 
         private void HandleAnimationEnd() => _stateMachine.CurrentState.AnimationEndTrigger();
@@ -80,6 +91,7 @@ namespace Code.Players
         }
 
         public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
+
         
     }
 }
