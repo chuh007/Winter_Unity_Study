@@ -1,10 +1,7 @@
-using UnityEngine;
-
-namespace Code.SkillSystem.Dash
+﻿namespace Code.SkillSystem.Dash
 {
     public class DashSkill : Skill
     {
-
+        
     }
 }
-

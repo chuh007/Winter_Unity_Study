@@ -26,7 +26,7 @@ namespace Code.Players.States
             
             _mover.SetMovementX(xInput);
             
-            if (Mathf.Approximately(xInput, 0) || _mover.IsWallDetected(_renderer.FacingDirection))
+            if (Mathf.Approximately(xInput, 0) || _mover.IsWallDetected(_renderer.FacingDirection))  
             {
                 _player.ChangeState("IDLE");
             }

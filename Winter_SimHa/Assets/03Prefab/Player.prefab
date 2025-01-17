@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &19792339150228502
+--- !u!1 &2340451701114903399
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4560879347099746947}
-  - component: {fileID: 7730524529179723894}
+  - component: {fileID: 7278679543533217980}
+  - component: {fileID: 8429752879524340663}
   m_Layer: 7
-  m_Name: DashSkill
+  m_Name: SkillCompo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4560879347099746947
+--- !u!4 &7278679543533217980
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19792339150228502}
+  m_GameObject: {fileID: 2340451701114903399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7298599886030174952}
+  m_Children:
+  - {fileID: 2219211745477947456}
+  - {fileID: 5495270759828912987}
+  m_Father: {fileID: 5639264225076550653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7730524529179723894
+--- !u!114 &8429752879524340663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19792339150228502}
+  m_GameObject: {fileID: 2340451701114903399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1949c8c32309a0c40a9012576bfec9e1, type: 3}
+  m_Script: {fileID: 11500000, guid: c28ed8d807134599a3fe5d061548ce5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillEnabled: 1
-  cooldown: 2
---- !u!1 &2440577019428690038
+  whatIsEnemy:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  colliders: []
+  maxCheckEnemy: 5
+--- !u!1 &2394298145914580468
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,8 +70,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4942756774841558277}
-  - component: {fileID: 5318566681920227722}
+  - component: {fileID: 5495270759828912987}
+  - component: {fileID: 830042062873932528}
   m_Layer: 7
   m_Name: CloneSkill
   m_TagString: Untagged
@@ -63,46 +79,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4942756774841558277
+--- !u!4 &5495270759828912987
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2440577019428690038}
+  m_GameObject: {fileID: 2394298145914580468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7298599886030174952}
+  m_Father: {fileID: 7278679543533217980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5318566681920227722
+--- !u!114 &830042062873932528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2440577019428690038}
+  m_GameObject: {fileID: 2394298145914580468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a49bd1a849522f4295e742ce685f1a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 775a1b6433dd4cc1805d51f76550e967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skillEnabled: 1
   cooldown: 2
-  _clonePrefab: {fileID: 106193486746347986, guid: 2731b96710e599849a1b4ec193623c79, type: 3}
+  <PlayerChannel>k__BackingField: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
+  _clonePrefab: {fileID: 2121178778612342745, guid: 291fe9d66c39b504bbd1f34e11e98df7, type: 3}
   cloneDuration: 1.5
   createCloneOnDashStart: 0
   createCloneOnDashEnd: 0
   createCloneOnCounterAttack: 0
   findEnemyRadius: 8
   damageMultiplier: 1
-  counterCloneOffSet: 2
+  counterCloneOffset: 2
   delayCreateCounterClone: 0.4
   canDuplicateClone: 0
-  duplicatePrecent: 0.5
+  duplicatePercent: 0.5
 --- !u!1 &4196524031036255887
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +160,7 @@ Transform:
   - {fileID: 3153906508286416770}
   - {fileID: 5052866027703267386}
   - {fileID: 1610121723335788605}
-  - {fileID: 7298599886030174952}
+  - {fileID: 7278679543533217980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1210404104086750878
@@ -228,12 +245,13 @@ MonoBehaviour:
   OnDead:
     m_PersistentCalls:
       m_Calls: []
+  <PlayerChannel>k__BackingField: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: a824b2ac1d053a6428903833484786fc, type: 2}
   playerFSM: {fileID: 11400000, guid: bf5a7ef7fd957964095d7f4353b48c53, type: 2}
   jumpCountStat: {fileID: 11400000, guid: 18ec2caed1877aa40a004af0a655f1e9, type: 2}
   attackSpeedStat: {fileID: 11400000, guid: 9b11fc7524a624b48b232e6968ff0480, type: 2}
   <ComboCounterParam>k__BackingField: {fileID: 11400000, guid: b2c8fbd5f718ccf40b8225659d9848f7, type: 2}
---- !u!1 &5644312653789146712
+--- !u!1 &5947107322834171684
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,60 +259,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7298599886030174952}
-  - component: {fileID: 2723973479361152465}
+  - component: {fileID: 2219211745477947456}
+  - component: {fileID: 9619171659717619}
   m_Layer: 7
-  m_Name: SkillCompo
+  m_Name: DashSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7298599886030174952
+--- !u!4 &2219211745477947456
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644312653789146712}
+  m_GameObject: {fileID: 5947107322834171684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4560879347099746947}
-  - {fileID: 4942756774841558277}
-  m_Father: {fileID: 5639264225076550653}
+  m_Children: []
+  m_Father: {fileID: 7278679543533217980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2723973479361152465
+--- !u!114 &9619171659717619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644312653789146712}
+  m_GameObject: {fileID: 5947107322834171684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5995026917ba12147a01833d23e8ce56, type: 3}
+  m_Script: {fileID: 11500000, guid: 8782b5f33fc84f138e21db00e375a37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsEnemy:
-    useTriggers: 1
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  colliders: []
-  maxCheckEnemy: 0
+  skillEnabled: 1
+  cooldown: 2
 --- !u!1 &6384501258777023913
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statCompo: {fileID: 3758753683843717979}
-  targetStat: {fileID: 11400000, guid: 9b11fc7524a624b48b232e6968ff0480, type: 2}
+  targetStat: {fileID: 11400000, guid: e09531858884d3846860811d8f9ee7fa, type: 2}
   modifyValue: 3
 --- !u!1 &7893011015272082315
 GameObject:
@@ -598,6 +600,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5639264225076550653}
     m_Modifications:
+    - target: {fileID: 1428823497153008115, guid: b3f83b399fd17bf47a0f3b884178249d, type: 3}
+      propertyPath: statOverrides.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428823497153008115, guid: b3f83b399fd17bf47a0f3b884178249d, type: 3}
+      propertyPath: statOverrides.Array.data[5].stat
+      value: 
+      objectReference: {fileID: 11400000, guid: 75400f30c19a16f47a9a0b1a01c1215a, type: 2}
+    - target: {fileID: 1428823497153008115, guid: b3f83b399fd17bf47a0f3b884178249d, type: 3}
+      propertyPath: statOverrides.Array.data[5].isUseOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428823497153008115, guid: b3f83b399fd17bf47a0f3b884178249d, type: 3}
+      propertyPath: statOverrides.Array.data[5].overrideValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5273059138608997587, guid: b3f83b399fd17bf47a0f3b884178249d, type: 3}
       propertyPath: m_Name
       value: EntityStat

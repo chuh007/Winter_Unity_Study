@@ -1,7 +1,7 @@
-using Code.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Entities;
 using UnityEngine;
 
 namespace Code.SkillSystem
@@ -16,11 +16,12 @@ namespace Code.SkillSystem
         private Entity _entity;
 
         private Dictionary<Type, Skill> _skills;
-
+        
         public void Initialize(Entity entity)
         {
             _entity = entity;
             colliders = new Collider2D[maxCheckEnemy];
+            
             _skills = new Dictionary<Type, Skill>();
             GetComponentsInChildren<Skill>().ToList().ForEach(skill => _skills.Add(skill.GetType(), skill));
             _skills.Values.ToList().ForEach(skill => skill.InitializeSkill(_entity, this));
@@ -34,7 +35,7 @@ namespace Code.SkillSystem
 
         public virtual int GetEnemiesInRange(Transform checkTransform, float range)
             => Physics2D.OverlapCircle(checkTransform.position, range, whatIsEnemy, colliders);
-
+        
         public virtual int GetEnemiesInRange(Vector3 checkPosition, float range)
             => Physics2D.OverlapCircle(checkPosition, range, whatIsEnemy, colliders);
 
@@ -42,17 +43,17 @@ namespace Code.SkillSystem
         {
             Transform closestOne = null;
             int cnt = Physics2D.OverlapCircle(checkPosition, range, whatIsEnemy, colliders);
-
+            
             float closestDistance = Mathf.Infinity;
 
-            for(int i = 0; i < cnt; i++)
+            for (int i = 0; i < cnt; i++)
             {
                 if (colliders[i].TryGetComponent(out Entity enemy))
                 {
                     if (enemy.IsDead) continue;
                     float distanceToEnemy = Vector2.Distance(checkPosition, colliders[i].transform.position);
 
-                    if(distanceToEnemy < closestDistance)
+                    if (distanceToEnemy < closestDistance)
                     {
                         closestDistance = distanceToEnemy;
                         closestOne = colliders[i].transform;
@@ -63,4 +64,3 @@ namespace Code.SkillSystem
         }
     }
 }
-

@@ -36,6 +36,7 @@ namespace Code.Players
             base.AfterInitialize();
             EntityStat statCompo = GetCompo<EntityStat>();
             statCompo.GetStat(jumpCountStat).OnValueChange += HandleJumpCountChange;
+            // ^-^ 점프카운트 리셋 ^-^
             _currentJumpCount = _maxJumpCount = Mathf.RoundToInt(statCompo.GetStat(jumpCountStat).Value);
 
             PlayerInput.OnDashKeyPressed += HandleDashKeyPress;
@@ -66,8 +67,10 @@ namespace Code.Players
 
         private void HandleDashKeyPress()
         {
+            //이 부분은 나중에 메시징시스템으로 묶는다.
             float facingDirection = GetCompo<EntityRenderer>().FacingDirection;
             if (GetCompo<EntityMover>().IsWallDetected(facingDirection)) return;
+            
             if(GetCompo<SkillCompo>().GetSkill<DashSkill>().AttemptUseSkill())
                 ChangeState("DASH");
         }

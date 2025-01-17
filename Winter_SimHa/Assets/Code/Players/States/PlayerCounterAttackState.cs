@@ -17,7 +17,7 @@ namespace Code.Players.States
 
         private float _counterTimer;
         private bool _counterSuccess;
-
+        
         public PlayerCounterAttackState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
         {
             _player = entity as Player;
@@ -40,8 +40,8 @@ namespace Code.Players.States
             _counterTimer -= Time.deltaTime;
             if (_counterSuccess == false)
                 CheckCounter();
-
-            if (_counterTimer < 0 || _isTriggerCall)
+            
+            if(_counterTimer < 0 || _isTriggerCall)
                 _player.ChangeState("IDLE");
         }
 
@@ -57,10 +57,10 @@ namespace Code.Players.States
                 Vector2 attackDirection = new Vector2(_renderer.FacingDirection, 0);
                 Vector2 knockBackForce = attackData.knockBackForce;
                 knockBackForce.x *= _renderer.FacingDirection;
-
+                
                 countable.ApplyCounter(damage, attackDirection, knockBackForce, attackData.isPowerAttack, _player);
                 _renderer.SetParam(_attackCompo.successCounterParam, true);
-
+                
                 //카운터 성공메시지 보낸다.
                 CounterSuccessEvent counterEvt = PlayerEvents.CounterSuccessEvent;
                 counterEvt.target = countable.TargetTrm;

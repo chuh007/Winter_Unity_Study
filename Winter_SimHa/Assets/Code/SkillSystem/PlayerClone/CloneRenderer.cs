@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Code.SkillSystem.PlayerClone
@@ -7,9 +7,8 @@ namespace Code.SkillSystem.PlayerClone
     {
         public UnityEvent OnAttackTrigger;
         public UnityEvent OnAnimationEndTrigger;
-
+        
         private void AttackTrigger() => OnAttackTrigger?.Invoke();
         private void AnimationEnd() => OnAnimationEndTrigger?.Invoke();
     }
 }
-

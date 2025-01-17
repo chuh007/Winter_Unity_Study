@@ -43,6 +43,7 @@ namespace Code.Players.States
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash);
 
             _player.PlayerChannel.RaiseEvent(PlayerEvents.DashStartEvent);
+            //_player.GetCompo<SkillCompo>().GetSkill<CloneSkill>()?.CreateCloneOnDashStart();
         }
 
         private void EndDash()
@@ -53,6 +54,8 @@ namespace Code.Players.States
         public override void Exit()
         {
             _player.PlayerChannel.RaiseEvent(PlayerEvents.DashEndEvent);
+            //_player.GetCompo<SkillCompo>().GetSkill<CloneSkill>()?.CreateCloneOnDashEnd();
+            
             _mover.StopImmediately(false);
             _mover.CanManualMove = true;
             _mover.SetGravityScale(1f);

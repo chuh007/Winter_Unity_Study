@@ -27,7 +27,7 @@ namespace Code.SkillSystem.PlayerClone
         private Entity _skillOwner;
         private int _duplicateCount;
 
-        public void SetUpClone(Entity owner, CloneSkill skill, Transform targetTrm,int duplicateCount)
+        public void SetUpClone(Entity owner, CloneSkill skill, Transform targetTrm, int duplicateCount)
         {
             _skillOwner = owner;
             _comboCounter = Random.Range(0, skillAttackDataList.Count);
@@ -37,14 +37,14 @@ namespace Code.SkillSystem.PlayerClone
             damageCaster.InitCaster(owner);
 
             _duplicateCount = duplicateCount;
-
+            
             FacingToClosestTarget(targetTrm);
             StartCoroutine(FadeAfterDelay(skill.cloneDuration));
         }
-
+        
         private void FacingToClosestTarget(Transform targetTrm)
         {
-            if (targetTrm == null) return;
+            if(targetTrm == null) return;
 
             if (transform.position.x > targetTrm.position.x)
             {
@@ -52,11 +52,11 @@ namespace Code.SkillSystem.PlayerClone
                 transform.Rotate(0, 180f, 0);
             }
         }
-
+        
         private IEnumerator FadeAfterDelay(float skillCloneDuration)
         {
             yield return new WaitForSeconds(skillCloneDuration);
-            spriteRenderer.DOFade(0, 0.7f).OnComplete(() => Destroy(gameObject));
+            spriteRenderer.DOFade(0, 0.7f).OnComplete(()=> Destroy(gameObject));
         }
 
         public void AttackTrigger()
@@ -69,13 +69,13 @@ namespace Code.SkillSystem.PlayerClone
                                 + attackData.damageIncrease;
 
             bool success = damageCaster.CastDamage(finalDamage, attackData.knockBackForce, attackData.isPowerAttack);
-
+            
             if (success && _skill.canDuplicateClone && _duplicateCount < _skill.maxDuplicateCounter) //공격성공했고 복제가 언락되었다면
             {
                 //Random.value => 0~1까지 랜덤 값 반환
                 if (Random.value < _skill.duplicatePercent * Mathf.Pow(_skill.reducePercentByCount, _duplicateCount))
                 {
-                    _skill.CreateClone(transform, new Vector3(1.5f * _facingDirection, 0),_duplicateCount + 1);
+                    _skill.CreateClone(transform, new Vector3(1.5f * _facingDirection, 0), _duplicateCount + 1);
                 }
             }
         }

@@ -25,6 +25,7 @@ namespace Code.Players.States
 
             float facingDir = _renderer.FacingDirection;
             if (Mathf.Abs(facingDir + xInput) > 1.5f && _mover.IsWallDetected(facingDir)) return;
+            
             if (Mathf.Abs(xInput) > 0)
             {
                 _player.ChangeState("MOVE");
