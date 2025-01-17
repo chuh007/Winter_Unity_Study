@@ -22,12 +22,8 @@ namespace Code.Players
         private int _currentJumpCount;
         public bool CanJump => _currentJumpCount > 0;
         
-        //임시코드
-        public EntityFinderSO PlayerFinder;
-                
         protected override void Awake()
         {
-            PlayerFinder.SetEntity(this); //임시코드 -> 나중에 씬로더 나오면 삭제
             base.Awake();
             _stateMachine = new StateMachine(this, playerFSM);
         }
@@ -48,8 +44,10 @@ namespace Code.Players
         {
             base.OnDestroy();
             GetCompo<EntityStat>().GetStat(jumpCountStat).OnValueChange -= HandleJumpCountChange;
-            PlayerInput.OnDashKeyPressed -= HandleDashKeyPress;
+            PlayerInput.OnDashKeyPressed -= HandleDashKeyPress; //필요 없긴 하다.
             GetCompo<EntityAnimationTrigger>().OnAnimationEnd -= HandleAnimationEnd;
+
+            PlayerInput.ClearSubscription();
         }
 
         protected override void HandleHit()
