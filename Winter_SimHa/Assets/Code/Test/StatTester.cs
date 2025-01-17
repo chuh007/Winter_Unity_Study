@@ -22,5 +22,11 @@ namespace Code.Test
         {
             statCompo.GetStat(targetStat).RemoveModifier(this);
         }
+
+        [ContextMenu("Print Stat")]
+        private void PrintStatValue()
+        {
+            Debug.Log(statCompo.GetStat(targetStat).Value);
+        }
     }
 }

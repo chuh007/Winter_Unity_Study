@@ -4,12 +4,15 @@ using Code.Core.EventSystems;
 using Code.Core.StatSystem;
 using Code.Entities;
 using Code.Entities.FSM;
+using Code.SkillSystem;
+using Code.SkillSystem.Dash;
 using UnityEngine;
 
 namespace Code.Players
 {
     public class Player : Entity
     {
+        [field: SerializeField] public GameEventChannelSO PlayerChannel { get; private set; }
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private StateListSO playerFSM;
 
@@ -33,7 +36,6 @@ namespace Code.Players
             base.AfterInitialize();
             EntityStat statCompo = GetCompo<EntityStat>();
             statCompo.GetStat(jumpCountStat).OnValueChange += HandleJumpCountChange;
-            // ^-^ 점프카운트 리셋 ^-^
             _currentJumpCount = _maxJumpCount = Mathf.RoundToInt(statCompo.GetStat(jumpCountStat).Value);
 
             PlayerInput.OnDashKeyPressed += HandleDashKeyPress;
@@ -64,8 +66,10 @@ namespace Code.Players
 
         private void HandleDashKeyPress()
         {
-            //이 부분은 나중에 스킬시스템과 메시징시스템으로 묶는다.
-            ChangeState("DASH");
+            float facingDirection = GetCompo<EntityRenderer>().FacingDirection;
+            if (GetCompo<EntityMover>().IsWallDetected(facingDirection)) return;
+            if(GetCompo<SkillCompo>().GetSkill<DashSkill>().AttemptUseSkill())
+                ChangeState("DASH");
         }
 
         private void HandleJumpCountChange(StatSO stat, float current, float previous)

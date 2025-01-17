@@ -720,6 +720,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1251634523}
     m_Modifications:
+    - target: {fileID: 930142706639054800, guid: 88e396e608832fa4a87a2c3665bcaeeb, type: 3}
+      propertyPath: statOverrides.Array.data[1].overrideValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3518760027545355793, guid: 88e396e608832fa4a87a2c3665bcaeeb, type: 3}
       propertyPath: m_Name
       value: EnemySkeleton (1)
@@ -9379,6 +9383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1251634523}
     m_Modifications:
+    - target: {fileID: 930142706639054800, guid: 88e396e608832fa4a87a2c3665bcaeeb, type: 3}
+      propertyPath: statOverrides.Array.data[1].overrideValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3518760027545355793, guid: 88e396e608832fa4a87a2c3665bcaeeb, type: 3}
       propertyPath: m_Name
       value: EnemySkeleton
@@ -9436,10 +9444,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52851387590458349, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: targetStat
+      value: 
+      objectReference: {fileID: 11400000, guid: e09531858884d3846860811d8f9ee7fa, type: 2}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[5].stat
+      value: 
+      objectReference: {fileID: 11400000, guid: bf941328f22b35a478c03ee938917d82, type: 2}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[5].isUseOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[5].overrideValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4196524031036255887, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5077596802606510533, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: <PlayerChannel>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: duplicatePercent
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: canDuplicateClone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: createCloneOnDashEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: reducePercentByCount
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: createCloneOnDashStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: createCloneOnCounterAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318566681920227722, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: <PlayerChannel>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
     - target: {fileID: 5639264225076550653, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.01

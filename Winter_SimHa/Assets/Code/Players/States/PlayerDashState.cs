@@ -1,6 +1,9 @@
 ﻿using Code.Animators;
+using Code.Core.EventSystems;
 using Code.Entities;
 using Code.Entities.FSM;
+using Code.SkillSystem;
+using Code.SkillSystem.PlayerClone;
 using DG.Tweening;
 using UnityEngine;
 
@@ -38,6 +41,8 @@ namespace Code.Players.States
                 dashTime = distance * _dashTime / _dashDistance;
             }
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash);
+
+            _player.PlayerChannel.RaiseEvent(PlayerEvents.DashStartEvent);
         }
 
         private void EndDash()
@@ -47,6 +52,7 @@ namespace Code.Players.States
 
         public override void Exit()
         {
+            _player.PlayerChannel.RaiseEvent(PlayerEvents.DashEndEvent);
             _mover.StopImmediately(false);
             _mover.CanManualMove = true;
             _mover.SetGravityScale(1f);
