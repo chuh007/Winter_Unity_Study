@@ -9,18 +9,6 @@ namespace Code.Entities
         [SerializeField] private string targetTag;
         public Entity target;
 
-        private void OnEnable()
-        {
-            if (target != null) return;
-            if (string.IsNullOrEmpty(targetTag)) return;
-            
-            GameObject targetObject = GameObject.FindGameObjectWithTag(targetTag);
-            if (targetObject != null)
-            {
-                target = targetObject.GetComponent<Entity>();
-            }
-        }
-
         public void SetEntity(Entity entity)
         {
             target = entity;

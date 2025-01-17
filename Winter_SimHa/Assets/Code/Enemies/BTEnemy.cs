@@ -1,4 +1,5 @@
-﻿using Code.Entities;
+﻿using Code.Core.EventSystems;
+using Code.Entities;
 using Unity.Behavior;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ namespace Code.Enemies
         [field: SerializeField] public EntityFinderSO PlayerFinder { get; protected set; }
         public LayerMask whatIsPlayer;
         public float FacingDirection => _renderer.FacingDirection;
+
+        //임시코드
+        [SerializeField] protected GameEventChannelSO playerChannel;
+        [SerializeField] protected int dropExp = 10;
         
         protected BehaviorGraphAgent _btAgent;
         protected EntityRenderer _renderer;

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Code.Core.StatSystem;
 using UnityEngine;
 
@@ -46,5 +48,36 @@ namespace Code.Entities
                 stat.ClearAllModifier();
             }
         }
+        
+        
+        #region Save logic
+
+        [Serializable]
+        public struct StatSaveData
+        {
+            public string statName;
+            public float baseValue;
+        }
+        
+        public List<StatSaveData> GetSaveData()
+            => _stats.Aggregate(new List<StatSaveData>(), (saveList, stat) =>
+                {
+                    saveList.Add(new StatSaveData{ statName = stat.statName, baseValue = stat.BaseValue});
+                    return saveList;
+                });
+        
+
+        public void RestoreData(List<StatSaveData> loadedDataList)
+        {
+            foreach (StatSaveData loadData in loadedDataList)
+            {
+                StatSO targetStat = _stats.FirstOrDefault(stat => stat.statName == loadData.statName);
+                if (targetStat != default)
+                {
+                    targetStat.BaseValue = loadData.baseValue;
+                }
+            }
+        }
+        #endregion
     }
 }

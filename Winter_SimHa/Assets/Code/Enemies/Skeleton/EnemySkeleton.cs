@@ -1,4 +1,5 @@
 ﻿using Code.Combats;
+using Code.Core.EventSystems;
 using Code.Enemies.BTCommons;
 using Code.Entities;
 using Unity.Behavior;
@@ -82,6 +83,10 @@ namespace Code.Enemies.Skeleton
             gameObject.layer = DeadBodyLayer;
             IsDead = true;
             _stateChannel.SendEventMessage(BTEnemyState.DEATH);
+            
+            AddEXPEvent addExpEvt = PlayerEvents.AddExpEvent;
+            addExpEvt.exp = dropExp;
+            playerChannel.RaiseEvent(addExpEvt);
         }
 
         #region Counter section

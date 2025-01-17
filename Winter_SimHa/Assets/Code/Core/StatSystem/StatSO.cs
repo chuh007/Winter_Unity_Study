@@ -96,5 +96,6 @@ namespace Code.Core.StatSystem
         }
         
         public object Clone() => Instantiate(this);
+
     }
 }

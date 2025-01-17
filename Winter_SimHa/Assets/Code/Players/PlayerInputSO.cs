@@ -32,6 +32,15 @@ namespace Code.Players
             _controls.Player.Disable();
         }
 
+        public void ClearSubscription()
+        {
+            OnJumpKeyPressed = null;
+            OnAttackKeyPressed = null;
+            OnDashKeyPressed = null;
+            OnSlideKeyPressed = null;
+            OnCounterKeyPressed = null;
+        }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             InputDirection = context.ReadValue<Vector2>();
