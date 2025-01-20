@@ -16,8 +16,8 @@ namespace Code.SkillSystem.Crystals
         protected bool _canExplode;
         protected Animator _animator;
         protected CrystalSkill _skill;
+        protected CrystalController _crystalController;
         protected Entity _owner;
-        protected CrystalController _controller;
 
         protected float _damage;
         
@@ -50,7 +50,7 @@ namespace Code.SkillSystem.Crystals
             _damage = damageStat;
             damageCaster.InitCaster(owner);
             _canExplode = true;
-            _controller = controller;
+            _crystalController = controller;
         }
         
         public abstract void TriggerCrystal();

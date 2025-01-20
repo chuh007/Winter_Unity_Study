@@ -9471,6 +9471,10 @@ PrefabInstance:
       propertyPath: statOverrides.Array.data[6].overrideValue
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3922122610775137320, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: crystalType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4196524031036255887, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
       propertyPath: m_Name
       value: Player

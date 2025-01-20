@@ -1,6 +1,6 @@
+﻿using System;
 using Code.Entities;
 using DG.Tweening;
-using System;
 using UnityEngine;
 
 namespace Code.SkillSystem.Crystals
@@ -9,8 +9,8 @@ namespace Code.SkillSystem.Crystals
     {
         [SerializeField] private float moveSpeed = 20f;
         private bool _isLaunched = false;
-        protected MultiCrystalController _multiCrystalController;
-
+        private MultiCrystalController _multiCrystalController;
+        
         public override void SetUp(float damageStat, CrystalSkill skill, CrystalController controller, Entity owner)
         {
             base.SetUp(damageStat, skill, controller, owner);
@@ -26,10 +26,10 @@ namespace Code.SkillSystem.Crystals
 
         private void Update()
         {
-            if (_isLaunched == false) return;
-            if (_canExplode == false) return;
+            if (_isLaunched == false) return; //발사하지 않은 녀석들은 update 필요 없어.
+            if (_canExplode == false) return; //이미 폭발함
 
-            if(_multiCrystalController.ActiveTarget == null)
+            if (_multiCrystalController.ActiveTarget == null)
             {
                 Explosion();
                 return;
@@ -38,25 +38,27 @@ namespace Code.SkillSystem.Crystals
             transform.position = Vector2.MoveTowards(transform.position,
                                     _multiCrystalController.ActiveTarget.position,
                                     moveSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, _multiCrystalController.ActiveTarget.position) < 1f)
+            
+            if(Vector2.Distance(transform.position, _multiCrystalController.ActiveTarget.position) < 1f)
                 Explosion();
+
         }
 
         public override void TriggerCrystal()
         {
-            if(_multiCrystalController.ActiveTarget == null)
+            if (_multiCrystalController.ActiveTarget == null)
             {
                 Explosion();
                 return;
             }
 
-            transform.DOKill();
+            transform.DOKill(); //펄스 무빙 하던 트윈 제거
             transform.DOLocalMoveY(2f, 0.3f).OnComplete(() =>
             {
                 _isLaunched = true;
                 transform.SetParent(null);
             });
+
         }
     }
 }

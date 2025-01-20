@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Code.Entities;
@@ -16,9 +16,8 @@ namespace Code.SkillSystem.Crystals
         [SerializeField] private float findEnemyRadius = 15f;
         [SerializeField] private int amountOfCrystals = 3;
 
-        //ÀÌºÎºĞÀº ³ªÁß¿¡ SOµîÀ¸·Î °³¼±ÇÒ ¼ö ÀÖÀ½.
-        [SerializeField]
-        private Vector2[] offsets =
+        //ì´ë¶€ë¶„ì€ ë‚˜ì¤‘ì— SOë“±ìœ¼ë¡œ ê°œì„ í•  ìˆ˜ ìˆìŒ.
+        [SerializeField] private Vector2[] offsets =
         {
             new Vector2(0.3f, 0.3f), new Vector2(-0.3f, 0.3f), new Vector2(0.3f, -0.3f),
             new Vector2(-0.3f, -0.3f), Vector2.zero
@@ -35,7 +34,7 @@ namespace Code.SkillSystem.Crystals
 
         private IEnumerator MakeMultipleCryStal()
         {
-            //ÇÃ·¹ÀÌ¾îÀÇ µÚÂÊ¿¡ offset¸¸Å­ ¶³¾î¶ß·Á¼­ »ı¼ºÇÑ´Ù.
+            //í”Œë ˆì´ì–´ì˜ ë’¤ìª½ì— offsetë§Œí¼ ë–¨ì–´ëœ¨ë ¤ì„œ ìƒì„±í•œë‹¤.
             Vector3 position = _owner.transform.position + _owner.transform.right * -positionOffset;
 
             WaitForSeconds wait = new WaitForSeconds(0.1f);
@@ -43,18 +42,18 @@ namespace Code.SkillSystem.Crystals
             {
                 Crystal crystal = Instantiate(crystalPrefab, position + (Vector3)offsets[i], Quaternion.identity)
                                     .GetComponent<Crystal>();
-                crystal.transform.localScale = Vector3.one * 0.5f; //Àı¹İÅ©±â·Î Ãà¼Ò
-
+                crystal.transform.localScale = Vector3.one * 0.5f; //ì ˆë°˜í¬ê¸°ë¡œ ì¶•ì†Œ
+                
+                crystal.transform.SetParent(_owner.transform); //ë¶€ëª¨ë¥¼ ì§€ì •í•´ì„œ ë”°ë¼ë‹¤ë‹ˆê²Œ 
                 crystal.SetUp(_damageStatValue, skill, this, _owner);
                 crystalList.Add(crystal);
-                crystal.transform.SetParent(_owner.transform); //ºÎ¸ğ¸¦ ÁöÁ¤ÇØ¼­ µû¶ó´Ù´Ï°Ô 
 
                 yield return wait;
             }
 
             ReadyToLaunch = true;
-            _timer = skill.timeOut * timerMultiplier; //µÚ¸¦ µû¶ó´Ù´Ï´Â ¾ÖµéÀº ¶óÀÌÇÁÅ¸ÀÓÀÌ ´õ ±æ¾î¾ß ÇØ¼­
-            SetCrystalStatus(true); //Å©¸®½ºÅ» ÁØºñ ¿Ï·á
+            _timer = skill.timeOut * timerMultiplier; //ë’¤ë¥¼ ë”°ë¼ë‹¤ë‹ˆëŠ” ì• ë“¤ì€ ë¼ì´í”„íƒ€ì„ì´ ë” ê¸¸ì–´ì•¼ í•´ì„œ
+            SetCrystalStatus(true); //í¬ë¦¬ìŠ¤íƒˆ ì¤€ë¹„ ì™„ë£Œ
         }
 
         private void Update()
@@ -75,7 +74,7 @@ namespace Code.SkillSystem.Crystals
         {
             if (!ReadyToLaunch) return;
 
-            //½ºÅ³ÀÇ »ç°Å¸® ³»ÀÇ ÀûÀ» Ã£´Â´Ù.
+            //ìŠ¤í‚¬ì˜ ì‚¬ê±°ë¦¬ ë‚´ì˜ ì ì„ ì°¾ëŠ”ë‹¤.
             Transform target = skill.FindClosestTarget(_owner.transform, findEnemyRadius);
             if (target != null)
             {

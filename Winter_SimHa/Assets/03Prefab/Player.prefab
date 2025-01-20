@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 686060119913008682}
-  - {fileID: 6706799024218054720}
+  - {fileID: 611452171521951672}
   m_Father: {fileID: 7278679543533217980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3922122610775137320
@@ -52,6 +52,64 @@ MonoBehaviour:
   timeOut: 2.5
   damageMultiplier: 1
   crystalType: 0
+--- !u!1 &1866405514748849270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611452171521951672}
+  - component: {fileID: 3354053059839094173}
+  m_Layer: 7
+  m_Name: MultiCrystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &611452171521951672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866405514748849270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2982745251193265990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3354053059839094173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866405514748849270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37026e9b02946cfb4a82912a515d0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 1
+  skill: {fileID: 0}
+  crystalPrefab: {fileID: 7369703902509486566, guid: 925dc9447a5c88e4db011a4f6715310a, type: 3}
+  crystalList: []
+  timerMultiplier: 10
+  positionOffset: 1.2
+  findEnemyRadius: 15
+  amountOfCrystals: 3
+  offsets:
+  - {x: 0.3, y: 0.3}
+  - {x: -0.3, y: 0.3}
+  - {x: 0.3, y: -0.3}
+  - {x: -0.3, y: -0.3}
+  - {x: 0, y: 0}
 --- !u!1 &2340451701114903399
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,64 +470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillEnabled: 1
   cooldown: 2
---- !u!1 &6373518759838318594
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6706799024218054720}
-  - component: {fileID: 5025188701881301749}
-  m_Layer: 7
-  m_Name: MiniCrystal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6706799024218054720
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373518759838318594}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2982745251193265990}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5025188701881301749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373518759838318594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dc4e74a862a3f74aaad2a39aebbe490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crystalType: 1
-  skill: {fileID: 0}
-  crystalPrefab: {fileID: 9214061430817497411, guid: b54b0c26353f1274da2d72ac847c38fe, type: 3}
-  crystalList: []
-  timerMultiplier: 10
-  positionOffset: 1.2
-  findEnemyRadius: 15
-  amountOfCrystals: 3
-  offsets:
-  - {x: 0.3, y: 0.3}
-  - {x: -0.3, y: 0.3}
-  - {x: 0.3, y: -0.3}
-  - {x: -0.3, y: -0.3}
-  - {x: 0, y: 0}
 --- !u!1 &6384501258777023913
 GameObject:
   m_ObjectHideFlags: 0
