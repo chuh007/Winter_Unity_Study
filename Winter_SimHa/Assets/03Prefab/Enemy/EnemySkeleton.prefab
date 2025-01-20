@@ -228,7 +228,7 @@ MonoBehaviour:
   detectDistance: 10
   attackCooldown: 1
   cooldownRandomness: 0.2
-  damageCaster: {fileID: 2622796465459943236}
+  damageCaster: {fileID: 3954187598348601007}
   attackRangeName: AttackRange
   detectRangeName: DetectRange
   attackCooldownName: AttackCooldown
@@ -878,6 +878,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7871148836540531786, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
+      propertyPath: contactFilter.layerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 9204763899768559009, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
       propertyPath: contactFilter.layerMask.m_Bits
       value: 128
@@ -892,14 +896,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5137024979107216187, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
   m_PrefabInstance: {fileID: 6619139723718329061}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2622796465459943236 stripped
+--- !u!114 &3954187598348601007 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9204763899768559009, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7871148836540531786, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
   m_PrefabInstance: {fileID: 6619139723718329061}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f32f352f7434206bff0a84b6d7f3498, type: 3}
+  m_Script: {fileID: 11500000, guid: d7274b3969894a5f9c7cd27f90c9e8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

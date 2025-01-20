@@ -111,7 +111,8 @@ namespace Code.Players
         public ICounterable GetCounterableTargetInRadius()
         {
             Vector3 center = damageCaster.transform.position;
-            Collider2D collider = Physics2D.OverlapCircle(center, damageCaster.damageRadius, whatIsCounterable);
+            Collider2D collider = damageCaster.GetCounterableTarget(center, whatIsCounterable);
+            //Collider2D collider = Physics2D.OverlapCircle(center, damageCaster.GetSize(), whatIsCounterable);
             if(collider != null)
                 return collider.GetComponent<ICounterable>();
             

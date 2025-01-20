@@ -8,6 +8,7 @@ namespace Code.SkillSystem
 {
     public class SkillCompo : MonoBehaviour, IEntityComponent
     {
+        public Skill activeSkill; //현재 활성화되어 있는 스킬
         public ContactFilter2D whatIsEnemy;
         public Collider2D[] colliders;
 

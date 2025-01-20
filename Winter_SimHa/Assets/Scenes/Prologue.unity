@@ -209,6 +209,17 @@ Transform:
   - {fileID: 1251634523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &488867536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3922122610775137320, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+  m_PrefabInstance: {fileID: 8552113161675773431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a134ad12b5384fbeab2407c5fc3f8d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &510858862
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +409,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -9444,6 +9455,22 @@ PrefabInstance:
       propertyPath: canDuplicateClone
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[6].stat
+      value: 
+      objectReference: {fileID: 11400000, guid: c49a4b6ce764bdb41be69c4da6f09944, type: 2}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[6].isUseOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758753683843717979, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: statOverrides.Array.data[6].overrideValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4196524031036255887, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9488,6 +9515,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7761954690318609262, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: isGuidedFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429752879524340663, guid: 7aa00b6cf66f4f141ba81a19ca04df85, type: 3}
+      propertyPath: activeSkill
+      value: 
+      objectReference: {fileID: 488867536}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

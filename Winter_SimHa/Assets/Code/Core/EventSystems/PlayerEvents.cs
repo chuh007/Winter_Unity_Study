@@ -4,12 +4,13 @@ namespace Code.Core.EventSystems
 {
     public static class PlayerEvents
     {
-        public static AddEXPEvent AddExpEvent = new AddEXPEvent();
-        public static PlayerAttackSuccess PlayerAttackSuccess = new PlayerAttackSuccess();
-        public static DashStartEvent DashStartEvent = new DashStartEvent();
-        public static DashEndEvent DashEndEvent = new DashEndEvent();
-        public static CounterSuccessEvent CounterSuccessEvent = new CounterSuccessEvent();
-        
+        public static readonly AddEXPEvent AddExpEvent = new AddEXPEvent();
+        public static readonly PlayerAttackSuccess PlayerAttackSuccess = new PlayerAttackSuccess();
+        public static readonly DashStartEvent DashStartEvent = new DashStartEvent();
+        public static readonly DashEndEvent DashEndEvent = new DashEndEvent();
+        public static readonly CounterSuccessEvent CounterSuccessEvent = new CounterSuccessEvent();
+        public static readonly SkillChargedEvent SkillChargedEvent = new SkillChargedEvent();
+        public static readonly SkillChargeEndEvent SkillChargeEndEvent = new SkillChargeEndEvent();
     }
 
     public class AddEXPEvent : GameEvent
@@ -24,4 +25,10 @@ namespace Code.Core.EventSystems
     {
         public Transform target;
     }
+
+    public class SkillChargedEvent : GameEvent
+    {
+        public int chargeCount;
+    }
+    public class SkillChargeEndEvent : GameEvent { }
 }

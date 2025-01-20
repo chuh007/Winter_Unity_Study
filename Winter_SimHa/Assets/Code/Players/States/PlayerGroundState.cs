@@ -1,6 +1,7 @@
 ﻿using Code.Animators;
 using Code.Entities;
 using Code.Entities.FSM;
+using Code.SkillSystem;
 
 namespace Code.Players.States
 {
@@ -21,6 +22,7 @@ namespace Code.Players.States
             _player.PlayerInput.OnJumpKeyPressed += HandleJumpKeyPress;
             _player.PlayerInput.OnAttackKeyPressed += HandleAttackKeyPress;
             _player.PlayerInput.OnCounterKeyPressed += HandleCounterKeyPress;
+            _player.PlayerInput.OnSkillKeyPressed += HandleSkillKeyPress;
         }
 
         public override void Update()
@@ -37,7 +39,22 @@ namespace Code.Players.States
             _player.PlayerInput.OnJumpKeyPressed -= HandleJumpKeyPress;
             _player.PlayerInput.OnAttackKeyPressed -= HandleAttackKeyPress;
             _player.PlayerInput.OnCounterKeyPressed -= HandleCounterKeyPress;
+            _player.PlayerInput.OnSkillKeyPressed -= HandleSkillKeyPress;
             base.Exit();
+        }
+
+        private void HandleSkillKeyPress(bool isPressed)
+        {
+            Skill activeSkill = _player.GetCompo<SkillCompo>().activeSkill;
+            if (activeSkill == null) return;
+            
+            if (isPressed && activeSkill.AttemptUseSkill())
+            {
+                if(activeSkill is IReleasable)
+                    _player.ChangeState("SKILL_CHARGE");
+                else 
+                    _player.ChangeState("SKILL_USE");
+            }
         }
 
         private void HandleCounterKeyPress()

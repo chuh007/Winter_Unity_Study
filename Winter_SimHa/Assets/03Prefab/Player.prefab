@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1444990742909669372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2982745251193265990}
+  - component: {fileID: 3922122610775137320}
+  m_Layer: 7
+  m_Name: CrystalSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2982745251193265990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444990742909669372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 686060119913008682}
+  - {fileID: 6706799024218054720}
+  m_Father: {fileID: 7278679543533217980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3922122610775137320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444990742909669372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a134ad12b5384fbeab2407c5fc3f8d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillEnabled: 1
+  cooldown: 3
+  damageStat: {fileID: 11400000, guid: c49a4b6ce764bdb41be69c4da6f09944, type: 2}
+  timeOut: 2.5
+  damageMultiplier: 1
+  crystalType: 0
 --- !u!1 &2340451701114903399
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +84,8 @@ Transform:
   m_Children:
   - {fileID: 2219211745477947456}
   - {fileID: 5495270759828912987}
+  - {fileID: 7742859630227368228}
+  - {fileID: 2982745251193265990}
   m_Father: {fileID: 5639264225076550653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8429752879524340663
@@ -46,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28ed8d807134599a3fe5d061548ce5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSkill: {fileID: 0}
   whatIsEnemy:
     useTriggers: 1
     useLayerMask: 1
@@ -116,10 +171,70 @@ MonoBehaviour:
   createCloneOnCounterAttack: 0
   findEnemyRadius: 8
   damageMultiplier: 1
+  generateProbability: 0.1
   counterCloneOffset: 2
   delayCreateCounterClone: 0.4
   canDuplicateClone: 0
   duplicatePercent: 0.5
+  maxDuplicateCounter: 3
+  reducePercentByCount: 0.5
+--- !u!1 &2414056148520115221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7742859630227368228}
+  - component: {fileID: 7761954690318609262}
+  m_Layer: 7
+  m_Name: IceBallSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7742859630227368228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414056148520115221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3338645001585213482}
+  m_Father: {fileID: 7278679543533217980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7761954690318609262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414056148520115221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e34351e37e4a919ef2b5a9649839ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillEnabled: 1
+  cooldown: 3
+  chargingEffect: {fileID: 1491074405843658274}
+  iceballPrefab: {fileID: 5396576728777278421, guid: 191306cdebb2cd744ba6451fd3bde8a7, type: 3}
+  <PlayerChannel>k__BackingField: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
+  <MagicDamageStat>k__BackingField: {fileID: 11400000, guid: c49a4b6ce764bdb41be69c4da6f09944, type: 2}
+  isGuidedFire: 0
+  guideForce: 25
+  guideRange: 12
+  maxMissiles: 2
+  chargeTime: 1
+  damageMultiplier: 1
 --- !u!1 &4196524031036255887
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +412,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillEnabled: 1
   cooldown: 2
+--- !u!1 &6373518759838318594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6706799024218054720}
+  - component: {fileID: 5025188701881301749}
+  m_Layer: 7
+  m_Name: MiniCrystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6706799024218054720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373518759838318594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2982745251193265990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5025188701881301749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373518759838318594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc4e74a862a3f74aaad2a39aebbe490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 1
+  skill: {fileID: 0}
+  crystalPrefab: {fileID: 9214061430817497411, guid: b54b0c26353f1274da2d72ac847c38fe, type: 3}
+  crystalList: []
+  timerMultiplier: 10
+  positionOffset: 1.2
+  findEnemyRadius: 15
+  amountOfCrystals: 3
+  offsets:
+  - {x: 0.3, y: 0.3}
+  - {x: -0.3, y: 0.3}
+  - {x: 0.3, y: -0.3}
+  - {x: -0.3, y: -0.3}
+  - {x: 0, y: 0}
 --- !u!1 &6384501258777023913
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeedStat: {fileID: 11400000, guid: 9b11fc7524a624b48b232e6968ff0480, type: 2}
   atkSpeedParam: {fileID: 11400000, guid: 99dced4362229a64db23d7fbd027624e, type: 2}
-  damageCaster: {fileID: 4742920525843300478}
+  damageCaster: {fileID: 6004475606635221397}
   attackDataList:
   - {fileID: 11400000, guid: 5011477b172aa3b4ba6735f72fe3f0e9, type: 2}
   - {fileID: 11400000, guid: 7f4d77a718980cc4eb170c9808519fee, type: 2}
@@ -357,6 +530,53 @@ MonoBehaviour:
   whatIsCounterable:
     serializedVersion: 2
     m_Bits: 768
+--- !u!1 &6741132981830858383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686060119913008682}
+  - component: {fileID: 7758284215095163951}
+  m_Layer: 7
+  m_Name: TriggerExplosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686060119913008682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741132981830858383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2982745251193265990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7758284215095163951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741132981830858383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3cf5da296945b7800da1c47e987be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 0
+  skill: {fileID: 0}
+  crystalPrefab: {fileID: 1040684936680341043, guid: f3b1233640d640c4aa58337c0611e66b, type: 3}
 --- !u!1 &7636905079990871056
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +963,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2045774741996135771, guid: 3bbd858142732784b92e1586862e0f89, type: 3}
   m_PrefabInstance: {fileID: 3235214601378900919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4101532049245560207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7742859630227368228}
+    m_Modifications:
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093385057646582594, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+      propertyPath: m_Name
+      value: ChargingEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+--- !u!198 &1491074405843658274 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3196093313494399917, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+  m_PrefabInstance: {fileID: 4101532049245560207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3338645001585213482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1638939017468157349, guid: ecdc15fc4b4aaee4697b362643005ace, type: 3}
+  m_PrefabInstance: {fileID: 4101532049245560207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4499059647822943711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -804,15 +1091,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
---- !u!114 &4742920525843300478 stripped
+--- !u!114 &6004475606635221397 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9204763899768559009, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7871148836540531786, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
   m_PrefabInstance: {fileID: 4499059647822943711}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f32f352f7434206bff0a84b6d7f3498, type: 3}
+  m_Script: {fileID: 11500000, guid: d7274b3969894a5f9c7cd27f90c9e8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &8729594464373944036 stripped

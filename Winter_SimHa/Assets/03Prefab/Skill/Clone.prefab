@@ -138,6 +138,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnAnimationEndTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7804190326854703915
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3556537166340880147}
   animator: {fileID: 933783244495674468}
-  damageCaster: {fileID: 6247741301587211217}
+  damageCaster: {fileID: 4914126801734033978}
   comboCounterParam: {fileID: 11400000, guid: b2c8fbd5f718ccf40b8225659d9848f7, type: 2}
   damageStat: {fileID: 11400000, guid: 75400f30c19a16f47a9a0b1a01c1215a, type: 2}
   skillAttackDataList:
@@ -254,15 +257,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
---- !u!114 &6247741301587211217 stripped
+--- !u!114 &4914126801734033978 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9204763899768559009, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7871148836540531786, guid: 0f710af2ba7dafc4ea3c00bb1402b102, type: 3}
   m_PrefabInstance: {fileID: 2957048990776895088}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f32f352f7434206bff0a84b6d7f3498, type: 3}
+  m_Script: {fileID: 11500000, guid: d7274b3969894a5f9c7cd27f90c9e8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7945455179473706315 stripped

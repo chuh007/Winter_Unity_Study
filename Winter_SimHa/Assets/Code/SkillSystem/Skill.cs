@@ -24,7 +24,7 @@ namespace Code.SkillSystem
             _skillCompo = skillCompo;
         }
 
-        public void Update()
+        protected virtual void Update()
         {
             if (_cooldownTimer > 0)
             {

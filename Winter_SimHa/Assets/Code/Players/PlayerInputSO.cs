@@ -12,6 +12,7 @@ namespace Code.Players
         public event Action OnDashKeyPressed;
         public event Action OnSlideKeyPressed;
         public event Action OnCounterKeyPressed;
+        public event Action<bool> OnSkillKeyPressed;
         
         public Vector2 InputDirection { get; private set; }
         
@@ -74,6 +75,14 @@ namespace Code.Players
         {
             if(context.performed)
                 OnCounterKeyPressed?.Invoke();
+        }
+
+        public void OnSkill(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnSkillKeyPressed?.Invoke(true);
+            if(context.canceled)
+                OnSkillKeyPressed?.Invoke(false);
         }
     }
 }

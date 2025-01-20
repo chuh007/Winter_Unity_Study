@@ -16,7 +16,11 @@ namespace Code.Core.EventSystems
         public void AddListener<T>(Action<T> handler) where T : GameEvent
         {
             //이미 구독중인 메서드가 다시 구독되지 않도록 한다.
-            if (_lookUpTable.ContainsKey(handler) == true) return;
+            if (_lookUpTable.ContainsKey(handler) == true)
+            {
+                Debug.Log($"{typeof(T)} is already registered");
+                return;
+            }
             
             Action<GameEvent> castHandler = evt => handler.Invoke(evt as T);
             _lookUpTable[handler] = castHandler;
@@ -41,7 +45,7 @@ namespace Code.Core.EventSystems
                     else
                         _events[evtType] = internalHandler;
                 }
-                _lookUpTable.Remove(castHandler);
+                _lookUpTable.Remove(handler); //여기가 castHandler로 적혀있어서 리스너가 빠지질 않았어.
             }
         }
 
