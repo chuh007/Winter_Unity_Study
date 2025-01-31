@@ -1,7 +1,6 @@
-using Code.Core.EventSystems;
+﻿using Code.Core.EventSystems;
 using Code.Players;
 using Code.UI.MainMenu;
-using System;
 using UnityEngine;
 
 namespace Code.Core.Managers
@@ -26,8 +25,8 @@ namespace Code.Core.Managers
         {
             OpenMenuEvent openEvt = UIEvents.OpenMenuEvent;
             openEvt.UIType = defaultUIType;
-            uiEventChannel.RaiseEvent(UIEvents.OpenMenuEvent);
+            
+            uiEventChannel.RaiseEvent(openEvt);
         }
     }
 }
-

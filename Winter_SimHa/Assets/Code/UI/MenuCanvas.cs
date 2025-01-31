@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Core.EventSystems;
@@ -13,7 +13,7 @@ namespace Code.UI
     {
         Closed, Closing, Opening, Opened
     }
-
+    
     public class MenuCanvas : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
@@ -32,7 +32,7 @@ namespace Code.UI
         {
             uiEventChannel.AddListener<OpenMenuEvent>(HandleOpenMenu);
             uiEventChannel.AddListener<ChangeMenuEvent>(HandleChangeMenu);
-
+            
             _menuPanels = new Dictionary<MenuUITypeSO, MenuPanel>();
             contentTrm.GetComponentsInChildren<MenuPanel>().ToList()
                 .ForEach(panel => _menuPanels.Add(panel.MenuUITypeSO, panel));
@@ -59,29 +59,30 @@ namespace Code.UI
         {
             if (_menuPanels.ContainsKey(uiType) == false) return;
             if (_currentPanel == _menuPanels[uiType]) return;
-
+            
             _currentButton?.SetSelected(false);
             _currentButton = _menuButtons[uiType];
             _currentButton.SetSelected(true);
-
+            
             _currentPanel?.Close();
             _currentPanel = _menuPanels[uiType];
             _currentPanel.Open();
+            //FSM에서 상태관리를 하듯이 현재 UI패널을 상태처럼 관리한다.
         }
 
         private void HandleOpenMenu(OpenMenuEvent evt)
         {
-            if (_windowStatus == UIWindowStatus.Opening || _windowStatus == UIWindowStatus.Closing) return;
+            //진행중이라면 무시
+            if(_windowStatus == UIWindowStatus.Opening || _windowStatus == UIWindowStatus.Closing) return;
 
-            if (_windowStatus == UIWindowStatus.Closed)
+            if (_windowStatus == UIWindowStatus.Closed) //닫혀있으면 열기
             {
                 _windowStatus = UIWindowStatus.Opening;
                 Time.timeScale = 0;
-                playerInput.SetPlayerInput(false);
+                playerInput.SetPlayerInput(false); //만들꺼야. 
                 SetWindow(true, () => _windowStatus = UIWindowStatus.Opened);
                 OpenPanel(evt.UIType);
-            }
-            else if (_windowStatus == UIWindowStatus.Opened)
+            }else if (_windowStatus == UIWindowStatus.Opened) //열려있으면 닫기
             {
                 _windowStatus = UIWindowStatus.Closing;
                 playerInput.SetPlayerInput(true);
@@ -90,6 +91,7 @@ namespace Code.UI
                     _windowStatus = UIWindowStatus.Closed;
                     Time.timeScale = 1f;
                     _currentPanel?.Close();
+                    _currentPanel = null;
                 });
             }
         }
@@ -97,7 +99,7 @@ namespace Code.UI
         public void SetWindow(bool isOpen, Action callback = null)
         {
             float alpha = isOpen ? 1f : 0f;
-
+            
             canvasGroup.DOFade(alpha, .3f).SetUpdate(true).OnComplete(() => callback?.Invoke());
             canvasGroup.blocksRaycasts = isOpen;
             canvasGroup.interactable = isOpen;
@@ -109,7 +111,7 @@ namespace Code.UI
         {
             bool isOpen = !canvasGroup.blocksRaycasts;
             float alpha = isOpen ? 1f : 0f;
-
+            
             canvasGroup.alpha = alpha;
             canvasGroup.blocksRaycasts = isOpen;
             canvasGroup.interactable = isOpen;

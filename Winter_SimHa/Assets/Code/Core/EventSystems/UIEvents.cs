@@ -17,8 +17,7 @@ namespace Code.Core.EventSystems
         public bool isSaveOrLoad; //저장이나 로딩을 하는거냐?
     }
 
-    public class FadeCompleteEvent : GameEvent
-    { }
+    public class FadeCompleteEvent : GameEvent { }
 
     public class OpenMenuEvent : GameEvent
     {

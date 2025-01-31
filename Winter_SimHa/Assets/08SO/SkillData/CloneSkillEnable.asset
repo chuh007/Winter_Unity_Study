@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158f3f20015b64caab0da0c46ce610, type: 3}
+  m_Script: {fileID: 11500000, guid: d6b3d182fba2450e8f32bf9dcf21f6a0, type: 3}
   m_Name: CloneSkillEnable
   m_EditorClassIdentifier: 
-  upgradeName: 
-  upgradeIcon: {fileID: 497711233, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  upgradeName: CloneSkillEnable
+  upgradeIcon: {fileID: -1043137112, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
   description: "\uD074\uB860 \uC2A4\uD0AC\uC744 \uD65C\uC131\uD654 \uD574\uC8FC\uB294
     \uC5C5\uADF8\uB808\uC774\uB4DC"
   maxUpgradeCount: 1

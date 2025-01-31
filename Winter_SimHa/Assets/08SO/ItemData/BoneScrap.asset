@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59886b513ee76d747afaf13370a923e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 65a466d08e834ae795a4b4fe3ff22adb, type: 3}
   m_Name: BoneScrap
   m_EditorClassIdentifier: 
-  itemName: LeatherScarp
-  icon: {fileID: -1409952321, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
-  itemID: 8cea1eecc47853748a5e9d749c23a19f
-  maxStack: 5
+  itemName: BoneScrap
+  icon: {fileID: 737754450, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  itemID: 5d1129f2f6f1b7542b7f9573a1c3d3ce
+  maxStack: 99
   dropChance: 10

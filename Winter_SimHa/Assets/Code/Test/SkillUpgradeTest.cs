@@ -1,20 +1,24 @@
-using Code.SkillSystem;
+﻿using Code.SkillSystem;
 using UnityEngine;
 
-public class SkillUpgradeTest : MonoBehaviour
+namespace Code.Test
 {
-    [SerializeField] private Skill _targetSkill;
-    [SerializeField] private SkillPerkUpgradeSO _skillUpgradeData;
-
-    [ContextMenu("Upgrade Skill")]
-    private void UpgradeSkill()
+    public class SkillUpgradeTest : MonoBehaviour
     {
-        _skillUpgradeData.UpgradeSkill(_targetSkill);
-    }
+        [SerializeField] private Skill _targetSkill;
+        [SerializeField] private SkillPerkUpgradeSO _skillUpgradeData;
 
-    [ContextMenu("RollBack Skill")]
-    private void RollBackSkill()
-    {
-        _skillUpgradeData.RollbackUpgrade(_targetSkill);
+
+        [ContextMenu("Upgrade Skill")]
+        private void UpgradeSkill()
+        {
+            _skillUpgradeData.UpgradeSkill(_targetSkill);
+        }
+        
+        [ContextMenu("RollBack Skill")]
+        private void RollBackSkill()
+        {
+            _skillUpgradeData.RollbackUpgrade(_targetSkill);
+        }
     }
 }

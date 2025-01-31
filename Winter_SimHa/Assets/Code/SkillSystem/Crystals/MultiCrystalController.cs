@@ -44,7 +44,7 @@ namespace Code.SkillSystem.Crystals
                                     .GetComponent<Crystal>();
                 crystal.transform.localScale = Vector3.one * 0.5f; //절반크기로 축소
                 
-                crystal.transform.SetParent(_owner.transform); //부모를 지정해서 따라다니게 
+                crystal.transform.SetParent(_owner.transform); //부모를 지정해서 따라다니게[이걸 먼저] 
                 crystal.SetUp(_damageStatValue, skill, this, _owner);
                 crystalList.Add(crystal);
 

@@ -1,34 +1,37 @@
-using Code.Items.Inven;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemSlotUI : MonoBehaviour
+namespace Code.Items.Inven
 {
-    [SerializeField] protected Image itemImage;
-    [SerializeField] protected TextMeshProUGUI amountText;
-
-    public InventoryItem inventoryItem;
-
-    public void UpdateSlot(InventoryItem newItem)
+    public class ItemSlotUI : MonoBehaviour
     {
-        inventoryItem = newItem;
-        itemImage.color = Color.white;
+        [SerializeField] protected Image itemImage;
+        [SerializeField] protected TextMeshProUGUI amountText;
+        
+        public InventoryItem inventoryItem;
 
-        if (inventoryItem == null) ;
-        itemImage.sprite = inventoryItem.data.icon;
+        public void UpdateSlot(InventoryItem newItem)
+        {
+            inventoryItem = newItem;
+            itemImage.color = Color.white;
+            
+            if(inventoryItem == null) return;
+            
+            itemImage.sprite = inventoryItem.data.icon;
+            
+            if(inventoryItem.stackSize > 1) 
+                amountText.text = inventoryItem.stackSize.ToString();
+            else
+                amountText.text = string.Empty;
+        }
 
-        if (inventoryItem.stackSize > 1)
-            amountText.text = inventoryItem.stackSize.ToString();
-        else
+        public void CleanUpSlot()
+        {
+            inventoryItem = null;
+            itemImage.color = Color.clear;
+            itemImage.sprite = null;
             amountText.text = string.Empty;
-    }
-
-    public void CleanUpSlot()
-    {
-        inventoryItem = null;
-        itemImage.color = Color.clear;
-        itemImage.sprite = null;
-        amountText.text = string.Empty;
+        }
     }
 }

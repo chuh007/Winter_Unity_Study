@@ -1,3 +1,4 @@
+﻿using System;
 using UnityEngine;
 
 namespace Code.Items
@@ -11,11 +12,10 @@ namespace Code.Items
             _itemObject = GetComponentInParent<IPickable>();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.CompareTag("Player"))
+            if(other.CompareTag("Player"))
                 _itemObject.PickUp();
         }
     }
 }
-

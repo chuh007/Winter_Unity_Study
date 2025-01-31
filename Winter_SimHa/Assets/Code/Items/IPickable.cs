@@ -1,10 +1,7 @@
-using UnityEngine;
-
-namespace Code.Items
+﻿namespace Code.Items
 {
     public interface IPickable
     {
         public void PickUp();
     }
 }
-

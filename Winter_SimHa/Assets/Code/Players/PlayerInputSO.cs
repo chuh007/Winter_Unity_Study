@@ -91,64 +91,43 @@ namespace Code.Players
 
         public void OnNavigate(InputAction.CallbackContext context)
         {
-
+            
         }
 
         public void OnSubmit(InputAction.CallbackContext context)
         {
-
+            
         }
 
         public void OnCancel(InputAction.CallbackContext context)
         {
-
+            
         }
+
 
         public void OnOpenMenu(InputAction.CallbackContext context)
         {
             if(context.performed)
                 OnOpenMenuKeyPressed?.Invoke();
         }
-
-
+        
         public void SetPlayerInput(bool isActive)
         {
-            if (isActive)
+            if(isActive)
                 _controls.Player.Enable();
             else
                 _controls.Player.Disable();
         }
 
         #region UnUsedEvent
-
-        public void OnPoint(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnClick(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnRightClick(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnMiddleClick(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnScrollWheel(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnTrackedDevicePosition(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
-        {
-        }
-
+        public void OnPoint(InputAction.CallbackContext context){}
+        public void OnClick(InputAction.CallbackContext context){}
+        public void OnRightClick(InputAction.CallbackContext context){}
+        public void OnMiddleClick(InputAction.CallbackContext context){}
+        public void OnScrollWheel(InputAction.CallbackContext context){}
+        public void OnTrackedDevicePosition(InputAction.CallbackContext context){}
+        public void OnTrackedDeviceOrientation(InputAction.CallbackContext context){}
         #endregion
+
     }
 }

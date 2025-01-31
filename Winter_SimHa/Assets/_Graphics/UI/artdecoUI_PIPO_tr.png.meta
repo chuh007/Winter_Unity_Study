@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: artdecoUI_PIPO_tr_0
+      name: item_selection_ui
       rect:
         serializedVersion: 2
         x: 1073
@@ -138,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8494ab86e92291b46807fbe09b77e376
-      internalID: -2027387807
+      spriteID: 250b0f0dc256dea4b8ea92e7f628460d
+      internalID: -439349010
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7584e3c686bc61642a81d4de66134040
-      internalID: -145423577
+      spriteID: a775b6ae23882ad439b2e627c4f9afec
+      internalID: 1053683131
       vertices: []
       indices: 
       edges: []
@@ -180,8 +180,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      artdecoUI_PIPO_tr_0: -2027387807
-      menu_underline: -145423577
+      item_selection_ui: -439349010
+      menu_underline: 1053683131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

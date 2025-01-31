@@ -21,7 +21,7 @@ namespace Code.SkillSystem.Crystals
         private void StartPulseMove()
         {
             Vector3 position = transform.localPosition;
-            transform.DOLocalMoveY(position.y + 0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+            transform.DOLocalMoveY(position.y + 0.2f, 0.5f).SetLoops(-1, LoopType.Yoyo);
         }
 
         private void Update()

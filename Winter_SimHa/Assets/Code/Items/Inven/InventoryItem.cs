@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace Code.Items.Inven
+﻿namespace Code.Items.Inven
 {
     public class InventoryItem
     {
@@ -19,7 +17,7 @@ namespace Code.Items.Inven
         {
             int remainCount = 0;
             stackSize += count;
-            if(stackSize > data.maxStack)
+            if (stackSize > data.maxStack)
             {
                 remainCount = stackSize - data.maxStack;
                 stackSize = data.maxStack;
@@ -34,4 +32,3 @@ namespace Code.Items.Inven
         }
     }
 }
-

@@ -1,11 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Items
 {
-    [CreateAssetMenu(fileName = "ScrapItemDataSO", menuName = "SO/Item/ScrapItem")]
+    [CreateAssetMenu(fileName = "ScrapItemData", menuName = "SO/Items/ScrapItem", order = 0)]
     public class ScrapItemDataSO : ItemDataSO
     {
-
+        
     }
 }
-
