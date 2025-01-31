@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59886b513ee76d747afaf13370a923e0, type: 3}
+  m_Name: LeatherScarp
+  m_EditorClassIdentifier: 
+  itemName: LeatherScarp
+  icon: {fileID: -30923116, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  itemID: 7bfc45d26d6f9114ba8be7b63028c57f
+  maxStack: 5
+  dropChance: 10

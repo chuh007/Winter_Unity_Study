@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace Code.Players
 {
     [CreateAssetMenu(fileName = "PlayerInput", menuName = "SO/PlayerInput", order = 0)]
-    public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
+    public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
         public event Action OnJumpKeyPressed;
         public event Action OnAttackKeyPressed;
@@ -13,6 +13,7 @@ namespace Code.Players
         public event Action OnSlideKeyPressed;
         public event Action OnCounterKeyPressed;
         public event Action<bool> OnSkillKeyPressed;
+        public event Action OnOpenMenuKeyPressed;
         
         public Vector2 InputDirection { get; private set; }
         
@@ -24,13 +25,16 @@ namespace Code.Players
             {
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
+                _controls.UI.SetCallbacks(this);
             }
             _controls.Player.Enable();
+            _controls.UI.Enable();
         }
 
         private void OnDisable()
         {
             _controls.Player.Disable();
+            _controls.UI.Disable();
         }
 
         public void ClearSubscription()
@@ -84,5 +88,67 @@ namespace Code.Players
             if(context.canceled)
                 OnSkillKeyPressed?.Invoke(false);
         }
+
+        public void OnNavigate(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnOpenMenu(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnOpenMenuKeyPressed?.Invoke();
+        }
+
+
+        public void SetPlayerInput(bool isActive)
+        {
+            if (isActive)
+                _controls.Player.Enable();
+            else
+                _controls.Player.Disable();
+        }
+
+        #region UnUsedEvent
+
+        public void OnPoint(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnRightClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnMiddleClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnScrollWheel(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnTrackedDevicePosition(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
+        {
+        }
+
+        #endregion
     }
 }
