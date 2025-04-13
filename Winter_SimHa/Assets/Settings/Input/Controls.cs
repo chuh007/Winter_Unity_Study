@@ -491,6 +491,42 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuSlideLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""b1de7a38-5962-49d8-ba47-eea7be910bc5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuSlideRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""810905be-ab14-4516-be5c-3e4b478dc01e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UIInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""56557920-7480-42f6-ae5f-ce5c02d28792"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UICancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3ea0cf5-e7c8-45d4-b507-e93ff7b1fe01"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -922,6 +958,94 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8edee568-068c-489e-95f2-609024f45ea7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSlideLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03323af7-584e-4009-a97f-81cd40084a8b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSlideLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ca23988-0440-4d8a-aeee-1f59db609b4c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSlideRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7f32429-6141-46af-8b0e-01014256b4ab"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSlideRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca985d32-cd0f-4958-b742-f9f8a90f254c"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3faf60da-a55c-4173-a368-d49cd55e278c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77af62d7-462a-4b56-943e-3379f23cccc7"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UICancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""699a4581-f9f9-48bf-ade2-01b6993fe5aa"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UICancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1011,6 +1135,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_OpenMenu = m_UI.FindAction("OpenMenu", throwIfNotFound: true);
+        m_UI_MenuSlideLeft = m_UI.FindAction("MenuSlideLeft", throwIfNotFound: true);
+        m_UI_MenuSlideRight = m_UI.FindAction("MenuSlideRight", throwIfNotFound: true);
+        m_UI_UIInteract = m_UI.FindAction("UIInteract", throwIfNotFound: true);
+        m_UI_UICancel = m_UI.FindAction("UICancel", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -1265,6 +1393,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_OpenMenu;
+    private readonly InputAction m_UI_MenuSlideLeft;
+    private readonly InputAction m_UI_MenuSlideRight;
+    private readonly InputAction m_UI_UIInteract;
+    private readonly InputAction m_UI_UICancel;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1320,6 +1452,22 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/OpenMenu".
         /// </summary>
         public InputAction @OpenMenu => m_Wrapper.m_UI_OpenMenu;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/MenuSlideLeft".
+        /// </summary>
+        public InputAction @MenuSlideLeft => m_Wrapper.m_UI_MenuSlideLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/MenuSlideRight".
+        /// </summary>
+        public InputAction @MenuSlideRight => m_Wrapper.m_UI_MenuSlideRight;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/UIInteract".
+        /// </summary>
+        public InputAction @UIInteract => m_Wrapper.m_UI_UIInteract;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/UICancel".
+        /// </summary>
+        public InputAction @UICancel => m_Wrapper.m_UI_UICancel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1379,6 +1527,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenMenu.started += instance.OnOpenMenu;
             @OpenMenu.performed += instance.OnOpenMenu;
             @OpenMenu.canceled += instance.OnOpenMenu;
+            @MenuSlideLeft.started += instance.OnMenuSlideLeft;
+            @MenuSlideLeft.performed += instance.OnMenuSlideLeft;
+            @MenuSlideLeft.canceled += instance.OnMenuSlideLeft;
+            @MenuSlideRight.started += instance.OnMenuSlideRight;
+            @MenuSlideRight.performed += instance.OnMenuSlideRight;
+            @MenuSlideRight.canceled += instance.OnMenuSlideRight;
+            @UIInteract.started += instance.OnUIInteract;
+            @UIInteract.performed += instance.OnUIInteract;
+            @UIInteract.canceled += instance.OnUIInteract;
+            @UICancel.started += instance.OnUICancel;
+            @UICancel.performed += instance.OnUICancel;
+            @UICancel.canceled += instance.OnUICancel;
         }
 
         /// <summary>
@@ -1423,6 +1583,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenMenu.started -= instance.OnOpenMenu;
             @OpenMenu.performed -= instance.OnOpenMenu;
             @OpenMenu.canceled -= instance.OnOpenMenu;
+            @MenuSlideLeft.started -= instance.OnMenuSlideLeft;
+            @MenuSlideLeft.performed -= instance.OnMenuSlideLeft;
+            @MenuSlideLeft.canceled -= instance.OnMenuSlideLeft;
+            @MenuSlideRight.started -= instance.OnMenuSlideRight;
+            @MenuSlideRight.performed -= instance.OnMenuSlideRight;
+            @MenuSlideRight.canceled -= instance.OnMenuSlideRight;
+            @UIInteract.started -= instance.OnUIInteract;
+            @UIInteract.performed -= instance.OnUIInteract;
+            @UIInteract.canceled -= instance.OnUIInteract;
+            @UICancel.started -= instance.OnUICancel;
+            @UICancel.performed -= instance.OnUICancel;
+            @UICancel.canceled -= instance.OnUICancel;
         }
 
         /// <summary>
@@ -1662,5 +1834,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MenuSlideLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuSlideLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MenuSlideRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuSlideRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UIInteract" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUIInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UICancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUICancel(InputAction.CallbackContext context);
     }
 }

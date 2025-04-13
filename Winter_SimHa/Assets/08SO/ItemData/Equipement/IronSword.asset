@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034cce0d2cae4e4d92e5ff623d1016e6, type: 3}
+  m_Name: IronSword
+  m_EditorClassIdentifier: 
+  itemName: IronSword
+  icon: {fileID: 998750072, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  itemID: d251bc4cbc9cb014d908bd31e113664f
+  maxStack: 1
+  dropChance: 1
+  equipType: 1
+  addingStats:
+  - targetStat: {fileID: 11400000, guid: 9b11fc7524a624b48b232e6968ff0480, type: 2}
+    modifyValue: 0.1
+  - targetStat: {fileID: 11400000, guid: 75400f30c19a16f47a9a0b1a01c1215a, type: 2}
+    modifyValue: 5
+  itemEffectDescription: "\uD3C9\uBC94\uD55C \uCCA0\uAC80\uC785\uB2C8\uB2E4. \uACF5\uACA9\uC18D\uB3C4\uB294
+    \uB290\uB9B0 \uD3B8\uC785\uB2C8\uB2E4."

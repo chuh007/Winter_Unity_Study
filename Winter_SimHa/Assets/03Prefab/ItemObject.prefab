@@ -179,6 +179,7 @@ MonoBehaviour:
   rbCompo: {fileID: 2848252950124997823}
   spriteRenderer: {fileID: 5569202634654727204}
   itemData: {fileID: 0}
+  inventoryChannel: {fileID: 11400000, guid: df1a2a4c303dc554e81b5b77a51d7aff, type: 2}
 --- !u!1 &6940085661415421634
 GameObject:
   m_ObjectHideFlags: 0

@@ -77,23 +77,42 @@ namespace Code.UI
 
             if (_windowStatus == UIWindowStatus.Closed) //닫혀있으면 열기
             {
-                _windowStatus = UIWindowStatus.Opening;
-                Time.timeScale = 0;
-                playerInput.SetPlayerInput(false); //만들꺼야. 
-                SetWindow(true, () => _windowStatus = UIWindowStatus.Opened);
-                OpenPanel(evt.UIType);
+                OpenMenuCanvas(evt);
             }else if (_windowStatus == UIWindowStatus.Opened) //열려있으면 닫기
             {
-                _windowStatus = UIWindowStatus.Closing;
-                playerInput.SetPlayerInput(true);
-                SetWindow(false, () =>
-                {
-                    _windowStatus = UIWindowStatus.Closed;
-                    Time.timeScale = 1f;
-                    _currentPanel?.Close();
-                    _currentPanel = null;
-                });
+                ClosedMenuCanvas();
             }
+        }
+
+        private void OpenMenuCanvas(OpenMenuEvent evt)
+        {
+            _windowStatus = UIWindowStatus.Opening;
+            Time.timeScale = 0;
+            playerInput.SetPlayerInput(false); //만들꺼야. 
+            SetWindow(true, () => _windowStatus = UIWindowStatus.Opened);
+            OpenPanel(evt.UIType);
+            playerInput.OnMenuSlideEvent += HandleMenuSlide;
+        }
+
+        private void ClosedMenuCanvas()
+        {
+            _windowStatus = UIWindowStatus.Closing;
+            playerInput.OnMenuSlideEvent += HandleMenuSlide;
+            playerInput.SetPlayerInput(true);
+            SetWindow(false, () =>
+            {
+                _windowStatus = UIWindowStatus.Closed;
+                Time.timeScale = 1f;
+                _currentPanel?.Close();
+                _currentPanel = null;
+            });
+
+        }
+
+        private void HandleMenuSlide(int direction)
+        {
+            int nextIndex = _currentButton.UIIndex + direction;
+            _menuButtons.Values.FirstOrDefault(button => button.UIIndex == nextIndex)?.ButtonClick();
         }
 
         public void SetWindow(bool isOpen, Action callback = null)

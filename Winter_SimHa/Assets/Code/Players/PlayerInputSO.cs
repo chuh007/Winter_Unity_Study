@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +14,11 @@ namespace Code.Players
         public event Action OnCounterKeyPressed;
         public event Action<bool> OnSkillKeyPressed;
         public event Action OnOpenMenuKeyPressed;
+        public event Action<int> OnMenuSlideEvent;
+        public event Action<Vector2> OnUINavigateEvent;
+        public event Action OnUIInteractEvent;
+        public event Action OnUICancelEvent;
+        public event Action OnUISubmitEvent;
         
         public Vector2 InputDirection { get; private set; }
         
@@ -91,12 +96,17 @@ namespace Code.Players
 
         public void OnNavigate(InputAction.CallbackContext context)
         {
-            
+            if (context.performed)
+            {
+                Vector2 uiMovement = context.ReadValue<Vector2>();
+                OnUINavigateEvent?.Invoke(uiMovement);
+            }
         }
 
         public void OnSubmit(InputAction.CallbackContext context)
         {
-            
+            if(context.performed)
+                OnUISubmitEvent?.Invoke();
         }
 
         public void OnCancel(InputAction.CallbackContext context)
@@ -110,7 +120,31 @@ namespace Code.Players
             if(context.performed)
                 OnOpenMenuKeyPressed?.Invoke();
         }
-        
+
+        public void OnMenuSlideLeft(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnMenuSlideEvent?.Invoke(-1);
+        }
+
+        public void OnMenuSlideRight(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnMenuSlideEvent?.Invoke(1);
+        }
+
+        public void OnUIInteract(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnUIInteractEvent?.Invoke();
+        }
+
+        public void OnUICancel(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnUICancelEvent?.Invoke();
+        }
+
         public void SetPlayerInput(bool isActive)
         {
             if(isActive)

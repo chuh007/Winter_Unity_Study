@@ -10,7 +10,7 @@ namespace Code.UI.MainMenu
         
         protected RectTransform _rectTrm;
         protected Vector2 _initPosition;
-
+        public RectTransform RectTrm => _rectTrm;
         public virtual void Initialize()
         {
             _rectTrm = transform as RectTransform;
