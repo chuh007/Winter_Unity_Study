@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,7 +19,8 @@ namespace Code.Players
         public event Action OnUIInteractEvent;
         public event Action OnUICancelEvent;
         public event Action OnUISubmitEvent;
-        public event Action OnUIRightClickEvent; 
+        public event Action OnUIRightClickEvent;
+        
         
         public Vector2 InputDirection { get; private set; }
         
@@ -100,7 +101,7 @@ namespace Code.Players
             if (context.performed)
             {
                 Vector2 uiMovement = context.ReadValue<Vector2>();
-                OnUINavigateEvent?.Invoke(uiMovement);
+                OnUINavigateEvent?.Invoke(uiMovement);    
             }
         }
 
@@ -160,10 +161,10 @@ namespace Code.Players
                 OnUIRightClickEvent?.Invoke();
         }
 
-        
         #region UnUsedEvent
         public void OnPoint(InputAction.CallbackContext context){}
         public void OnClick(InputAction.CallbackContext context){}
+        
         public void OnMiddleClick(InputAction.CallbackContext context){}
         public void OnScrollWheel(InputAction.CallbackContext context){}
         public void OnTrackedDevicePosition(InputAction.CallbackContext context){}

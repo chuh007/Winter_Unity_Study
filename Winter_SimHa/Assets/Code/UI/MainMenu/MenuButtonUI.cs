@@ -8,7 +8,7 @@ namespace Code.UI.MainMenu
     public class MenuButtonUI : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
-        [field: SerializeField] public int UIIndex { get; private set; }
+        [field:SerializeField] public int UIIndex { get; private set; }
         [field:SerializeField] public MenuUITypeSO TargetUIType { get; private set; }
         [SerializeField] private Image activeImage;
 

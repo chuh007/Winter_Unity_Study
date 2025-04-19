@@ -1,5 +1,4 @@
 ﻿using Code.Core.EventSystems;
-using Code.UI.MainMenu;
 using UnityEngine;
 
 namespace Code.Items
@@ -10,7 +9,7 @@ namespace Code.Items
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private ItemDataSO itemData;
         [SerializeField] private GameEventChannelSO inventoryChannel;
-
+        
         private void OnValidate()
         {
             if (itemData == null) return;
@@ -29,6 +28,7 @@ namespace Code.Items
         
         public void PickUp()
         {
+            //이부분은 나중에 변경이 되어야 합니다.
             inventoryChannel.RaiseEvent(InventoryEvents.AddItemEvent.Initializer(itemData));
             //나중에 인벤토리로 들어가도록 만들어준다.
             Destroy(gameObject);

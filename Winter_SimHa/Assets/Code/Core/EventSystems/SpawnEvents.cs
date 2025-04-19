@@ -1,29 +1,28 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace Code.Core.EventSystems
 {
     public static class SpawnEvents
     {
-        public static SpawnAnimationEffect SpawnAnimationEffect = new SpawnAnimationEffect();
+        public static readonly SpawnAnimationEffect SpawnAnimationEffect = new SpawnAnimationEffect();
     }
 
     public class SpawnAnimationEffect : GameEvent
     {
         public PoolTypeSO poolType;
         public Vector3 position;
-        public Quaternion roatation;
+        public Quaternion rotation;
         public Vector3 scale;
         public Color effectColor;
 
-        public SpawnAnimationEffect Initializer(PoolTypeSO poolTyep, Vector3 position, Quaternion rotation,
-            Vector3 scale, Color color)
+        public SpawnAnimationEffect Initializer(PoolTypeSO poolType, Vector3 position, Quaternion rotation,
+            Vector3 scale, Color effectColor)
         {
-            this.poolType = poolTyep;
+            this.poolType = poolType;
             this.position = position;
-            this.roatation = rotation;
+            this.rotation = rotation;
             this.scale = scale;
-            this.effectColor = color;
+            this.effectColor = effectColor;
             return this;
         }
     }

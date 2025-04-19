@@ -3,12 +3,13 @@ using UnityEngine;
 public class AnimatorEffect : MonoBehaviour, IPoolable
 {
     [SerializeField] private string _clipName;
+
     private int _clipNameHash;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private readonly int _hdrColorHash = Shader.PropertyToID("_EmissionColor");
     
-    [field:SerializeField] public PoolTypeSO PoolType { get; private set; }
+    [field: SerializeField] public PoolTypeSO PoolType { get; private set; }
     public GameObject GameObject => gameObject;
     private Pool _myPool;
     public void SetUpPool(Pool pool)
@@ -47,6 +48,5 @@ public class AnimatorEffect : MonoBehaviour, IPoolable
     {
         _myPool.Push(this);
     }
-
-  
+    
 }

@@ -6,7 +6,7 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PlayExclamation", story: "[Enemy] play exclamation fx", category: "Action", id: "ac4f5610ba233f78cfa428aed4abfe83")]
+[NodeDescription(name: "PlayExclamation", story: "[Enemy] play exclamation fx", category: "Action", id: "050e8bc8162305312b3ee92ab655bdc8")]
 public partial class PlayExclamationAction : Action
 {
     [SerializeReference] public BlackboardVariable<BTEnemy> Enemy;
@@ -20,3 +20,4 @@ public partial class PlayExclamationAction : Action
     }
 }
 
+//다음시간에 사라지게 만드는거까지 합니다.

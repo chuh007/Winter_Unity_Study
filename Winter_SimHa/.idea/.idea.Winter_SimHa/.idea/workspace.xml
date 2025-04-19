@@ -5,54 +5,119 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="419bd952-94f2-4758-bdc7-6ff5d91b3687" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01BehaviorTree/SkeletonBT.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01BehaviorTree/SkeletonBT.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02Animations/Clips.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02Animations/Clips.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02Animations/Clips/FX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02Animations/Clips/FX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/SlashEffect.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/SlashEffect.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/BlueExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/BlueExplosion.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChargingEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChargingEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChillFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChillFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ExclamationFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ExclamationFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ExclamationFX.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ExclamationFX.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/HitImpact.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/HitImpact.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/IgniteFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/IgniteFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ShockFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ShockFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/SlashEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/SlashEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Enemy/EnemySkeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Enemy/EnemySkeleton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/ItemObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/ItemObject.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/CreateOnceManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/CreateOnceManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/CreateOnceManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/CreateOnceManager.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/EffectManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/EffectManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/EffectManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/EffectManager.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/PoolManagerMono.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/PoolManagerMono.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/PoolManagerMono.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/PoolManagerMono.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/System.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/System.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/UI/EquipSlotUI_Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/UI/EquipSlotUI_Weapon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ChillEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ChillEffectMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/IgniteEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/IgniteEffectMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ShockEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ShockEffectMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EmissionShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EmissionShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/PlayerId.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/PlayerId.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/Equipement/IronSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/Equipement/IronSword.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/EventSystem/InventoryChannel.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/EventSystem/InventoryChannel.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/EventSystem/SpawnChannel.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/EventSystem/SpawnChannel.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/InventorySaveId.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/GameSystem/InventorySaveId.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/InventorySaveId.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/GameSystem/InventorySaveId.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/ItemDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/ItemDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/ItemDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/ItemDatabase.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap/BoneScrap.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap/BoneScrap.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap/LeatherScrap.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/Scrap/LeatherScrap.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/ExclamationFX.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/ExclamationFX.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/ExclamationFX.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/ExclamationFX.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/HitImpact.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/HitImpact.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/HitImpact.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/HitImpact.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/SlashEffect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/SlashEffect.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Items/SlashEffect.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Items/SlashEffect.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/PoolManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/PoolManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/PoolManager.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/PoolManager.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/ExclamationFX.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/ExclamationFX.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/ExclamationFX.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/ExclamationFX.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/HitImpact.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/HitImpact.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/HitImpact.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/HitImpact.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/SlashEffect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/SlashEffect.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/Pool/Types/SlashEffect.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/Pool/Types/SlashEffect.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/TextDataBase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/TextDataBase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/TextDataBase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/TextDataBase.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/BTCommons/Actions/PlayExclamationAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/BTCommons/Actions/PlayExclamationAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/BTCommons/Actions/PlayExclamationAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/BTCommons/Actions/PlayExclamationAction.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/BTEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/BTEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/InvenData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/InvenData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/InvenData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/InvenData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/ItemSlotUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/ItemSlotUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs~" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/ScrapItemDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/ScrapItemDataSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerInputSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/DescriptionPanelUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/DescriptionPanelUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/DescriptionPanelUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/DescriptionPanelUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ICanChangeStateUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ICanChangeStateUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ItemSelectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ItemSelectionUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ItemSelectionUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ItemSelectionUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuButtonUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuButtonUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MenuCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MenuCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/UIState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/UIState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/UIState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/UIState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/VFX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/VFX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/VFX/AnimatorEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/VFX/AnimatorEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/VFX/ParticleEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/VFX/ParticleEffect.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Fire/fire_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Fire/fire_sheet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/hit_impact_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/hit_impact_sheet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/slash_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/slash_sheet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Ice/snow_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Ice/snow_sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/Controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Font/TAEBAEKfont SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Font/TAEBAEKfont SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Icons/#2 - Transparent Icons &amp; Drop Shadow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Icons/#2 - Transparent Icons &amp; Drop Shadow.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/UI/artdecoUI_PIPO_green.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/UI/artdecoUI_PIPO_green.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +127,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Enemies/BTCommons/Actions/PlayExclamationAction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -85,7 +153,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\6000.0.36f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\6000.0.45f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -93,7 +161,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\6000.0.36f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\6000.0.45f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -137,7 +205,8 @@
       <updated>1744725882600</updated>
       <workItem from="1744725884097" duration="2150000" />
       <workItem from="1744731711221" duration="387000" />
-      <workItem from="1745032710025" duration="17495000" />
+      <workItem from="1745032710025" duration="18668000" />
+      <workItem from="1745067163181" duration="217000" />
     </task>
     <servers />
   </component>

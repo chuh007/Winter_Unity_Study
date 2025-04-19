@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7934132857385554673
+--- !u!1001 &7643984172151062609
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492865451786972184, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -36.383934
       objectReference: {fileID: 0}
     - target: {fileID: 1492865451786972184, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.627711
       objectReference: {fileID: 0}
     - target: {fileID: 1492865451786972184, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 11.078904
       objectReference: {fileID: 0}
     - target: {fileID: 1492865451786972184, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,22 +52,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2319578667934127052, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -805267558, guid: 915e6ee56c432a545a4475e8b3e0c06b, type: 3}
     - target: {fileID: 8288233703715111676, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: _clipName
       value: Exclamation
       objectReference: {fileID: 0}
     - target: {fileID: 8288233703715111676, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
-      propertyPath: poolingType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8288233703715111676, guid: d7b5f3a56e28b21419fe19bedf6ccddf, type: 3}
       propertyPath: <PoolType>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: d3345f277041eb64fa77512e18a83fe9, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ee52b48cad1d514488ae35a9587456d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

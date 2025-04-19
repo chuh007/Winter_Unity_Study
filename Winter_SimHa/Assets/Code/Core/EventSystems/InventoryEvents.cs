@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading;
 using Code.Items;
 using Code.Items.Inven;
 
@@ -19,7 +20,7 @@ namespace Code.Core.EventSystems
         public List<InventoryItem> items;
         public Dictionary<EquipType, InventoryItem> equipments;
 
-        public InventoryDataEvent Initializer(int slotCount, List<InventoryItem> items, 
+        public InventoryDataEvent Initializer(int slotCount, List<InventoryItem> items,
             Dictionary<EquipType, InventoryItem> equipments)
         {
             this.slotCount = slotCount;
@@ -57,9 +58,9 @@ namespace Code.Core.EventSystems
     {
         public EquipType targetType;
 
-        public UnEquipItemEvent Initializer(EquipType targetEquip)
+        public UnEquipItemEvent Initializer(EquipType targetType)
         {
-            this.targetType = targetEquip;
+            this.targetType = targetType;
             return this;
         }
     }

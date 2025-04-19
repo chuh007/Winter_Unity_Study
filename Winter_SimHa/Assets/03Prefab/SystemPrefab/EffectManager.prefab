@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2588788845921626959
+--- !u!1 &5908312896587566688
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7569522754496657086}
-  - component: {fileID: 6910920355815420243}
+  - component: {fileID: 7737602406053086727}
+  - component: {fileID: 3387138727232538164}
   m_Layer: 0
   m_Name: EffectManager
   m_TagString: Untagged
@@ -17,32 +17,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7569522754496657086
+--- !u!4 &7737602406053086727
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588788845921626959}
+  m_GameObject: {fileID: 5908312896587566688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 694.2921, y: 150.05264, z: -5.269328}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6910920355815420243
+--- !u!114 &3387138727232538164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588788845921626959}
+  m_GameObject: {fileID: 5908312896587566688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6656f03d99c54d5692ac61f894d2a1ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 30c16b0e0a7342a681914069c0a1c185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnChannel: {fileID: 11400000, guid: 4c1c53f7029fceb48932d2fea06a0970, type: 2}
-  poolManager: {fileID: 11400000, guid: 64cd748b668ae7e419b413eefff16c79, type: 2}
+  spawnChannel: {fileID: 11400000, guid: 503c04ad492fffb429d25dfff052aa4d, type: 2}
+  poolManager: {fileID: 11400000, guid: 774918906df4fc8498a37e9a2ec360bd, type: 2}

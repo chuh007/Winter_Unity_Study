@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632946fafd7a57b44908bfaafd94e309, type: 3}
   m_Name: ExclamationFX
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: d3345f277041eb64fa77512e18a83fe9, type: 2}
-  prefab: {fileID: 6935142588054180473, guid: 3be2b2a64cb98a848a3e8a281f327b5f, type: 3}
+  poolType: {fileID: 11400000, guid: 5ee52b48cad1d514488ae35a9587456d, type: 2}
+  prefab: {fileID: 7219766797520224473, guid: f1d83ef704ca20743b1f6b92eb8828a6, type: 3}
   initCount: 3

@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Code.Items;
 using Code.Players;
 using UnityEngine;
@@ -14,7 +13,7 @@ namespace Code.Test
 
         private void Start()
         {
-            if(isTest == false) return;
+            if (isTest == false) return;
 
             foreach (var item in initialInventory)
             {

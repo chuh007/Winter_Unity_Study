@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632946fafd7a57b44908bfaafd94e309, type: 3}
   m_Name: HitImpact
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: a68803b7193e4a444af9ad18d0a648e3, type: 2}
+  poolType: {fileID: 11400000, guid: 77c1f49b16555c044b32f4d629cc15ec, type: 2}
   prefab: {fileID: 6935142588054180473, guid: 737d56d6282b86449ae020c973f1e13e, type: 3}
   initCount: 4

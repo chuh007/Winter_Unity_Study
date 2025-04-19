@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2010848967
-  m_SortingLayer: 0
+  m_SortingLayerID: 172673345
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 2017269302, guid: eec2c0e143ffd134b9b76585ed42cf74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clipName: slash_effect
-  <PoolType>k__BackingField: {fileID: 11400000, guid: 43e679588ee7d504a9df229590034b43, type: 2}
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 6ad4aa9b93bac644893ae9584aa07e7c, type: 2}

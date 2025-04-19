@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Code.Items;
 using UnityEngine;
@@ -18,10 +18,9 @@ namespace Code.Core.GameSystem
 
         public void ClearAllItems()
         {
-            scrapItems.Clear();
-            equipItems.Clear();
+            scrapItems?.Clear();
+            equipItems?.Clear();  
         }
-        
         private void OnEnable()
         {
             if (scrapItems != null)

@@ -1,10 +1,8 @@
-﻿﻿using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Core.EventSystems;
 using Code.Items;
 using Code.Items.Inven;
-using Code.Players;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,22 +13,24 @@ namespace Code.UI.MainMenu
         [SerializeField] private GameEventChannelSO inventoryChannel;
         [SerializeField] private ItemSelectionUI itemSelectionUI;
         
-        [field:SerializeField] public int ColCount { get; private set; } = 8;
+        [field:SerializeField] public int ColCount { get; private set; }
 
+        //실제 인벤데이터를 참조하고 있는 구조
         #region Read data storage
         public List<InventoryItem> inventory;
         public Dictionary<EquipType,InventoryItem> equipments;
         #endregion
 
+        //UI를 참조하고 있는 구조
         #region UI References 
         [field: SerializeField] public ItemPopupUI ItemPopupUI { get; private set; }
         [SerializeField] private Transform slotParentTrm, equipSlotParentTrm;
         private ItemSlotUI[] _itemSlots;
         private Dictionary<EquipType, EquipSlotUI> _equipSlots;
-        public int EquipSlotCount => _equipSlots.Count;
+        public int EquipSlotCount => _equipSlots.Count; //장비창의 갯수
         #endregion
 
-        [HideInInspector] public bool isOnEquip; // 장비 창에 가 있는가?
+        [HideInInspector] public bool isOnEquip; //장비창에 가 있는가?
         [HideInInspector] public int currentSlotCount;
         [HideInInspector] public ItemSlotUI selectedItem;
         [HideInInspector] public int selectedItemIndex;
@@ -46,7 +46,7 @@ namespace Code.UI.MainMenu
             for (int i = 0; i < _itemSlots.Length; i++)
             {
                 _itemSlots[i].Initialize(i); //슬롯 인덱스 부여해주고
-                // _itemSlots[i].OnPointerDownEvent += SelectItem;
+                //_itemSlots[i].OnPointerDownEvent += SelectItem;
             }
             
             _equipSlots = new Dictionary<EquipType, EquipSlotUI>();
@@ -84,40 +84,37 @@ namespace Code.UI.MainMenu
         
         public void SelectItem(int nextIndex)
         {
+            isOnEquip = false;
             selectedItem = _itemSlots[nextIndex];
             selectedItemIndex = nextIndex;
-            // itemSelectionUI.MoveAnchorPosition(selectedItem.RectTrm.anchoredPosition);
-            // OnItemSelected?.Invoke(selectedItem.inventoryItem?.data);
-            MoveSelectionUI();
-        }
-
-        public void SelectItem(EquipType equipType)
-        {
-            isOnEquip = false;
-            selectedItem = _equipSlots[equipType];
-            selectedItemIndex = (int)equipType;
             MoveSelectionUI();
         }
         
         private void SelectEquipItem(int equipIndex)
         {
+            //여기서 해줄 일을 생각해봐라. 그에 따라 기존 SelectItem도 살짝 변경이 일어나야 한다.
             isOnEquip = true;
-            selectedItem = _equipSlots[(EquipType)equipIndex];
-            selectedItemIndex = (int)equipIndex;
+            SelectItem((EquipType) equipIndex);
+        }
+
+        public void SelectItem(EquipType equipType)
+        {
+            selectedItem = _equipSlots[equipType];
+            selectedItemIndex = (int) equipType;
             MoveSelectionUI();
         }
-        
+
         private void MoveSelectionUI()
         {
             Vector2 anchorPoint = RectTrm.InverseTransformPoint(selectedItem.RectTrm.position);
             itemSelectionUI.MoveAnchorPosition(anchorPoint, true);
             OnItemSelected?.Invoke(selectedItem.inventoryItem?.data);
         }
-        
+
         private void HandleDataRefresh(InventoryDataEvent evt)
         {
             inventory = evt.items; //받아온 아이템 갱신후
-            equipments = evt.equipments; // 장비아이템도 갱신
+            equipments = evt.equipments; //장비아이템도 갱신
             currentSlotCount = evt.slotCount;
             UpdateSlotUI();
         }
@@ -139,8 +136,8 @@ namespace Code.UI.MainMenu
             {
                 slot.CleanUpSlot();
             }
-
-            foreach (var equipKvp in equipments)
+            
+            foreach (KeyValuePair<EquipType, InventoryItem> equipKvp in equipments)
             {
                 _equipSlots[equipKvp.Key].UpdateSlot(equipKvp.Value);
             }
@@ -159,7 +156,7 @@ namespace Code.UI.MainMenu
         {
             for (int i = 0; i < _itemSlots.Length; i++)
             {
-                if(isActive)
+                if(isActive) 
                     _itemSlots[i].OnPointerDownEvent += SelectItem;
                 else
                     _itemSlots[i].OnPointerDownEvent -= SelectItem;
@@ -174,6 +171,7 @@ namespace Code.UI.MainMenu
             }
         }
 
+        
         
 
         #region Popup Control

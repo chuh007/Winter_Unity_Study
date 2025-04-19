@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +13,7 @@ namespace Code.Items.Inven
 
         private void OnValidate()
         {
-            gameObject.name = $"EquipSlotUI_{slotType}";
+            gameObject.name = $"EquipSlot-{slotType}";
         }
 
         public override void Initialize(int slotIndex)

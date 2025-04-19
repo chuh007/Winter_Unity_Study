@@ -210,6 +210,7 @@ namespace Code.Players
         
         public string GetSaveData()
         {
+            
             InvenSaveData saveData;
             saveData.items = inventory.Select((item, idx) => new InvenItemSaveData
             {
@@ -226,18 +227,20 @@ namespace Code.Players
             
             return JsonUtility.ToJson(saveData);
         }
-
+        
         public void RestoreData(string loadedData)
         {
             InvenSaveData loadedSaveData = JsonUtility.FromJson<InvenSaveData>(loadedData);
-            loadedSaveData.items.Sort((item1, item2) => item1.slotIndex - item2.slotIndex);
+            loadedSaveData.items.Sort((item1, item2) => item1.slotIndex - item2.slotIndex); //오름차순으로 정렬
             
             inventory = loadedSaveData.items.Select(saveItem =>
             {
-                ItemDataSO itemData = itemDB.GetItem(saveItem.itemId);
+                ItemDataSO itemData = itemDB.GetItem(saveItem.itemId); //아이디를 기반으로 아이템 데이터 불러온다.
                 Debug.Assert(itemData != null, $"Save data corrupted : {saveItem.itemId} is not exist on DB");
+                
                 return new InventoryItem(itemData, saveItem.stackSize);
             }).ToList();
+            
             _equipSlots.Clear();
             loadedSaveData.equipments.ForEach(saveEquipment =>
             {
@@ -249,9 +252,7 @@ namespace Code.Players
                     _equipSlots.Add(equipItemDataSO.equipType, new InventoryItem(equipItemDataSO));
                 }
             });
-            
         }
-
         #endregion
         
     }

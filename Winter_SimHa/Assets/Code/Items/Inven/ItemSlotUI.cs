@@ -10,20 +10,18 @@ namespace Code.Items.Inven
     {
         [SerializeField] protected Image itemImage;
         [SerializeField] protected TextMeshProUGUI amountText;
-
-        public RectTransform RectTrm => transform as RectTransform;
         
+        public RectTransform RectTrm => transform as RectTransform;
         public InventoryItem inventoryItem;
         public event Action<int> OnPointerDownEvent;
-        private int _slotIndex;
-        protected int _slotCount;
+        protected int _slotIndex;
 
         public virtual void Initialize(int slotIndex)
         {
             _slotIndex = slotIndex;
         }
-        
-        
+
+
         public virtual void UpdateSlot(InventoryItem newItem)
         {
             inventoryItem = newItem;
@@ -50,7 +48,7 @@ namespace Code.Items.Inven
         public void OnPointerDown(PointerEventData eventData)
         {
             if(eventData.button == PointerEventData.InputButton.Left)
-                OnPointerDownEvent?.Invoke(_slotIndex);
+                OnPointerDownEvent?.Invoke(_slotIndex); //내가 눌렸다는 것을 알림.
         }
     }
 }

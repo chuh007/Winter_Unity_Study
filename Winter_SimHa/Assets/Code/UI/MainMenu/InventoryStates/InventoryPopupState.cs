@@ -1,4 +1,4 @@
-using Code.Core.EventSystems;
+﻿using Code.Core.EventSystems;
 using Code.Items;
 using Code.Players;
 using UnityEngine;
@@ -40,8 +40,8 @@ namespace Code.UI.MainMenu.InventoryStates
         {
             if (_inventoryPanel.isOnEquip)
             {
-                EquipType type = (EquipType)_inventoryPanel.selectedItemIndex;
-                inventoryChannel.RaiseEvent(InventoryEvents.UnEquipItemEvent.Initializer(type));
+                EquipType type = (EquipType) _inventoryPanel.selectedItemIndex;
+                inventoryChannel.RaiseEvent(InventoryEvents.UnEquipItemEvent.Initializer(type));    
             }
             else
             {
@@ -49,8 +49,6 @@ namespace Code.UI.MainMenu.InventoryStates
                 int slotIndex = _inventoryPanel.selectedItemIndex;
                 inventoryChannel.RaiseEvent(InventoryEvents.EquipItemEvent.Initializer(slotIndex));
             }
-            
-            
             _inventoryPanel.ChangeUIState("NAVIGATE");
         }
 

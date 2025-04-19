@@ -1,4 +1,4 @@
-using Code.Items;
+﻿using Code.Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,9 +10,9 @@ namespace Code.UI
         [SerializeField] private Image itemImage;
         [SerializeField] private TextMeshProUGUI descriptionText;
 
-        public void SetItemData(ItemDataSO itmeData)
+        public void SetItemData(ItemDataSO itemData)
         {
-            if (itemImage == null)
+            if(itemData == null)
             {
                 itemImage.sprite = null;
                 itemImage.color = Color.clear;
@@ -20,9 +20,9 @@ namespace Code.UI
             }
             else
             {
-                itemImage.sprite = itmeData?.icon;
+                itemImage.sprite = itemData.icon;
                 itemImage.color = Color.white;
-                descriptionText.text = itmeData?.GetDescription();
+                descriptionText.text = itemData.GetDescription();
             }
         }
     }

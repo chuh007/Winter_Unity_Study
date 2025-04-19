@@ -11,9 +11,12 @@ namespace Code.UI
 {
     public enum UIWindowStatus
     {
-        Closed, Closing, Opening, Opened
+        Closed,
+        Closing,
+        Opening,
+        Opened
     }
-    
+
     public class MenuCanvas : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
@@ -32,7 +35,7 @@ namespace Code.UI
         {
             uiEventChannel.AddListener<OpenMenuEvent>(HandleOpenMenu);
             uiEventChannel.AddListener<ChangeMenuEvent>(HandleChangeMenu);
-            
+
             _menuPanels = new Dictionary<MenuUITypeSO, MenuPanel>();
             contentTrm.GetComponentsInChildren<MenuPanel>().ToList()
                 .ForEach(panel => _menuPanels.Add(panel.MenuUITypeSO, panel));
@@ -59,11 +62,11 @@ namespace Code.UI
         {
             if (_menuPanels.ContainsKey(uiType) == false) return;
             if (_currentPanel == _menuPanels[uiType]) return;
-            
+
             _currentButton?.SetSelected(false);
             _currentButton = _menuButtons[uiType];
             _currentButton.SetSelected(true);
-            
+
             _currentPanel?.Close();
             _currentPanel = _menuPanels[uiType];
             _currentPanel.Open();
@@ -73,15 +76,12 @@ namespace Code.UI
         private void HandleOpenMenu(OpenMenuEvent evt)
         {
             //진행중이라면 무시
-            if(_windowStatus == UIWindowStatus.Opening || _windowStatus == UIWindowStatus.Closing) return;
+            if (_windowStatus == UIWindowStatus.Opening || _windowStatus == UIWindowStatus.Closing) return;
 
             if (_windowStatus == UIWindowStatus.Closed) //닫혀있으면 열기
-            {
                 OpenMenuCanvas(evt);
-            }else if (_windowStatus == UIWindowStatus.Opened) //열려있으면 닫기
-            {
-                ClosedMenuCanvas();
-            }
+            else if (_windowStatus == UIWindowStatus.Opened) //열려있으면 닫기
+                CloseMenuCanvas();
         }
 
         private void OpenMenuCanvas(OpenMenuEvent evt)
@@ -94,11 +94,11 @@ namespace Code.UI
             playerInput.OnMenuSlideEvent += HandleMenuSlide;
         }
 
-        private void ClosedMenuCanvas()
+        private void CloseMenuCanvas()
         {
             _windowStatus = UIWindowStatus.Closing;
-            playerInput.OnMenuSlideEvent += HandleMenuSlide;
             playerInput.SetPlayerInput(true);
+            playerInput.OnMenuSlideEvent -= HandleMenuSlide;
             SetWindow(false, () =>
             {
                 _windowStatus = UIWindowStatus.Closed;
@@ -106,7 +106,6 @@ namespace Code.UI
                 _currentPanel?.Close();
                 _currentPanel = null;
             });
-
         }
 
         private void HandleMenuSlide(int direction)
@@ -118,7 +117,7 @@ namespace Code.UI
         public void SetWindow(bool isOpen, Action callback = null)
         {
             float alpha = isOpen ? 1f : 0f;
-            
+
             canvasGroup.DOFade(alpha, .3f).SetUpdate(true).OnComplete(() => callback?.Invoke());
             canvasGroup.blocksRaycasts = isOpen;
             canvasGroup.interactable = isOpen;
@@ -130,7 +129,7 @@ namespace Code.UI
         {
             bool isOpen = !canvasGroup.blocksRaycasts;
             float alpha = isOpen ? 1f : 0f;
-            
+
             canvasGroup.alpha = alpha;
             canvasGroup.blocksRaycasts = isOpen;
             canvasGroup.interactable = isOpen;

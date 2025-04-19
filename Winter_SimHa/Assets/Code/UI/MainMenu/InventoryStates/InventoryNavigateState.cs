@@ -49,43 +49,40 @@ namespace Code.UI.MainMenu.InventoryStates
 
                 if (nextIndex != _panelUI.selectedItemIndex)
                 {
-                    _panelUI.SelectItem(nextIndex);
+                    _panelUI.SelectItem(nextIndex);    
                 }
                 else if (IsOutOfRightBorder(uiMovement.x))
                 {
                     _panelUI.isOnEquip = true;
-                    _panelUI.SelectItem(EquipType.Weapon); // 무기칸으로
+                    _panelUI.SelectItem(EquipType.Weapon); //무기칸으로 이동하도록 한다. 
                 }
             }
             else
             {
                 SetNextEquipSelection(uiMovement);
             }
-            
-
             DOVirtual.DelayedCall(0.01f, () => _canMoveSelection = true).SetUpdate(true);
         }
 
-        // 장비칸 이동 처리
+        //장비칸 이동에 대한 처리
         private void SetNextEquipSelection(Vector2 uiMovement)
         {
-            int equipCount = _panelUI.EquipSlotCount; // 전체 갯수
-            int nextIndex = _panelUI.selectedItemIndex + Mathf.RoundToInt(uiMovement.x) +
-                            2 * Mathf.RoundToInt(uiMovement.y);
+            int equipCount = _panelUI.EquipSlotCount; //전체 갯수
+            int nextIndex = _panelUI.selectedItemIndex + Mathf.RoundToInt(uiMovement.x) + 2 * Mathf.RoundToInt(uiMovement.y);
             if (nextIndex >= equipCount)
-                nextIndex = _panelUI.selectedItemIndex;
-            
-            if (nextIndex < 0) // 다시 인벤토리 쪽으로
+                nextIndex = _panelUI.selectedItemIndex; //이동 안함.
+
+            if (nextIndex < 0) //다시 인벤토리 쪽으로 이동한거다.
             {
-                _panelUI.isOnEquip = false;
-                _panelUI.SelectItem(_panelUI.ColCount - 1); // 제일 첫 줄 마지막 아이템
+                _panelUI.isOnEquip = false; 
+                _panelUI.SelectItem(_panelUI.ColCount - 1); //제일 첫줄의 마지막 아이템이 선택된다.
                 return;
             }
-
-            _panelUI.SelectItem((EquipType)nextIndex);
+            
+            _panelUI.SelectItem((EquipType) nextIndex);
         }
 
-        // 다음 이동이 오른쪽을 벗어났냐?
+        //다음 이동이 오른쪽을 벗어난 요청이다.
         private bool IsOutOfRightBorder(float uiMovementX)
         {
             int selectedIndex = _panelUI.selectedItemIndex;
@@ -102,13 +99,13 @@ namespace Code.UI.MainMenu.InventoryStates
             Vector3 point = _panelUI.RectTrm.InverseTransformPoint(_panelUI.selectedItem.RectTrm.position);
 
             point.x += _panelUI.selectedItem.RectTrm.sizeDelta.x + 10f;
-
+            
             if (_panelUI.selectedItem.inventoryItem.data is EquipItemDataSO equipItemData)
             {
-                var type = _panelUI.isOnEquip ? ItemPopupUI.PopupType.UnEquip : ItemPopupUI.PopupType.Equip;
+                var type = _panelUI.isOnEquip ? ItemPopupUI.PopupType.UnEquip : ItemPopupUI.PopupType.Equip; 
                 _panelUI.ShowItemMenuPopup(point, type);
-                _panelUI.ChangeUIState("POPUP");
-            } 
+                _panelUI.ChangeUIState("POPUP");    
+            }
         }
         
         private int GetNextSelection(Vector2 uiMovement)

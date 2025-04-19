@@ -1,4 +1,4 @@
-namespace Code.UI
+﻿namespace Code.UI
 {
     public interface ICanChangeUIState
     {

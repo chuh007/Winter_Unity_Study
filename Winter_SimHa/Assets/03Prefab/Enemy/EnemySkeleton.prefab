@@ -173,8 +173,8 @@ MonoBehaviour:
   OnDead:
     m_PersistentCalls:
       m_Calls: []
-  <SpawnChannel>k__BackingField: {fileID: 11400000, guid: 8a8c272b22084744c9d9f56803bc2026, type: 2}
-  <ExclamationFX>k__BackingField: {fileID: 11400000, guid: a68803b7193e4a444af9ad18d0a648e3, type: 2}
+  <SpawnChannel>k__BackingField: {fileID: 11400000, guid: 503c04ad492fffb429d25dfff052aa4d, type: 2}
+  <ExclamationFX>k__BackingField: {fileID: 11400000, guid: 5ee52b48cad1d514488ae35a9587456d, type: 2}
   <PlayerFinder>k__BackingField: {fileID: 11400000, guid: 407bed9275b32a34d9e414efded9b9b5, type: 2}
   whatIsPlayer:
     serializedVersion: 2
