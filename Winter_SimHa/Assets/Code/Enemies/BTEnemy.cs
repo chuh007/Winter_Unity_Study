@@ -7,6 +7,8 @@ namespace Code.Enemies
 {
     public abstract class BTEnemy : Entity
     {
+        [field: SerializeField] public GameEventChannelSO SpawnChannel { get; private set; }
+        [field: SerializeField] public PoolTypeSO ExclamationFX {get; private set;}
         [field: SerializeField] public EntityFinderSO PlayerFinder { get; protected set; }
         public LayerMask whatIsPlayer;
         public float FacingDirection => _renderer.FacingDirection;
@@ -40,6 +42,13 @@ namespace Code.Enemies
                 return result;
             }
             return default;
+        }
+
+        public void ShowExclamationFX(float offset, Vector3 scale)
+        {
+            Vector3 position = transform.position + new Vector3(0, offset, 0);
+            SpawnChannel.RaiseEvent(SpawnEvents.SpawnAnimationEffect.Initializer(
+                ExclamationFX, position, Quaternion.identity, scale, Color.white));
         }
     }
 }

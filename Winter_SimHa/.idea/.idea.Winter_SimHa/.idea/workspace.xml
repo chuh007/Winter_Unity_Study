@@ -4,20 +4,154 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419bd952-94f2-4758-bdc7-6ff5d91b3687" name="변경" comment="" />
+    <list default="true" id="419bd952-94f2-4758-bdc7-6ff5d91b3687" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/SpawnEvents.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/GameSystem/ItemDatabaseSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/CreateOnceManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/Managers/EffectManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Test/InventoryTester.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryPopupState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/TextDataBaseSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/BlueExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/BlueExplosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChargingEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Effects/ChargingEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/System.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/SystemPrefab/System.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/UI/EquipSlotUI_Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/UI/EquipSlotUI_Weapon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ChillEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ChillEffectMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/IgniteEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/IgniteEffectMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ShockEffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/ShockEffectMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EmissionShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EmissionShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/PlayerId.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/GameSystem/PlayerId.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/08SO/ItemData/Equipement/IronSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/08SO/ItemData/Equipement/IronSword.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/InventoryEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/BTEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/BTEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/EquipItemDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/EquipSlotUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/Inven/ItemSlotUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/Inven/ItemSlotUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Items/ItemObject.cs~" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerInputSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerInvenData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryStates/InventoryNavigateState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/ItemPopupUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Fire/fire_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Fire/fire_sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/hit_impact_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/hit_impact_sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/slash_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Hit/slash_sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/FX/Ice/snow_sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/FX/Ice/snow_sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Font/TAEBAEKfont SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Font/TAEBAEKfont SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Icons/#2 - Transparent Icons &amp; Drop Shadow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Icons/#2 - Transparent Icons &amp; Drop Shadow.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2vli62apUB7JHvQ93G79g4Wd92d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
+    <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\6000.0.36f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\6000.0.36f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Winter_Unity_Study\Winter_SimHa" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Unreal 에디터에 연결 후 재생" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="419bd952-94f2-4758-bdc7-6ff5d91b3687" name="변경" comment="" />
+      <created>1744725882600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744725882600</updated>
+      <workItem from="1744725884097" duration="2150000" />
+      <workItem from="1744731711221" duration="387000" />
+      <workItem from="1745032710025" duration="17495000" />
+    </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
 </project>

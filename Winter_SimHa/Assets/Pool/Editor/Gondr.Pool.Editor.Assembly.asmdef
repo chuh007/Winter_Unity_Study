@@ -1,0 +1,17 @@
+{
+    "name": "Gondr.Pool.Editor.Assembly",
+    "rootNamespace": "",
+    "references": [
+        "Gondr.Pool.Assembly",
+        ""
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

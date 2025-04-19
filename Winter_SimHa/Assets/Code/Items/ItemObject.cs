@@ -29,7 +29,7 @@ namespace Code.Items
         
         public void PickUp()
         {
-            inventoryChannel.RaiseEvent(InventoryEvents.AddItemEvnet.Initializer(itemData));
+            inventoryChannel.RaiseEvent(InventoryEvents.AddItemEvent.Initializer(itemData));
             //나중에 인벤토리로 들어가도록 만들어준다.
             Destroy(gameObject);
         }

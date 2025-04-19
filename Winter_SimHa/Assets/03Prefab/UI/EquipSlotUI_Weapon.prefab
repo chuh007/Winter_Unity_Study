@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 2028153124152190702}
   - component: {fileID: 6276662792891705512}
   m_Layer: 5
-  m_Name: EquipSlotUI_Weapon
+  m_Name: EquipSlotUI_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

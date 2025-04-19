@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Core.EventSystems;
 using Code.Items;
 using Code.Items.Inven;
 using Code.Players;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Code.UI.MainMenu
 {
@@ -16,21 +14,29 @@ namespace Code.UI.MainMenu
     {
         [SerializeField] private GameEventChannelSO inventoryChannel;
         [SerializeField] private ItemSelectionUI itemSelectionUI;
-        [SerializeField] private ItemPopupUI itemPopupUI;
-        [field: SerializeField] public int ColCount { get; private set; } = 8;
-
-        public List<InventoryItem> inventory;
-
-        [SerializeField] private Transform slotParentTrm;
-        private ItemSlotUI[] _itemSlots;
         
+        [field:SerializeField] public int ColCount { get; private set; } = 8;
+
+        #region Read data storage
+        public List<InventoryItem> inventory;
+        public Dictionary<EquipType,InventoryItem> equipments;
+        #endregion
+
+        #region UI References 
+        [field: SerializeField] public ItemPopupUI ItemPopupUI { get; private set; }
+        [SerializeField] private Transform slotParentTrm, equipSlotParentTrm;
+        private ItemSlotUI[] _itemSlots;
+        private Dictionary<EquipType, EquipSlotUI> _equipSlots;
+        public int EquipSlotCount => _equipSlots.Count;
+        #endregion
+
+        [HideInInspector] public bool isOnEquip; // 장비 창에 가 있는가?
         [HideInInspector] public int currentSlotCount;
         [HideInInspector] public ItemSlotUI selectedItem;
         [HideInInspector] public int selectedItemIndex;
-        private bool canMoveSelection;
-
+        
         public UnityEvent<ItemDataSO> OnItemSelected;
-
+        
         private UIState _currentUIState;
         private Dictionary<string, UIState> _states = new Dictionary<string, UIState>();
         
@@ -39,14 +45,22 @@ namespace Code.UI.MainMenu
             _itemSlots = slotParentTrm.GetComponentsInChildren<ItemSlotUI>(); //슬롯들을 다 가져와서 저장
             for (int i = 0; i < _itemSlots.Length; i++)
             {
-                _itemSlots[i].Initialize(i);
-                _itemSlots[i].OnPointerDownEvent += SelectItem;
+                _itemSlots[i].Initialize(i); //슬롯 인덱스 부여해주고
+                // _itemSlots[i].OnPointerDownEvent += SelectItem;
             }
+            
+            _equipSlots = new Dictionary<EquipType, EquipSlotUI>();
+            equipSlotParentTrm.GetComponentsInChildren<EquipSlotUI>().ToList()
+                .ForEach(slot =>
+                {
+                    slot.Initialize((int)slot.slotType);
+                    _equipSlots.Add(slot.slotType, slot);
+                });
             
             GetComponentsInChildren<UIState>().ToList().ForEach(state =>
             {
                 state.Initialize(this);
-                _states.Add(state.name, state);
+                _states.Add(state.name, state); //게임오브젝트의 이름으로 상태를 정한다.
             });
         }
 
@@ -56,30 +70,54 @@ namespace Code.UI.MainMenu
             inventoryChannel.AddListener<InventoryDataEvent>(HandleDataRefresh); //데이터 오는걸 구독
             inventoryChannel.RaiseEvent(InventoryEvents.RequestInventoryDataEvent); //데이터 요청 이벤트 발행
             
-            SelectItem(0);
+            SelectItem(0); //맨 처음 열었을 때 첫번째 아이템 선택하게.
             ChangeUIState("NAVIGATE");
             HidePopupMenu();
         }
-
 
         public override void Close()
         {
             base.Close();
             inventoryChannel.RemoveListener<InventoryDataEvent>(HandleDataRefresh); //데이터 오는걸 구독
-            _currentUIState.Exit();
+            _currentUIState?.Exit();
         }
-
+        
         public void SelectItem(int nextIndex)
         {
             selectedItem = _itemSlots[nextIndex];
             selectedItemIndex = nextIndex;
-            itemSelectionUI.MoveAnchorPosition(selectedItem.RectTrm.anchoredPosition);
+            // itemSelectionUI.MoveAnchorPosition(selectedItem.RectTrm.anchoredPosition);
+            // OnItemSelected?.Invoke(selectedItem.inventoryItem?.data);
+            MoveSelectionUI();
+        }
+
+        public void SelectItem(EquipType equipType)
+        {
+            isOnEquip = false;
+            selectedItem = _equipSlots[equipType];
+            selectedItemIndex = (int)equipType;
+            MoveSelectionUI();
+        }
+        
+        private void SelectEquipItem(int equipIndex)
+        {
+            isOnEquip = true;
+            selectedItem = _equipSlots[(EquipType)equipIndex];
+            selectedItemIndex = (int)equipIndex;
+            MoveSelectionUI();
+        }
+        
+        private void MoveSelectionUI()
+        {
+            Vector2 anchorPoint = RectTrm.InverseTransformPoint(selectedItem.RectTrm.position);
+            itemSelectionUI.MoveAnchorPosition(anchorPoint, true);
             OnItemSelected?.Invoke(selectedItem.inventoryItem?.data);
         }
         
         private void HandleDataRefresh(InventoryDataEvent evt)
         {
             inventory = evt.items; //받아온 아이템 갱신후
+            equipments = evt.equipments; // 장비아이템도 갱신
             currentSlotCount = evt.slotCount;
             UpdateSlotUI();
         }
@@ -91,35 +129,66 @@ namespace Code.UI.MainMenu
                 _itemSlots[i].gameObject.SetActive(true);
                 _itemSlots[i].CleanUpSlot();
             }
-
-            for (int i = currentSlotCount; i < _itemSlots.Length; i++)
+            for(int i = currentSlotCount; i < _itemSlots.Length; i++)
                 _itemSlots[i].gameObject.SetActive(false);
-            
+
             for (int i = 0; i < inventory.Count; i++)
                 _itemSlots[i].UpdateSlot(inventory[i]);
-        }
 
+            foreach (EquipSlotUI slot in _equipSlots.Values)
+            {
+                slot.CleanUpSlot();
+            }
+
+            foreach (var equipKvp in equipments)
+            {
+                _equipSlots[equipKvp.Key].UpdateSlot(equipKvp.Value);
+            }
+        }
 
         public void ChangeUIState(string stateName)
         {
-            _currentUIState.Exit();
+            _currentUIState?.Exit();
             _currentUIState = _states.GetValueOrDefault(stateName);
-            Debug.Assert(_currentUIState != null);
+            //시작하기전 여기 바꾸세요. ==  => != 으로 (지난시간에 오타남)
+            Debug.Assert(_currentUIState != default, $"UI stat is null check : {stateName}");
             _currentUIState.Enter();
         }
-        #region Popup Controll
 
-        
-        private void HidePopupMenu()
+        public void SetClickEvents(bool isActive)
         {
-            itemPopupUI.SetActiveUI(false);
+            for (int i = 0; i < _itemSlots.Length; i++)
+            {
+                if(isActive)
+                    _itemSlots[i].OnPointerDownEvent += SelectItem;
+                else
+                    _itemSlots[i].OnPointerDownEvent -= SelectItem;
+            }
+
+            foreach (EquipSlotUI slot in _equipSlots.Values)
+            {
+                if(isActive)
+                    slot.OnPointerDownEvent += SelectEquipItem;
+                else
+                    slot.OnPointerDownEvent -= SelectEquipItem;
+            }
         }
 
-        public void ShowItemMenuPopup(Vector2 point)
-        {
-            itemPopupUI.ShowPopupUI(point);
-        }
         
+
+        #region Popup Control
+
+        public void HidePopupMenu()
+        {
+            ItemPopupUI.SetActiveUI(false);
+        }
+
+        public void ShowItemMenuPopup(Vector2 point, ItemPopupUI.PopupType popupType)
+        {
+            ItemPopupUI.ShowPopupUI(point, popupType);
+        }
+
         #endregion
+        
     }
 }

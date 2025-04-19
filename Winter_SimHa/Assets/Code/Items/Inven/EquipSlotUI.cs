@@ -28,5 +28,11 @@ namespace Code.Items.Inven
 
             backgroundImage.color = inventoryItem != null ? Color.clear : _backgroundColor;
         }
+
+        public override void CleanUpSlot()
+        {
+            base.CleanUpSlot();
+            backgroundImage.color = _backgroundColor;
+        }
     }
 }

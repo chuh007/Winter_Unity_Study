@@ -8,7 +8,7 @@ namespace Code.Items
 {
     public enum EquipType
     {
-        Weapon = 1, Armor = 2, Amulet = 3, Ring = 4
+        Weapon = 0, Armor = 1, Amulet = 2, Ring = 3
     }
 
     [Serializable]

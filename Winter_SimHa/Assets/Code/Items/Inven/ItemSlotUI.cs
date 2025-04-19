@@ -39,7 +39,7 @@ namespace Code.Items.Inven
                 amountText.text = string.Empty;
         }
 
-        public void CleanUpSlot()
+        public virtual void CleanUpSlot()
         {
             inventoryItem = null;
             itemImage.color = Color.clear;

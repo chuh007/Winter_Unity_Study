@@ -17,7 +17,7 @@ MonoBehaviour:
   itemID: d251bc4cbc9cb014d908bd31e113664f
   maxStack: 1
   dropChance: 1
-  equipType: 1
+  equipType: 0
   addingStats:
   - targetStat: {fileID: 11400000, guid: 9b11fc7524a624b48b232e6968ff0480, type: 2}
     modifyValue: 0.1

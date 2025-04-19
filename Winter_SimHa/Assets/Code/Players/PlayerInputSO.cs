@@ -19,6 +19,7 @@ namespace Code.Players
         public event Action OnUIInteractEvent;
         public event Action OnUICancelEvent;
         public event Action OnUISubmitEvent;
+        public event Action OnUIRightClickEvent; 
         
         public Vector2 InputDirection { get; private set; }
         
@@ -153,10 +154,16 @@ namespace Code.Players
                 _controls.Player.Disable();
         }
 
+        public void OnRightClick(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnUIRightClickEvent?.Invoke();
+        }
+
+        
         #region UnUsedEvent
         public void OnPoint(InputAction.CallbackContext context){}
         public void OnClick(InputAction.CallbackContext context){}
-        public void OnRightClick(InputAction.CallbackContext context){}
         public void OnMiddleClick(InputAction.CallbackContext context){}
         public void OnScrollWheel(InputAction.CallbackContext context){}
         public void OnTrackedDevicePosition(InputAction.CallbackContext context){}
