@@ -4,6 +4,7 @@ using Code.Animators;
 using Code.Combats;
 using Code.Core.StatSystem;
 using Code.Entities;
+using Code.Players;
 using DG.Tweening;
 using UnityEngine;
 
@@ -65,8 +66,7 @@ namespace Code.SkillSystem.PlayerClone
             float statValue = _skillOwner.GetCompo<EntityStat>().GetStat(damageStat).Value;
 
             //스킬에 Calcuate데이터 만들어 하는식으로 변경할꺼다.
-            float finalDamage = statValue * attackData.damageMultiplier * _skill.damageMultiplier
-                                + attackData.damageIncrease;
+            DamageData finalDamage = _skill.CalculateDamage(attackData, _skill.damageMultiplier, damageStat);
 
             bool success = damageCaster.CastDamage(finalDamage, attackData.knockBackForce, attackData.isPowerAttack);
             

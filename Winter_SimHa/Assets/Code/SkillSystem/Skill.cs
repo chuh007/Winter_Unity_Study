@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Code.Combats;
+using Code.Core.StatSystem;
 using Code.Entities;
+using Code.Players;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.SkillSystem
 {
@@ -8,20 +14,67 @@ namespace Code.SkillSystem
     
     public abstract class Skill : MonoBehaviour
     {
+        [field: SerializeField] public SkillDataSO SkillData { get; private set; }
         public bool skillEnabled = false;
         
         [SerializeField] protected float cooldown;
         protected float _cooldownTimer;
         protected Entity _entity;
-        protected SkillCompo _skillCompo;
+        protected PlayerAttackCompo _attakCompo;
+        [HideInInspector] public SkillCompo skillCompo;
 
         public bool IsCooldown => _cooldownTimer > 0f;
         public event CooldownInfo OnCooldown;
 
+        #region Upgrade Skill
+
+        public List<SkillPerkUpgradeSO> upgradedList = new List<SkillPerkUpgradeSO>();
+
+        public int GetUpgradeCount(SkillPerkUpgradeSO upgradeData)
+            => upgradedList.Count(upgrade => upgrade == upgradeData);
+
+        public void UpgradeSkill(SkillPerkUpgradeSO upgradeData)
+        {
+            upgradedList.Add(upgradeData);
+            upgradeData.UpgradeSkill(this);
+        }
+
+        public void RollbackUpgradeSkill(SkillPerkUpgradeSO upgradeData)
+        {
+            upgradedList.Remove(upgradeData);
+            upgradeData.RollbackUpgrade(this);
+        }
+
+        public bool CanUpgradeSkill(SkillPerkUpgradeSO upgradeData)
+        {
+            foreach (var data in upgradeData.needUpgradeList)
+            {
+                if(upgradedList.Contains(data) == false) return false;
+            }
+
+            foreach (var data in upgradeData.dontNeedUpgradeList)
+            {
+                if(upgradedList.Contains(data)) return false;
+            }
+            
+            int currentUpgradedCnt = GetUpgradeCount(upgradeData);
+            if(currentUpgradedCnt >= upgradeData.maxUpgradeCount)
+                return false;
+            return true;
+        }
+
+        #endregion
+        
         public virtual void InitializeSkill(Entity entity, SkillCompo skillCompo)
         {
             _entity = entity;
-            _skillCompo = skillCompo;
+            this.skillCompo = skillCompo;
+            _attakCompo = entity.GetCompo<PlayerAttackCompo>();
+        }
+
+        public DamageData CalculateDamage(AttackDataSO attackData, float skillMultiplier, StatSO majorStat)
+        {
+            return _attakCompo.CalculateDamage(attackData, skillMultiplier, majorStat);
         }
 
         protected virtual void Update()

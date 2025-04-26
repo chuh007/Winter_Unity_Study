@@ -170,6 +170,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8512528744866412295}
+        m_TargetAssemblyTypeName: Code.Feedbacks.HitImpactFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDead:
     m_PersistentCalls:
       m_Calls: []
@@ -585,6 +597,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843dc113d5b07604f8b9dcf90e1bbdb1, type: 3}
+--- !u!114 &4884925653343928355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8776582588880556008, guid: 843dc113d5b07604f8b9dcf90e1bbdb1, type: 3}
+  m_PrefabInstance: {fileID: 4181048396562862027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816c239cecdd4d809f7a2b37ee2e0fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5114773393651922166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9006427467151670077, guid: 843dc113d5b07604f8b9dcf90e1bbdb1, type: 3}
@@ -649,19 +672,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5261941190895035509, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8512528744866412295}
   m_SourcePrefab: {fileID: 100100000, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
 --- !u!4 &6452038100175712673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7433269388775036352, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
   m_PrefabInstance: {fileID: 4513303193362031713}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8621106802600280084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5261941190895035509, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
+  m_PrefabInstance: {fileID: 4513303193362031713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8512528744866412295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621106802600280084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf19c1956d3742c4a375dc945f8e8d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactPoolType: {fileID: 11400000, guid: 77c1f49b16555c044b32f4d629cc15ec, type: 2}
+  slashPoolType: {fileID: 11400000, guid: 6ad4aa9b93bac644893ae9584aa07e7c, type: 2}
+  feedbackData: {fileID: 4884925653343928355}
+  impactColor: {r: 2.4622889, g: 2.195922, b: 0.81301993, a: 0}
+  effectScale: {x: 2, y: 2, z: 2}
+  spawnChannel: {fileID: 11400000, guid: 503c04ad492fffb429d25dfff052aa4d, type: 2}
 --- !u!114 &8915310565208533653 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4979840920333602548, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
   m_PrefabInstance: {fileID: 4513303193362031713}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8621106802600280084}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015ffcd23a4041fba228ce9ef3d3f93e, type: 3}

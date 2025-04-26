@@ -9,7 +9,6 @@ namespace Code.SkillSystem.Crystals
         [HideInInspector] public CrystalSkill skill;
         
         protected Entity _owner;
-        protected float _damageStatValue;
 
         public delegate void CrystalStatusChange(bool before, bool next);
 
@@ -30,7 +29,6 @@ namespace Code.SkillSystem.Crystals
                 OnCrystalStatusChange?.Invoke(before, HasCrystal);
         }
         
-        public void SetDamageStatValue(float value) => _damageStatValue = value;
         
         public abstract void CreateCrystal();
         public abstract void UseCrystal();

@@ -2,6 +2,7 @@
 using Code.Core.EventSystems;
 using Code.Enemies.BTCommons;
 using Code.Entities;
+using Code.Players;
 using Unity.Behavior;
 using UnityEngine;
 
@@ -68,7 +69,7 @@ namespace Code.Enemies.Skeleton
             if (_state.Value == BTEnemyState.STUN || _state.Value == BTEnemyState.HIT) return;
 
             if (_feedbackData.IsLastHitPowerAttack)
-            {
+            { 
                 _stateChannel.SendEventMessage(BTEnemyState.HIT);
             }
             else if (_state.Value == BTEnemyState.PATROL)
@@ -93,7 +94,7 @@ namespace Code.Enemies.Skeleton
 
         public bool CanCounter { get; private set; }
         public Transform TargetTrm => transform;
-        public void ApplyCounter(float damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack, Entity dealer)
+        public void ApplyCounter(DamageData damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack, Entity dealer)
         {
             //damage에 스턴시간, 크리티컬 등등의 정보객체 넘어와야 하는데 지금은 damage만 주니까 하드코딩
             float stunTime = 2f;

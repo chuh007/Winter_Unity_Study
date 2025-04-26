@@ -57,7 +57,7 @@ namespace Code.SkillSystem.PlayerClone
         {
             Clone newClone = Instantiate(_clonePrefab);
             newClone.transform.position = originTrm.position + offset;
-            Transform targetTrm = _skillCompo.FindClosestEnemy(newClone.transform.position, findEnemyRadius);
+            Transform targetTrm = skillCompo.FindClosestEnemy(newClone.transform.position, findEnemyRadius);
             newClone.SetUpClone(_entity, this, targetTrm, duplicateCount); //클론을 셋업한다.
         }
 

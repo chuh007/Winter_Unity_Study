@@ -53,13 +53,17 @@ namespace Code.Players.States
             {
                 _counterSuccess = true;
                 AttackDataSO attackData = _attackCompo.GetAttackData("PlayerCounterAttack");
-                float damage = 10f; //하드코딩
+                DamageData damage = _attackCompo.CalculateDamage(attackData);
                 Vector2 attackDirection = new Vector2(_renderer.FacingDirection, 0);
                 Vector2 knockBackForce = attackData.knockBackForce;
                 knockBackForce.x *= _renderer.FacingDirection;
                 
                 countable.ApplyCounter(damage, attackDirection, knockBackForce, attackData.isPowerAttack, _player);
                 _renderer.SetParam(_attackCompo.successCounterParam, true);
+                
+                // 스킬 피드벡을 보낸다.
+                var skillFeedbackEvt = PlayerEvents.SkillFeedbackEvent.Initializer(attackData);
+                _player.PlayerChannel.RaiseEvent(skillFeedbackEvt);
                 
                 //카운터 성공메시지 보낸다.
                 CounterSuccessEvent counterEvt = PlayerEvents.CounterSuccessEvent;

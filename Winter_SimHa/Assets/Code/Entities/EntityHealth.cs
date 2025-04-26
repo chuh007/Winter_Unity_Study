@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Combats;
 using Code.Core.StatSystem;
+using Code.Players;
 using UnityEngine;
 
 namespace Code.Entities
@@ -49,16 +50,17 @@ namespace Code.Entities
             //체력변경으로 인해 사망하는 일은 없도록
         }
 
-        public void ApplyDamage(float damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer)
+        public void ApplyDamage(DamageData damageData, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer)
         {
             if (_entity.IsDead) return; //이미 죽은 녀석입니다.
             
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, maxHealth);
+            _currentHealth = Mathf.Clamp(_currentHealth - damageData.damage, 0, maxHealth);
             _feedbackData.LastAttackDirection = direction.normalized;
             _feedbackData.IsLastHitPowerAttack = isPowerAttack;
             _feedbackData.LastEntityWhoHit = dealer;
 
             AfterHitFeedbacks(knockBackPower);
+            // 데미지텍스트
         }
 
         private void AfterHitFeedbacks(Vector2 knockBackPower)

@@ -120,7 +120,7 @@ namespace Code.SkillSystem.IceBalls
             mover.CanManualMove = false; //못움직이게 막아주고
 
             //유도 거리내에 적이 있다면
-            int enemyCount = _skillCompo.GetEnemiesInRange(originalPosition, guideRange);
+            int enemyCount = skillCompo.GetEnemiesInRange(originalPosition, guideRange);
             
             for (int i = 0; i < _currentChargeCount; i++)
             {
@@ -128,14 +128,13 @@ namespace Code.SkillSystem.IceBalls
                 Vector3 generatePosition = originalPosition + (Vector3)Random.insideUnitCircle * 0.3f;
                 
                 //이건 나중에 EntityDamageCompo 나오면 다 바꾼다.
-                float damage = _currentMagicStatValue * damageMultiplier;
 
                 if (isGuidedFire && enemyCount > 0) //유도탄이고 적도 존재한다.
                 {
                     int index = Random.Range(0, enemyCount);
-                    iceBall.guideTargetTrm = _skillCompo.colliders[index].transform; //오버랩을 써서 가져온 녀석중에 하나
+                    iceBall.guideTargetTrm = skillCompo.colliders[index].transform; //오버랩을 써서 가져온 녀석중에 하나
                 }
-                iceBall.SetUpAndFire(this, generatePosition, _entity.transform.right, damage, _entity);
+                iceBall.SetUpAndFire(this, generatePosition, _entity.transform.right, _entity);
                 mover.AddForceToEntity(_entity.transform.right * -1f);
                 yield return wait;
             }

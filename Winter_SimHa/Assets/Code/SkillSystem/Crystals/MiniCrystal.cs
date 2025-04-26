@@ -11,9 +11,9 @@ namespace Code.SkillSystem.Crystals
         private bool _isLaunched = false;
         private MultiCrystalController _multiCrystalController;
         
-        public override void SetUp(float damageStat, CrystalSkill skill, CrystalController controller, Entity owner)
+        public override void SetUp( CrystalSkill skill, CrystalController controller, Entity owner)
         {
-            base.SetUp(damageStat, skill, controller, owner);
+            base.SetUp(skill, controller, owner);
             _multiCrystalController = controller as MultiCrystalController;
             StartPulseMove();
         }

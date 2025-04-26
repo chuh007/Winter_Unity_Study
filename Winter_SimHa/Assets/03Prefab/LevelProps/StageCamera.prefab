@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4137043651917736106}
   - component: {fileID: 254343567540271380}
   - component: {fileID: 9107370139334362557}
+  - component: {fileID: 5720225214893363014}
   m_Layer: 0
   m_Name: StageCamera
   m_TagString: Untagged
@@ -107,3 +108,26 @@ MonoBehaviour:
     Time: 0.3
     Smoothing: 15
     IgnoreY: 0
+--- !u!114 &5720225214893363014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903098109189445451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    AmplitudeGain: 0.5
+    FrequencyGain: 1.5
+    Duration: 0.5
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}

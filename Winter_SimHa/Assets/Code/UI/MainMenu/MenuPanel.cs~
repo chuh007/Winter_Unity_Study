@@ -9,8 +9,8 @@ namespace Code.UI.MainMenu
         [SerializeField] protected float parentHeight = 800f;
         
         protected RectTransform _rectTrm;
-        protected Vector2 _initPosition;
-        public RectTransform 
+        [SerializeField] protected Vector2 _initPosition;
+        public RectTransform RectTrm => transform as RectTransform;
         public virtual void Initialize()
         {
             _rectTrm = transform as RectTransform;
@@ -20,16 +20,28 @@ namespace Code.UI.MainMenu
             _rectTrm.anchoredPosition = _initPosition + new Vector2(0f, - parentHeight);
         }
 
-        public virtual void Open()
+        public virtual void Open(bool isTween = true)
         {
-            _rectTrm.DOAnchorPos(_initPosition, 0.5f).SetUpdate(true);
+            if(isTween)
+                RectTrm.DOAnchorPos(_initPosition, 0.5f).SetUpdate(true);
+            else
+            {
+                RectTrm.anchoredPosition = _initPosition;
+            }
         }
 
         public virtual void Close()
         {
             Vector2 hidePosition = _initPosition + new Vector2(0f, -parentHeight);
-            _rectTrm.DOAnchorPos(hidePosition, 0.5f).SetUpdate(true);
+            RectTrm.anchoredPosition = hidePosition;
         }
-        
+
+        [ContextMenu("HidePanel")]
+        private void HidePanel()
+        {
+            
+        }
+        [ContextMenu("ShowPanel")]
+        private void ShowPanel() => Open(false);
     }
 }

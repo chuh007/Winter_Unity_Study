@@ -64,9 +64,9 @@ namespace Code.UI.MainMenu
             });
         }
 
-        public override void Open()
+        public override void Open(bool isTween = true)
         {
-            base.Open();
+            base.Open(isTween);
             inventoryChannel.AddListener<InventoryDataEvent>(HandleDataRefresh); //데이터 오는걸 구독
             inventoryChannel.RaiseEvent(InventoryEvents.RequestInventoryDataEvent); //데이터 요청 이벤트 발행
             

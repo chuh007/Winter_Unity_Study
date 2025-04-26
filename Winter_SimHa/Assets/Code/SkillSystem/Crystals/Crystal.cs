@@ -2,6 +2,7 @@
 using Code.Animators;
 using Code.Combats;
 using Code.Entities;
+using Code.Players;
 using DG.Tweening;
 using UnityEngine;
 
@@ -18,8 +19,6 @@ namespace Code.SkillSystem.Crystals
         protected CrystalSkill _skill;
         protected CrystalController _crystalController;
         protected Entity _owner;
-
-        protected float _damage;
         
         private void Awake()
         {
@@ -37,17 +36,19 @@ namespace Code.SkillSystem.Crystals
             _canExplode = false;
             _animator.SetTrigger(explosionParam.hashValue);
 
-            if (damageCaster.CastDamage(_damage, attackData.knockBackForce, attackData.isPowerAttack))
+            DamageData damage = _skill.CalculateDamage(attackData, _skill.damageMultiplier, _skill.DamageStat);
+            
+            if (damageCaster.CastDamage(damage, attackData.knockBackForce, attackData.isPowerAttack))
             {
                 //스킬에 공격 피드백들을 실행한다.
+                _skill.skillCompo.ApplyAttackFeedback(attackData);
             }
         }
 
-        public virtual void SetUp(float damageStat, CrystalSkill skill, CrystalController controller, Entity owner)
+        public virtual void SetUp(CrystalSkill skill, CrystalController controller, Entity owner)
         {
             _skill = skill;
             _owner = owner;
-            _damage = damageStat;
             damageCaster.InitCaster(owner);
             _canExplode = true;
             _crystalController = controller;

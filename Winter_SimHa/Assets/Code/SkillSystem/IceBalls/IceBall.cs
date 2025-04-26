@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Combats;
 using Code.Entities;
+using Code.Players;
 using UnityEngine;
 
 namespace Code.SkillSystem.IceBalls
@@ -14,7 +15,6 @@ namespace Code.SkillSystem.IceBalls
         
         private Rigidbody2D _rbCompo;
         private float _currentTime;
-        private float _damage;
         private Entity _owner;
         private IceBallSkill _skill;
         private float _guideTime;
@@ -26,10 +26,9 @@ namespace Code.SkillSystem.IceBalls
             _rbCompo = GetComponent<Rigidbody2D>();
         }
 
-        public void SetUpAndFire(IceBallSkill skill, Vector3 position, Vector2 direction, float damage, Entity owner)
+        public void SetUpAndFire(IceBallSkill skill, Vector3 position, Vector2 direction, Entity owner)
         {
             _skill = skill;
-            _damage = damage;
             _owner = owner;
             transform.position = position;
             damageCaster.InitCaster(owner);
@@ -69,13 +68,15 @@ namespace Code.SkillSystem.IceBalls
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            damageCaster.CastDamage(_damage, attackData.knockBackForce, attackData.isPowerAttack);
+            DamageData damage = _skill.CalculateDamage(attackData, _skill.damageMultiplier, _skill.MagicDamageStat);
+            damageCaster.CastDamage(damage, attackData.knockBackForce, attackData.isPowerAttack);
             Explosion();
             Destroy(gameObject);
         }
 
         private void Explosion() //메구밍
         {
+            _skill.skillCompo.ApplyAttackFeedback(attackData);
             ParticleSystem effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             effect.Play();
         }

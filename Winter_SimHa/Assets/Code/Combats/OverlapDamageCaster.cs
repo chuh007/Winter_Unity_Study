@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Entities;
+using Code.Players;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace Code.Combats
             _hitResults = new Collider2D[maxHitCount];
         }
 
-        public override bool CastDamage(float damage, Vector2 knockBack, bool isPowerAttack)
+        public override bool CastDamage(DamageData damageData, Vector2 knockBack, bool isPowerAttack)
         {
             
             int cnt = overlapCastType switch
@@ -43,14 +44,14 @@ namespace Code.Combats
             
                 if (_hitResults[i].TryGetComponent(out IDamageable damageable))
                 {
-                    damageable.ApplyDamage(damage, direction, knockBack, isPowerAttack, _owner);
+                    damageable.ApplyDamage(damageData, direction, knockBack, isPowerAttack, _owner);
                 }
             }
             
             return cnt > 0;
         }
 
-        public override void ApplyCounter(float damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack, Entity dealer)
+        public override void ApplyCounter(DamageData damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack, Entity dealer)
         {
             //이 부분은 나중에 투사체 캐스터는 다르게 해야한다.
             if (_owner is ICounterable counterable)

@@ -1,4 +1,5 @@
 ﻿using Code.Entities;
+using Code.Players;
 using UnityEngine;
 
 namespace Code.Combats
@@ -16,12 +17,12 @@ namespace Code.Combats
             _owner = owner;
         }
 
-        public abstract bool CastDamage(float damage, Vector2 knockBack, bool isPowerAttack);
+        public abstract bool CastDamage(DamageData damageData, Vector2 knockBack, bool isPowerAttack);
         
         public bool CanCounter { get; set; }
         public Transform TargetTrm => _owner.transform;
 
-        public abstract void ApplyCounter(float damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack,
+        public abstract void ApplyCounter(DamageData damage, Vector2 direction, Vector2 knockBackForce, bool isPowerAttack,
             Entity dealer);
 
         public abstract Collider2D GetCounterableTarget(Vector3 center, LayerMask whatIsCounterable);

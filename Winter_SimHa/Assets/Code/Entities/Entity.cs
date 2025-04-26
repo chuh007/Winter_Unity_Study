@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.Combats;
+using Code.Players;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ namespace Code.Entities
 {
     public abstract class Entity : MonoBehaviour, IDamageable
     {
-        public delegate void OnDamageHandler(float damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer);
+        public delegate void OnDamageHandler(DamageData damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer);
         public event OnDamageHandler OnDamage;
 
         public UnityEvent OnHit;
@@ -70,7 +71,7 @@ namespace Code.Entities
             return default(T);
         }
 
-        public void ApplyDamage(float damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer)
+        public void ApplyDamage(DamageData damage, Vector2 direction, Vector2 knockBackPower, bool isPowerAttack, Entity dealer)
             => OnDamage?.Invoke(damage, direction, knockBackPower, isPowerAttack, dealer);
         
     }

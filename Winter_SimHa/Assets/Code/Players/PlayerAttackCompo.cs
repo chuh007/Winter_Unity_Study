@@ -5,16 +5,26 @@ using Code.Combats;
 using Code.Core.EventSystems;
 using Code.Core.StatSystem;
 using Code.Entities;
+using Unity.Cinemachine;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Code.Players
 {
+    public struct DamageData
+    {
+        public float damage;
+        public bool isCritical;
+    }
+    
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInit
     {
         [SerializeField] private StatSO attackSpeedStat;
+        [SerializeField] private StatSO damageStat;
+       
         [SerializeField] private AnimParamSO atkSpeedParam;
         [SerializeField] private DamageCaster damageCaster;
-
+        [SerializeField] private CinemachineImpulseSource impulseSource;
         [SerializeField] private List<AttackDataSO> attackDataList;
 
         [Header("Counter attack settings")] 
@@ -27,11 +37,13 @@ namespace Code.Players
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private EntityAnimationTrigger _triggerCompo;
-
+        private EntityDamageCompo _damageCompo;
+        
         private bool _canJumpAttack;
 
         private Dictionary<string, AttackDataSO> _attackDataDictionary;
         private AttackDataSO _currentAttackData;
+
 
         #region Init section
 
@@ -42,6 +54,7 @@ namespace Code.Players
             _renderer = entity.GetCompo<EntityRenderer>();
             _mover = entity.GetCompo<EntityMover>();
             _triggerCompo = entity.GetCompo<EntityAnimationTrigger>();
+            _damageCompo = entity.GetCompo<EntityDamageCompo>();
             damageCaster.InitCaster(entity);
 
             //리스트를 딕셔너리로 변경한다.
@@ -52,16 +65,23 @@ namespace Code.Players
         public void AfterInit()
         {
             _statCompo.GetStat(attackSpeedStat).OnValueChange += HandleAttackSpeedChange;
+            damageStat = _statCompo.GetStat(damageStat);
+            
+            
             _renderer.SetParam(atkSpeedParam, _statCompo.GetStat(attackSpeedStat).Value);
 
             _triggerCompo.OnAttackTrigger += HandleAttackTrigger;
+            _player.PlayerChannel.AddListener<SkillFeedbackEvent>(HandleSkillFeedback);
         }
 
         private void OnDestroy()
         {
             _statCompo.GetStat(attackSpeedStat).OnValueChange -= HandleAttackSpeedChange;
             _triggerCompo.OnAttackTrigger -= HandleAttackTrigger;
+            _player.PlayerChannel.AddListener<SkillFeedbackEvent>(HandleSkillFeedback);
         }
+
+
         #endregion
 
         private void HandleAttackSpeedChange(StatSO stat, float current, float previous)
@@ -97,15 +117,28 @@ namespace Code.Players
         
         private void HandleAttackTrigger()
         {
-            float damage = 5f; //나중에 스탯기반으로 고침. 
+            DamageData damageData = CalculateDamage(_currentAttackData); // TODO 개선 
             Vector2 knockBackForce = _currentAttackData.knockBackForce;
-            bool success = damageCaster.CastDamage(damage, knockBackForce, _currentAttackData.isPowerAttack);
+            bool success = damageCaster.CastDamage(damageData, knockBackForce, _currentAttackData.isPowerAttack);
 
             if (success)
             {
-                Debug.Log($"<color=red>Damaged! - {damage}</color>");
+                string color = damageData.isCritical ? "red" : "white";
+                Debug.Log($"<color={color}>Damaged! - {damageData.damage}</color>");
                 _player.PlayerChannel.RaiseEvent(PlayerEvents.PlayerAttackSuccess);
+                GenerateAttackFeedback(_currentAttackData);
             }
+        }
+
+        private void GenerateAttackFeedback(AttackDataSO attackData)
+        {
+            impulseSource.ImpulseDefinition.ImpulseDuration = attackData.cameraShakeDuration;
+            impulseSource.GenerateImpulse(attackData.cameraShakePower);
+        }
+        
+        private void HandleSkillFeedback(SkillFeedbackEvent evt)
+        {
+            GenerateAttackFeedback(evt.attackData);
         }
 
         public ICounterable GetCounterableTargetInRadius()
@@ -118,5 +151,14 @@ namespace Code.Players
             
             return default;
         }
+
+        public DamageData CalculateDamage(AttackDataSO attackData, float multiplier = 1, StatSO majorStat = null)
+        {
+            if (majorStat == null)
+                majorStat = damageStat;
+            return _damageCompo.CalculateDamage(attackData, majorStat, multiplier);
+        }
+
+        
     }
 }

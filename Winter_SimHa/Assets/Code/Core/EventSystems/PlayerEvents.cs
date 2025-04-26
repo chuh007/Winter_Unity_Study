@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Combats;
+using UnityEngine;
 
 namespace Code.Core.EventSystems
 {
@@ -11,6 +12,7 @@ namespace Code.Core.EventSystems
         public static readonly CounterSuccessEvent CounterSuccessEvent = new CounterSuccessEvent();
         public static readonly SkillChargedEvent SkillChargedEvent = new SkillChargedEvent();
         public static readonly SkillChargeEndEvent SkillChargeEndEvent = new SkillChargeEndEvent();
+        public static readonly SkillFeedbackEvent SkillFeedbackEvent = new SkillFeedbackEvent();
     }
 
     public class AddEXPEvent : GameEvent
@@ -31,4 +33,15 @@ namespace Code.Core.EventSystems
         public int chargeCount;
     }
     public class SkillChargeEndEvent : GameEvent { }
+
+    public class SkillFeedbackEvent : GameEvent
+    {
+        public AttackDataSO attackData;
+
+        public SkillFeedbackEvent Initializer(AttackDataSO attackData)
+        {
+            this.attackData = attackData;
+            return this;
+        }
+    }
 }

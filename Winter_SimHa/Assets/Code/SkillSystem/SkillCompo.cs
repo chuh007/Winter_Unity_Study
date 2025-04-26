@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Combats;
+using Code.Core.EventSystems;
 using Code.Entities;
 using UnityEngine;
 
 namespace Code.SkillSystem
 {
-    public class SkillCompo : MonoBehaviour, IEntityComponent
+    public class SkillCompo : MonoBehaviour, IEntityComponent, IAfterInit
     {
         public Skill activeSkill; //현재 활성화되어 있는 스킬
         public ContactFilter2D whatIsEnemy;
         public Collider2D[] colliders;
 
+        [field: SerializeField] public GameEventChannelSO PlayerChannel { get; private set; }
+        [field: SerializeField] public GameEventChannelSO UIChannel { get; private set; }
         [SerializeField] private int maxCheckEnemy;
 
         private Entity _entity;
@@ -26,6 +30,39 @@ namespace Code.SkillSystem
             _skills = new Dictionary<Type, Skill>();
             GetComponentsInChildren<Skill>().ToList().ForEach(skill => _skills.Add(skill.GetType(), skill));
             _skills.Values.ToList().ForEach(skill => skill.InitializeSkill(_entity, this));
+        }
+
+        public void AfterInit()
+        {
+            UIChannel.AddListener<SkillUpgradeClickEvent>(HandleUpgrade);
+        }
+
+        private void OnDestroy()
+        {
+            UIChannel.RemoveListener<SkillUpgradeClickEvent>(HandleUpgrade);
+        }
+
+        private void HandleUpgrade(SkillUpgradeClickEvent evt)
+        {
+            Type skillType = evt.targetSkill.GetType();
+
+            if (_skills.TryGetValue(skillType, out var targetSkill))
+            {
+                if(targetSkill.CanUpgradeSkill(evt.upgradeDataSO) == false) return;
+                targetSkill.UpgradeSkill(evt.upgradeDataSO);
+                UpdateSkillTree();
+            }
+        }
+
+
+        private void Start()
+        {
+            UpdateSkillTree();
+        }
+
+        private void UpdateSkillTree()
+        {
+            UIChannel.RaiseEvent(UIEvents.SkillTreeUpdateEvent.Initializer(_skills));
         }
 
         public T GetSkill<T>() where T : Skill
@@ -63,5 +100,11 @@ namespace Code.SkillSystem
             }
             return closestOne;
         }
+
+        public void ApplyAttackFeedback(AttackDataSO attackData)
+        {
+            PlayerChannel.RaiseEvent(PlayerEvents.SkillFeedbackEvent.Initializer(attackData));
+        }
+
     }
 }

@@ -14,8 +14,9 @@ namespace Code.SkillSystem.Crystals
             TriggerExplosion, Multiple
         }
 
-        [Header("Default settings")] 
-        [SerializeField] private StatSO damageStat;
+        [Header("Default settings")]
+        [field: SerializeField] public StatSO DamageStat { get; private set; }
+
         public float timeOut = 5f;
         public float damageMultiplier = 1f;
 
@@ -25,14 +26,11 @@ namespace Code.SkillSystem.Crystals
         private Dictionary<CrystalType, CrystalController> _controllers;
         private CrystalController _currentController;
 
-        private float _damageStatValue;
         
         public override void InitializeSkill(Entity entity, SkillCompo skillCompo)
         {
             base.InitializeSkill(entity, skillCompo);
-            StatSO stat = entity.GetCompo<EntityStat>().GetStat(damageStat);
-            stat.OnValueChange += HandleDamageStatChange;
-            _damageStatValue = stat.Value;
+            DamageStat = entity.GetCompo<EntityStat>().GetStat(DamageStat);
             
             _controllers = new Dictionary<CrystalType, CrystalController>();
             GetComponentsInChildren<CrystalController>().ToList()
@@ -44,7 +42,6 @@ namespace Code.SkillSystem.Crystals
         
         private void OnDestroy()
         {
-            _entity.GetCompo<EntityStat>().GetStat(damageStat).OnValueChange -= HandleDamageStatChange;
         }
 
         private void SetCurrentController(CrystalType newType)
@@ -56,7 +53,6 @@ namespace Code.SkillSystem.Crystals
             _currentController = _controllers[newType];
             _currentController.SetUp(this, _entity);
             _currentController.OnCrystalStatusChange += HandleCrystalStatusChange;
-            _currentController.SetDamageStatValue(_damageStatValue);
         }
 
         private void HandleCrystalStatusChange(bool before, bool next)
@@ -67,11 +63,6 @@ namespace Code.SkillSystem.Crystals
             }
         }
         
-        private void HandleDamageStatChange(StatSO stat, float current, float previous)
-        {
-            _damageStatValue = current;
-            _currentController.SetDamageStatValue(_damageStatValue); //여기 추가되었습니다.
-        }
 
         public override bool AttemptUseSkill()
         {
@@ -95,7 +86,7 @@ namespace Code.SkillSystem.Crystals
         }
         
         public Transform FindClosestTarget(Transform origin, float radius)
-            => _skillCompo.FindClosestEnemy(origin.position, radius);
+            => skillCompo.FindClosestEnemy(origin.position, radius);
         
     }
 }

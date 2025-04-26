@@ -16,7 +16,8 @@ namespace Code.SkillSystem.Crystals
         {
             Vector3 position = _owner.transform.position + _owner.transform.right * 0.8f;
             _currentCrystal = Instantiate(crystalPrefab, position, Quaternion.identity).GetComponent<Crystal>();
-            _currentCrystal.SetUp(_damageStatValue, skill, this, _owner);
+            
+            _currentCrystal.SetUp(skill, this, _owner);
             _timer = skill.timeOut;
             SetCrystalStatus(true); //크리스탈 소유 상태로 변경
         }
