@@ -69,7 +69,7 @@ namespace Code.Enemies.Skeleton
             if (_state.Value == BTEnemyState.STUN || _state.Value == BTEnemyState.HIT) return;
 
             if (_feedbackData.IsLastHitPowerAttack)
-            { 
+            {
                 _stateChannel.SendEventMessage(BTEnemyState.HIT);
             }
             else if (_state.Value == BTEnemyState.PATROL)

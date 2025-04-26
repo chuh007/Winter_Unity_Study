@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Combats;
+using Code.Core.StatSystem;
 using Code.Entities;
 using Code.Players;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Code.SkillSystem.IceBalls
         [SerializeField] private ParticleSystem explosionPrefab; //나중에 풀매니징으로 해도 되고.
         [SerializeField] private AttackDataSO attackData;
         [SerializeField] private DamageCaster damageCaster;
+        //[SerializeField] private StatSO damageStat;
         
         private Rigidbody2D _rbCompo;
         private float _currentTime;
@@ -74,7 +76,7 @@ namespace Code.SkillSystem.IceBalls
             Destroy(gameObject);
         }
 
-        private void Explosion() //메구밍
+        private void Explosion()
         {
             _skill.skillCompo.ApplyAttackFeedback(attackData);
             ParticleSystem effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity);

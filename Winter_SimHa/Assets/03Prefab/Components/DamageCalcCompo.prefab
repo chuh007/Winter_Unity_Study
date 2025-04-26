@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7820224513629889206
+--- !u!1 &4781906771547610195
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 554277645699132305}
-  - component: {fileID: 156343973952788209}
+  - component: {fileID: 2613649067890897970}
+  - component: {fileID: 3114341781903814331}
   m_Layer: 7
   m_Name: DamageCalcCompo
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &554277645699132305
+--- !u!4 &2613649067890897970
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7820224513629889206}
+  m_GameObject: {fileID: 4781906771547610195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,17 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &156343973952788209
+--- !u!114 &3114341781903814331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7820224513629889206}
+  m_GameObject: {fileID: 4781906771547610195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c9dc39c404388a0585396d9b50a14, type: 3}
+  m_Script: {fileID: 11500000, guid: 83c8606269f2459fbf46a0898a129091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalStat: {fileID: 11400000, guid: 78872727488e4a445a293922f4d1bb40, type: 2}
-  criticalDamageStat: {fileID: 11400000, guid: b15a235abf52b7b46829a22c2d068448, type: 2}
+  criticalStat: {fileID: 11400000, guid: 1b3edf58c5c8d42469fe4c4a2525c08d, type: 2}
+  criticalDamageStat: {fileID: 11400000, guid: 718c3b0fa82a975418a9523f6ef08058, type: 2}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4137043651917736106}
   - component: {fileID: 254343567540271380}
   - component: {fileID: 9107370139334362557}
-  - component: {fileID: 5720225214893363014}
+  - component: {fileID: 3037046472613365791}
   m_Layer: 0
   m_Name: StageCamera
   m_TagString: Untagged
@@ -108,7 +108,7 @@ MonoBehaviour:
     Time: 0.3
     Smoothing: 15
     IgnoreY: 0
---- !u!114 &5720225214893363014
+--- !u!114 &3037046472613365791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

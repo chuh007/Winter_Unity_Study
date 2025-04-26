@@ -127,8 +127,6 @@ namespace Code.SkillSystem.IceBalls
                 IceBall iceBall = Instantiate(iceballPrefab);
                 Vector3 generatePosition = originalPosition + (Vector3)Random.insideUnitCircle * 0.3f;
                 
-                //이건 나중에 EntityDamageCompo 나오면 다 바꾼다.
-
                 if (isGuidedFire && enemyCount > 0) //유도탄이고 적도 존재한다.
                 {
                     int index = Random.Range(0, enemyCount);

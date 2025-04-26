@@ -20,14 +20,14 @@ namespace Code.Core.EventSystems
         public Skill targetSkill;
         public SkillPerkUpgradeSO upgradeDataSO;
 
-        public SkillUpgradeClickEvent Initializer(Skill skill, SkillPerkUpgradeSO upgradeDataSO)
+        public SkillUpgradeClickEvent Initializer(Skill targetSkill, SkillPerkUpgradeSO upgradeDataSO)
         {
-            this.targetSkill = skill;
+            this.targetSkill = targetSkill;
             this.upgradeDataSO = upgradeDataSO;
             return this;
         }
     }
-
+    
     public class FadeEvent : GameEvent
     {
         public bool isFadeIn;

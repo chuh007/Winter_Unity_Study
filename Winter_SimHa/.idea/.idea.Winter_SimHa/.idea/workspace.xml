@@ -5,58 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="419bd952-94f2-4758-bdc7-6ff5d91b3687" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Combats/EntityDamageCompo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Combats/EntityDamageCompo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/HitImpactFeedback.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/HitImpactFeedback.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/SkillDataSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/SkillDataSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/SkillUpgradeBtnUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/SkillUpgradeBtnUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/UILineRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/UILineRenderer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Winter_SimHa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01BehaviorTree/SkeletonBT.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01BehaviorTree/SkeletonBT.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/Exclamation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/Exclamation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/slash_effect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02Animations/Clips/FX/slash_effect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Enemy/EnemySkeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Enemy/EnemySkeleton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/LevelProps/StageCamera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/LevelProps/StageCamera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03Prefab/UI/MenuCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05MatAndShader/Shader/EffectMaterials/EffectMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Combats/DamageCaster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Combats/DamageCaster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Combats/ICounterable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Combats/ICounterable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Combats/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Combats/IDamageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Combats/OverlapDamageCaster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Combats/OverlapDamageCaster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/PlayerEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/PlayerEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/EventSystems/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Skeleton/EnemySkeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Skeleton/EnemySkeleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Entities/EntityHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Entities/EntityHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerAttackCompo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerAttackCompo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/States/PlayerCounterAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/States/PlayerCounterAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/Crystal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/Crystal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/CrystalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/CrystalController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/CrystalSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/CrystalSkill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/ExplosionCrystalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/ExplosionCrystalController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/MiniCrystal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/MiniCrystal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/MultiCrystalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Crystals/MultiCrystalController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/IceBalls/IceBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/IceBalls/IceBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/IceBalls/IceBallSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/IceBalls/IceBallSkill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/PlayerClone/Clone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/PlayerClone/Clone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/PlayerClone/CloneSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/PlayerClone/CloneSkill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SkillSystem/SkillCompo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SkillSystem/SkillCompo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs~" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/InventoryPanel.cs~" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuPanel.cs~" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/MenuPanel.cs~" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/SkilltreePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainMenu/SkilltreePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/VFX/ParticleEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/VFX/ParticleEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prologue.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Icons/BG 7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Icons/BG 7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +99,7 @@
       <workItem from="1745159290707" duration="1457000" />
       <workItem from="1745639547652" duration="2431000" />
       <workItem from="1745642470274" duration="2827000" />
-      <workItem from="1745645614000" duration="9877000" />
+      <workItem from="1745645614000" duration="10214000" />
     </task>
     <servers />
   </component>

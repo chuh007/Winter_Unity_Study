@@ -20,14 +20,9 @@ namespace Code.UI.MainMenu
             _rectTrm.anchoredPosition = _initPosition + new Vector2(0f, - parentHeight);
         }
 
-        public virtual void Open(bool isTween = true)
+        public virtual void Open()
         {
-            if(isTween)
-                RectTrm.DOAnchorPos(_initPosition, 0.5f).SetUpdate(true);
-            else
-            {
-                RectTrm.anchoredPosition = _initPosition;
-            }
+            RectTrm.DOAnchorPos(_initPosition, 0.5f).SetUpdate(true);
         }
 
         public virtual void Close()
@@ -35,14 +30,18 @@ namespace Code.UI.MainMenu
             Vector2 hidePosition = _initPosition + new Vector2(0f, -parentHeight);
             RectTrm.DOAnchorPos(hidePosition, 0.5f).SetUpdate(true);
         }
-
+        
         [ContextMenu("HidePanel")]
         private void HidePanel()
-        {Vector2 hidePosition = _initPosition + new Vector2(0f, -parentHeight);
+        {
+            Vector2 hidePosition = _initPosition + new Vector2(0f, -parentHeight);
             RectTrm.anchoredPosition = hidePosition;
-            
         }
+
         [ContextMenu("ShowPanel")]
-        private void ShowPanel() => Open(false);
+        private void ShowPanel()
+        {
+            RectTrm.anchoredPosition = _initPosition;
+        }
     }
 }

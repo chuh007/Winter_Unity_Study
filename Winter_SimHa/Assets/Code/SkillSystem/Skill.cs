@@ -1,12 +1,10 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
 using Code.Combats;
 using Code.Core.StatSystem;
 using Code.Entities;
 using Code.Players;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Code.SkillSystem
 {
@@ -20,15 +18,16 @@ namespace Code.SkillSystem
         [SerializeField] protected float cooldown;
         protected float _cooldownTimer;
         protected Entity _entity;
-        protected PlayerAttackCompo _attakCompo;
+        protected PlayerAttackCompo _attackCompo;
         [HideInInspector] public SkillCompo skillCompo;
+        
 
         public bool IsCooldown => _cooldownTimer > 0f;
         public event CooldownInfo OnCooldown;
 
         #region Upgrade Skill
 
-        public List<SkillPerkUpgradeSO> upgradedList = new List<SkillPerkUpgradeSO>();
+        public List<SkillPerkUpgradeSO> upgradedList = new List<SkillPerkUpgradeSO>(); //업글이 된 애들은 여기에 Add된다.
 
         public int GetUpgradeCount(SkillPerkUpgradeSO upgradeData)
             => upgradedList.Count(upgrade => upgrade == upgradeData);
@@ -36,45 +35,47 @@ namespace Code.SkillSystem
         public void UpgradeSkill(SkillPerkUpgradeSO upgradeData)
         {
             upgradedList.Add(upgradeData);
-            upgradeData.UpgradeSkill(this);
+            upgradeData.UpgradeSkill(this); //이 스킬을 업그레이드
         }
 
-        public void RollbackUpgradeSkill(SkillPerkUpgradeSO upgradeData)
+        public void RollbackUpgrade(SkillPerkUpgradeSO upgradeData)
         {
             upgradedList.Remove(upgradeData);
             upgradeData.RollbackUpgrade(this);
         }
 
+        //이 업그레이드가 수행가능하냐?
         public bool CanUpgradeSkill(SkillPerkUpgradeSO upgradeData)
         {
             foreach (var data in upgradeData.needUpgradeList)
             {
-                if(upgradedList.Contains(data) == false) return false;
+                if (upgradedList.Contains(data) == false) return false;
             }
 
             foreach (var data in upgradeData.dontNeedUpgradeList)
             {
-                if(upgradedList.Contains(data)) return false;
+                if (upgradedList.Contains(data)) return false;
             }
-            
+
             int currentUpgradedCnt = GetUpgradeCount(upgradeData);
-            if(currentUpgradedCnt >= upgradeData.maxUpgradeCount)
+            if (currentUpgradedCnt >= upgradeData.maxUpgradeCount)
                 return false;
+
             return true;
         }
-
-        #endregion
         
+        #endregion
+
         public virtual void InitializeSkill(Entity entity, SkillCompo skillCompo)
         {
             _entity = entity;
             this.skillCompo = skillCompo;
-            _attakCompo = entity.GetCompo<PlayerAttackCompo>();
+            _attackCompo = entity.GetCompo<PlayerAttackCompo>();
         }
 
         public DamageData CalculateDamage(AttackDataSO attackData, float skillMultiplier, StatSO majorStat)
         {
-            return _attakCompo.CalculateDamage(attackData, skillMultiplier, majorStat);
+            return _attackCompo.CalculateDamage(attackData, skillMultiplier, majorStat);
         }
 
         protected virtual void Update()

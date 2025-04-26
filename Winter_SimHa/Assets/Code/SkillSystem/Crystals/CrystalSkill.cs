@@ -14,9 +14,8 @@ namespace Code.SkillSystem.Crystals
             TriggerExplosion, Multiple
         }
 
-        [Header("Default settings")]
+        [Header("Default settings")] 
         [field: SerializeField] public StatSO DamageStat { get; private set; }
-
         public float timeOut = 5f;
         public float damageMultiplier = 1f;
 
@@ -25,7 +24,6 @@ namespace Code.SkillSystem.Crystals
 
         private Dictionary<CrystalType, CrystalController> _controllers;
         private CrystalController _currentController;
-
         
         public override void InitializeSkill(Entity entity, SkillCompo skillCompo)
         {
@@ -40,10 +38,6 @@ namespace Code.SkillSystem.Crystals
             SetCurrentController(crystalType);
         }
         
-        private void OnDestroy()
-        {
-        }
-
         private void SetCurrentController(CrystalType newType)
         {
             if (_currentController != null)
@@ -62,7 +56,6 @@ namespace Code.SkillSystem.Crystals
                 _cooldownTimer = cooldown; //쿨타임 시작.
             }
         }
-        
 
         public override bool AttemptUseSkill()
         {

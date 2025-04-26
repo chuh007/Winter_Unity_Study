@@ -60,7 +60,8 @@ namespace Code.Entities
             _feedbackData.LastEntityWhoHit = dealer;
 
             AfterHitFeedbacks(knockBackPower);
-            // 데미지텍스트
+            
+            //여기서 데미지 텍스트를 띄워야 한다.
         }
 
         private void AfterHitFeedbacks(Vector2 knockBackPower)

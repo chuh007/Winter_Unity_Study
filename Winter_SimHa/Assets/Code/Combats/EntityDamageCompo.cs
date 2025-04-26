@@ -1,8 +1,7 @@
-using Code.Core.StatSystem;
+﻿using Code.Core.StatSystem;
 using Code.Entities;
 using Code.Players;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Code.Combats
 {
@@ -11,12 +10,11 @@ namespace Code.Combats
         [SerializeField] private StatSO criticalStat;
         [SerializeField] private StatSO criticalDamageStat;
         
-        protected Entity _entity;
+        private Entity _entity;
         public void Initialize(Entity entity)
         {
             _entity = entity;
         }
-
 
         public void AfterInit()
         {
@@ -25,11 +23,12 @@ namespace Code.Combats
             criticalDamageStat = statCompo.GetStat(criticalDamageStat);
         }
         
-        public DamageData CalculateDamage(AttackDataSO attackData, StatSO majorStat, float multiplier = 1)
+        public DamageData CalculateDamage(AttackDataSO attackData, StatSO majorStat, float multiplier = 1f)
         {
             DamageData damageData = new DamageData();
             damageData.damage = majorStat.Value * attackData.damageMultiplier * multiplier + attackData.damageIncrease;
-            if (Random.value < criticalStat.Value)
+            //0 ~ 1 을 뽑는 녀석
+            if (Random.value < criticalStat.Value)  //크리티컬 발생
             {
                 damageData.isCritical = true;
                 damageData.damage *= criticalDamageStat.Value;
@@ -38,6 +37,7 @@ namespace Code.Combats
             {
                 damageData.isCritical = false;
             }
+
             return damageData;
         }
     }

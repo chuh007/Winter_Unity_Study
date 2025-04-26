@@ -61,7 +61,7 @@ namespace Code.Players.States
                 countable.ApplyCounter(damage, attackDirection, knockBackForce, attackData.isPowerAttack, _player);
                 _renderer.SetParam(_attackCompo.successCounterParam, true);
                 
-                // 스킬 피드벡을 보낸다.
+                //카운터 어택의 공격데이터를 스킬 피드백을 보낸다.
                 var skillFeedbackEvt = PlayerEvents.SkillFeedbackEvent.Initializer(attackData);
                 _player.PlayerChannel.RaiseEvent(skillFeedbackEvt);
                 

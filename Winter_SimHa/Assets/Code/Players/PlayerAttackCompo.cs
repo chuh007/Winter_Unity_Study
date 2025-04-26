@@ -21,7 +21,7 @@ namespace Code.Players
     {
         [SerializeField] private StatSO attackSpeedStat;
         [SerializeField] private StatSO damageStat;
-       
+        
         [SerializeField] private AnimParamSO atkSpeedParam;
         [SerializeField] private DamageCaster damageCaster;
         [SerializeField] private CinemachineImpulseSource impulseSource;
@@ -38,13 +38,12 @@ namespace Code.Players
         private EntityMover _mover;
         private EntityAnimationTrigger _triggerCompo;
         private EntityDamageCompo _damageCompo;
-        
+
         private bool _canJumpAttack;
 
         private Dictionary<string, AttackDataSO> _attackDataDictionary;
         private AttackDataSO _currentAttackData;
-
-
+        
         #region Init section
 
         public void Initialize(Entity entity)
@@ -67,7 +66,6 @@ namespace Code.Players
             _statCompo.GetStat(attackSpeedStat).OnValueChange += HandleAttackSpeedChange;
             damageStat = _statCompo.GetStat(damageStat);
             
-            
             _renderer.SetParam(atkSpeedParam, _statCompo.GetStat(attackSpeedStat).Value);
 
             _triggerCompo.OnAttackTrigger += HandleAttackTrigger;
@@ -78,16 +76,13 @@ namespace Code.Players
         {
             _statCompo.GetStat(attackSpeedStat).OnValueChange -= HandleAttackSpeedChange;
             _triggerCompo.OnAttackTrigger -= HandleAttackTrigger;
-            _player.PlayerChannel.AddListener<SkillFeedbackEvent>(HandleSkillFeedback);
+            _player.PlayerChannel.RemoveListener<SkillFeedbackEvent>(HandleSkillFeedback);
         }
-
-
+        
         #endregion
-
-        private void HandleAttackSpeedChange(StatSO stat, float current, float previous)
-        {
-            _renderer.SetParam(atkSpeedParam, current);
-        }
+        
+        private void HandleAttackSpeedChange(StatSO stat, float current, float previous) 
+            => _renderer.SetParam(atkSpeedParam, current);
 
         public bool CanJumpAttack()
         {
@@ -117,15 +112,17 @@ namespace Code.Players
         
         private void HandleAttackTrigger()
         {
-            DamageData damageData = CalculateDamage(_currentAttackData); // TODO 개선 
+            DamageData damageData = CalculateDamage(_currentAttackData); //이건 나중에 개선할 거다.
+            
             Vector2 knockBackForce = _currentAttackData.knockBackForce;
             bool success = damageCaster.CastDamage(damageData, knockBackForce, _currentAttackData.isPowerAttack);
 
             if (success)
             {
-                string color = damageData.isCritical ? "red" : "white";
+                string color = damageData.isCritical ? "red" : "green";
                 Debug.Log($"<color={color}>Damaged! - {damageData.damage}</color>");
                 _player.PlayerChannel.RaiseEvent(PlayerEvents.PlayerAttackSuccess);
+                
                 GenerateAttackFeedback(_currentAttackData);
             }
         }
@@ -152,13 +149,11 @@ namespace Code.Players
             return default;
         }
 
-        public DamageData CalculateDamage(AttackDataSO attackData, float multiplier = 1, StatSO majorStat = null)
+        public DamageData CalculateDamage(AttackDataSO attackData, float multiplier = 1f, StatSO majorStat = null)
         {
-            if (majorStat == null)
+            if (majorStat == null) 
                 majorStat = damageStat;
             return _damageCompo.CalculateDamage(attackData, majorStat, multiplier);
         }
-
-        
     }
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b3d182fba2450e8f32bf9dcf21f6a0, type: 3}
+  m_Name: CloneSkillEnable
+  m_EditorClassIdentifier: 
+  upgradeName: CloneSkillEnable
+  upgradeIcon: {fileID: -1043137112, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
+  description: "\uD074\uB860 \uC2A4\uD0AC\uC744 \uD65C\uC131\uD654 \uD574\uC8FC\uB294
+    \uC5C5\uADF8\uB808\uC774\uB4DC"
+  maxUpgradeCount: 1
+  needUpgradeList: []
+  dontNeedUpgradeList: []
+  targetSkill: Code.SkillSystem.PlayerClone.CloneSkill
+  upgradeType: 0
+  selectFieldName: skillEnabled
+  intValue: 0
+  floatValue: 0

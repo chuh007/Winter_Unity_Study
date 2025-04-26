@@ -170,7 +170,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8512528744866412295}
+      - m_Target: {fileID: 313024530810934890}
         m_TargetAssemblyTypeName: Code.Feedbacks.HitImpactFeedback, Assembly-CSharp
         m_MethodName: CreateFeedback
         m_Mode: 1
@@ -675,7 +675,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5261941190895035509, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8512528744866412295}
+      addedObject: {fileID: 313024530810934890}
   m_SourcePrefab: {fileID: 100100000, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
 --- !u!4 &6452038100175712673 stripped
 Transform:
@@ -687,7 +687,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5261941190895035509, guid: ec2393bae6865164aa44e3ffafa6473a, type: 3}
   m_PrefabInstance: {fileID: 4513303193362031713}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8512528744866412295
+--- !u!114 &313024530810934890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -696,13 +696,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621106802600280084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf19c1956d3742c4a375dc945f8e8d01, type: 3}
+  m_Script: {fileID: 11500000, guid: 843ef774fdfc4ec5b1a9fe2daaabbaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   impactPoolType: {fileID: 11400000, guid: 77c1f49b16555c044b32f4d629cc15ec, type: 2}
   slashPoolType: {fileID: 11400000, guid: 6ad4aa9b93bac644893ae9584aa07e7c, type: 2}
   feedbackData: {fileID: 4884925653343928355}
-  impactColor: {r: 2.4622889, g: 2.195922, b: 0.81301993, a: 0}
+  impactColor: {r: 3.895758, g: 3.2855434, b: 0.31239572, a: 1}
   effectScale: {x: 2, y: 2, z: 2}
   spawnChannel: {fileID: 11400000, guid: 503c04ad492fffb429d25dfff052aa4d, type: 2}
 --- !u!114 &8915310565208533653 stripped

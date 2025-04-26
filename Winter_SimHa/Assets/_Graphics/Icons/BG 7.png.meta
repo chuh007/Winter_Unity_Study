@@ -6349,7 +6349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG 7_283
+      name: BG 7_283_slice
       rect:
         serializedVersion: 2
         x: 352
@@ -6358,7 +6358,7 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
+      border: {x: 6, y: 6, z: 6, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -8085,7 +8085,7 @@ TextureImporter:
       BG 7_280: 256669037
       BG 7_281: 1294148670
       BG 7_282: 316790163
-      BG 7_283: -1447485479
+      BG 7_283_slice: -1447485479
       BG 7_284: -2129927316
       BG 7_285: -1752846863
       BG 7_286: -1125339937

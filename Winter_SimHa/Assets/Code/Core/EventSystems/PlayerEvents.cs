@@ -33,7 +33,7 @@ namespace Code.Core.EventSystems
         public int chargeCount;
     }
     public class SkillChargeEndEvent : GameEvent { }
-
+    
     public class SkillFeedbackEvent : GameEvent
     {
         public AttackDataSO attackData;
