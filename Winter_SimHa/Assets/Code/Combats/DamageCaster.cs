@@ -6,7 +6,6 @@ namespace Code.Combats
 {
     public abstract class DamageCaster : MonoBehaviour, ICounterable
     {
-        
         [SerializeField] protected int maxHitCount = 1; //최대 피격 가능 객체 수
         [SerializeField] protected ContactFilter2D contactFilter;
         
